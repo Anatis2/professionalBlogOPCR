@@ -6,10 +6,28 @@
 {% endblock %}
 
 
-
-
 {% block content %}
 
     <h1>Page de contact</h1>
+
+    <form>
+        <div class="form-group">
+            <label for="nom">Nom</label>
+            <input type="text" name="nom" id="nom" placeholder="Votre nom" class="form-control" />
+            <br/>
+            <label for="prenom">Prénom</label>
+            <input type="text" name="prenom" id="prenom" placeholder="Votre prénom" class="form-control" />
+            <br/>
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" aria-describedby="emailHelp" placeholder="Votre adresse email" class="form-control" />
+            <br/>
+            <label for="objet">Objet</label>
+            <input type="text" name="objet" id="objet" placeholder="Objet du message" class="form-control" />
+            <br/>
+            <label for="message">Message</label>
+            <textarea name="message" id="message" rows="3" class="form-control" placeholder="Entrez votre message ici"></textarea>
+        </div>
+        <input type="submit" class="btn btn-primary" value="Envoyer" />
+    </form>
 
 {% endblock %}
