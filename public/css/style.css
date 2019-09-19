@@ -1,0 +1,14 @@
+.article {
+    border: solid black 1px;
+    margin: 2%;
+    padding: 2%;
+}
+
+.titleArticle {
+
+}
+
+.contentArticle {
+    margin-top: 2%;
+    text-align: justify;
+}
