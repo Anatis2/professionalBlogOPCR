@@ -1,35 +1,47 @@
-.container {
-  background-color: beige; }
-  .container .articles {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; }
-    .container .articles .article {
-      border: solid black 1px;
-      margin: 2px;
-      padding: 10px;
-      height: 110px;
-      width: 45%;
-      overflow: hidden; }
-      .container .articles .article .titleArticle {
-        text-transform: none;
-        font-size: 1em; }
-      .container .articles .article .subtitleArticle, .container .articles .article .contentArticle {
-        margin-top: 2%;
-        text-align: justify;
-        font-size: 1em; }
-    .container .articles .idArticle {
-      border: solid black 1px;
-      margin: 2px;
-      padding: 10px;
-      height: auto;
-      width: 90%; }
-      .container .articles .idArticle .titleArticle {
-        text-transform: none;
-        font-size: 1em; }
-      .container .articles .idArticle .subtitleArticle, .container .articles .idArticle .contentArticle {
-        margin-top: 2%;
-        text-align: justify;
-        font-size: 1em; }
+h1 {
+  border-bottom: solid #383f4e 2px; }
+
+.container .articles {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  margin-top: 2%; }
+  .container .articles .article {
+    border-bottom: solid #d5d8dc 1px;
+    margin: 2px;
+    padding: 10px;
+    height: auto;
+    width: 49%;
+    overflow: hidden; }
+    .container .articles .article .titleArticle {
+      text-transform: none;
+      font-size: 1em; }
+    .container .articles .article .subtitleArticle, .container .articles .article .contentArticle {
+      margin-top: 2%;
+      text-align: justify;
+      font-size: 1em; }
+    .container .articles .article .dateCreationArticle {
+      margin-top: 2%;
+      text-align: justify;
+      font-size: 0.8em; }
+  .container .articles .idArticle {
+    border: solid black 1px;
+    margin: 2px;
+    padding: 10px;
+    height: auto;
+    width: 90%; }
+    .container .articles .idArticle .titleArticle {
+      text-transform: none;
+      font-size: 1.3em; }
+    .container .articles .idArticle .subtitleArticle, .container .articles .idArticle .contentArticle {
+      margin-top: 2%;
+      text-align: justify;
+      font-size: 1em; }
+    .container .articles .idArticle .dateCreationArticle {
+      margin-top: 2%;
+      text-align: justify;
+      font-size: 0.8em; }
+.container .contactForm {
+  margin-top: 2%; }
 
 /*# sourceMappingURL=style.css.map */
