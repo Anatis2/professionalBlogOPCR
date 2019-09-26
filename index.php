@@ -1,11 +1,18 @@
 <?php
 
+// inclusion of Twig's autoloader
 require 'vendor/autoload.php';
+
+// inclusion of Pagerfanta
+use Pagerfanta\Adapter\ArrayAdapter;
+use Pagerfanta\Pagerfanta;
+
+// inclusion of our Controllers
 require 'controller/ArticleController.php';
+require 'controller/CommentController.php';
 
-// Mise en place pour faire fonctionner Twig
+// Initiation to use Twig
 $loader = new Twig_Loader_Filesystem(__DIR__ . '/templates');
-
 $twig = new Twig_Environment($loader, [
     'cache' => false, // __DIR__ . '/tmp'
 ]);
@@ -35,9 +42,13 @@ switch ($page) {
         break;
     case 'article':
         $articleController = new ArticleController();
+        $commentController = new CommentController();
         if(isset($_GET['idArticle'])) {
             if(($_GET['idArticle']) > 0) {
-                echo $twig->render('blogArticle.twig', ['articles' => $articleController->getArticle()]);
+                echo $twig->render('blogArticle.twig',
+                                    ['articles' => $articleController->getArticle(),
+                                        'comments' => $commentController->listComments()
+                                    ]);
             } else {
                 echo "Il n'y a pas d'article associé à cet identifiant";
             }

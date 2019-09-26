@@ -28,6 +28,10 @@ class ComposerStaticInit3052167aafaf2ddb1196e3076c810570
             'Symfony\\Polyfill\\Iconv\\' => 23,
             'Symfony\\Polyfill\\Ctype\\' => 23,
         ),
+        'P' => 
+        array (
+            'Pagerfanta\\' => 11,
+        ),
         'E' => 
         array (
             'Egulias\\EmailValidator\\' => 23,
@@ -62,6 +66,10 @@ class ComposerStaticInit3052167aafaf2ddb1196e3076c810570
         'Symfony\\Polyfill\\Ctype\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
+        ),
+        'Pagerfanta\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/pagerfanta/pagerfanta/src/Pagerfanta',
         ),
         'Egulias\\EmailValidator\\' => 
         array (
