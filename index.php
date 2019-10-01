@@ -48,7 +48,7 @@ switch ($page) {
             $nbArticles = $articleController->countArticles();
             $comments = $commentController->listComments();
             if((($_GET['idArticle']) > 0) && (($_GET['idArticle']) <= $nbArticles[0])) {
-                if(empty($comments)) { // comment entrer dans cette boucle ?
+                if(empty($comments)) {
                     echo $twig->render('blogArticle.twig',
                         ['articles' => $articleController->getArticle(),
                             'messageComment' => "Il n'y a pas de commentaire associé à cet article."
@@ -87,11 +87,13 @@ switch ($page) {
                     ['message' => "<p class='alert alert-warning'>Les deux mots de passe ne correspondent pas...</p>"
                     ]);
             }
+        } else {
+            echo $twig->render('inscription.twig');
         }
-        echo $twig->render('inscription.twig');
+
         break;
     case 'connexion':
-        echo $twig->render('connexion.twig');
+        echo $twig->render('connection.twig');
         break;
     default :
         header('HTTP/1.0 404 Not Found');
