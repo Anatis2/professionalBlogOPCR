@@ -1,0 +1,47 @@
+{% extends 'layout.twig' %}
+
+
+{% block head %}
+    <title>Blog</title>
+{% endblock %}
+
+
+{% block content %}
+
+        <h1>Article</h1>
+
+        <div class="articles">
+            
+            {% for article in articles %}
+
+                <article class="idArticle">
+                    <h3 class="titleArticle">{{ article.titleArticle }}</h3>
+                    <p class="subtitleArticle"><strong>{{ article.subtitleArticle | nl2br }}</strong></p>
+                    <p class="dateCreationArticle"><em>Publié le {{ article.dateCreationArticle }}</em></p>
+                    <p class="contentArticle">{{ article.contentArticle | nl2br }}</p>
+                </article>
+                
+            {% endfor %}
+
+            <p>{{ messageArticle }}</p>
+
+        </div>
+
+        <h3>Commentaires</h3>
+
+        <div class="comments">
+
+            {% for comment in comments %}
+
+                <div class="comment">
+                    <p class="dateComment">{{ comment.authorComment }}<em> ({{ comment.dateComment }})</em></p>
+                    <p class="contentComment">{{ comment.contentComment | nl2br }}</p>
+                </div>
+
+            {% endfor %}
+
+            <p>{{ messageComment }}</p>
+
+        </div>
+
+{% endblock %}

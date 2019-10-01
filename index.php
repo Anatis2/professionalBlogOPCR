@@ -10,9 +10,9 @@ $twig = new Twig_Environment($loader, [
 ]);
 
 // inclusion of our Controllers
-require 'controller/ArticleController.php';
-require 'controller/CommentController.php';
-require 'controller/MemberController.php';
+require 'src/controller/ArticleController.php';
+require 'src/controller/CommentController.php';
+require 'src/controller/MemberController.php';
 
 
 // load of our classes

@@ -1,0 +1,33 @@
+{% extends 'layout.twig' %}
+
+
+{% block head %}
+    <title>Blog</title>
+{% endblock %}
+
+
+{% block content %}
+
+        <h1>Articles du blog</h1>
+
+        <div class="articles">
+            {% for article in articles %}
+                <article class="article">
+                    <h3 class="titleArticle"><a href="index.php?page=article&idArticle={{ article.idArticle }}">{{ article.titleArticle }}</a></h3>
+                    <p class="subtitleArticle">{{ article.subtitleArticle | nl2br }}</p>
+                    <p class="dateCreationArticle"><em>Publié le {{ article.dateCreationArticle }}</em></p>
+                </article>
+            {% endfor %}
+
+            {{ message | raw }}
+
+        </div>
+
+    <div class="pagesManagement">
+        <span class="previousPage"><a href="index.php?page=blog&numPage={{ previousPage }}">{{ textPreviousPage }}</a></span>
+        <span class="currentPage col-lg-12 col-md-12 col-sm-1 col-xs-1">{{ currentPage }}</span>
+        <span class="nextPage"><a href="index.php?page=blog&numPage={{ nextPage }}">{{ textNextPage }}</a></span>
+    </div>
+
+
+{% endblock %}
