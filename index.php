@@ -48,21 +48,26 @@ switch ($page) {
             $nbArticles = $articleController->countArticles();
             $comments = $commentController->listComments();
             if((($_GET['idArticle']) > 0) && (($_GET['idArticle']) <= $nbArticles[0])) {
-                echo $twig->render('blogArticle.twig',
-                    ['articles' => $articleController->getArticle(),
-                        'comments' => $commentController->listComments(),
-                    ]);
-            } elseif ((($_GET['idArticle']) > 0) && (($_GET['idArticle']) <= $nbArticles[0]) && (empty($comments))) { // comment entrer dans cette boucle ?
-                echo $twig->render('blogArticle.twig',
-                    ['articles' => $articleController->getArticle(),
-                        'messageComment' => "Il n'y a pas de commentaire associé à cet article."
-                    ]);
+                if(empty($comments)) { // comment entrer dans cette boucle ?
+                    echo $twig->render('blogArticle.twig',
+                        ['articles' => $articleController->getArticle(),
+                            'messageComment' => "Il n'y a pas de commentaire associé à cet article."
+                        ]);
+                } else {
+                    echo $twig->render('blogArticle.twig',
+                        ['articles' => $articleController->getArticle(),
+                            'comments' => $commentController->listComments(),
+                        ]);
+                }
             } else {
                 echo $twig->render('blogArticle.twig',
                     ['messageArticle' => "Il n'y a pas d'article associé à cet ID.",
                         'messageComment' => "Il n'y a pas de commentaire associé à cet article.",
                     ]);
             }
+        } else {
+            header('HTTP/1.0 404 Not Found');
+            echo $twig->render('404.twig');
         }
         break;
     case 'inscription':
