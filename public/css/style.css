@@ -44,6 +44,10 @@ h3 {
       margin-top: 2%;
       text-align: justify;
       font-size: 0.8em; }
+.container .pagesManagement {
+  margin-top: 2%;
+  border: 1px solid #d2d5d6;
+  text-align: center; }
 .container .comments .comment {
   background-color: #d2d5d6;
   border: solid 1px #d2d5d6;
@@ -59,6 +63,8 @@ h3 {
     text-align: justify;
     font-size: 1em; }
 .container .contactForm {
+  margin-top: 2%; }
+.container .notification {
   margin-top: 2%; }
 
 /*# sourceMappingURL=style.css.map */
