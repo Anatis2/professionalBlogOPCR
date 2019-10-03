@@ -1,4 +1,9 @@
 {
+    "autoload" : {
+        "psr-4": {
+            "ClaireC\\": "src/"
+        }
+    },
     "require": {
         "twig/twig": "^1.0",
         "swiftmailer/swiftmailer": "^6.0",

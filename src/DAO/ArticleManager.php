@@ -2,8 +2,15 @@
 
 require_once("src/DAO/Manager.php");
 
+use ClaireC\src\DAO\Manager;
+
+
 
 class ArticleManager extends Manager {
+
+    public function __construct() {
+        $this->dbConnect();
+    }
 
     public function listArticles() {
         $sql = 'SELECT idArticle, titleArticle, subtitleArticle, contentArticle, DATE_FORMAT(dateCreationArticle, \'%d/%m/%Y à %Hh%imin%ss\') as dateCreationArticle
@@ -24,5 +31,11 @@ class ArticleManager extends Manager {
                 FROM article';
         return $this->createQuery($sql);
     }
+
+    /*public function addArticle($titleArticle, $subtitleArticle, $contentArticle, $idPerson) {
+        $sql = 'INSERT INTO article(titleArticle, subtitleArticle, contentArticle, person_idPerson)
+                VALUES (?, ?, ?, ?)';
+        return $this->createQuery($sql, array($titleArticle, $subtitleArticle, $contentArticle, 1));
+    }*/
 
 }

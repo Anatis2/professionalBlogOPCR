@@ -1,5 +1,7 @@
 <?php
 
+//namespace ClaireC\src\controller;
+
 // inclusion of Pagerfanta
 use Pagerfanta\Adapter\ArrayAdapter;
 use Pagerfanta\Pagerfanta;
@@ -100,6 +102,11 @@ class ArticleController {
         $articleManager = new ArticleManager();
         return $articleManager->countArticles()->fetch();
     }
+
+    /*public function addArticle($titleArticle, $subtitleArticle, $contentArticle, $idPerson) {
+        $articleManager = new ArticleManager();
+        return $articleManager->addArticle($titleArticle, $subtitleArticle, $contentArticle, $idPerson);
+    }*/
 
 }
 

@@ -2,6 +2,8 @@
 
 require_once("src/DAO/Manager.php");
 
+use ClaireC\src\DAO\Manager;
+
 class CommentManager extends Manager {
 
     public function listComments() {

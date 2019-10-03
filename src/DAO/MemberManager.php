@@ -1,5 +1,6 @@
 <?php
 
+use ClaireC\src\DAO\Manager;
 
 class MemberManager extends Manager {
 

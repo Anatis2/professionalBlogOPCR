@@ -10,13 +10,18 @@ $twig = new Twig_Environment($loader, [
 ]);
 
 // inclusion of our Controllers
+// TODO : autoloader
 require 'src/controller/ArticleController.php';
 require 'src/controller/CommentController.php';
 require 'src/controller/MemberController.php';
 
+// inclusion of our Classes
+use ClaireC\src\model\Article;
+use ClaireC\src\model\Comment;
+use ClaireC\src\model\Member;
 
-// load of our classes
-// TODO : autoloader
+
+// instanciation of our classes
 $articleController = new ArticleController();
 $commentController = new CommentController();
 $memberController = new MemberController();
@@ -56,7 +61,7 @@ switch ($page) {
                 } else {
                     echo $twig->render('blogArticle.twig',
                         ['articles' => $articleController->getArticle(),
-                            'comments' => $commentController->listComments(),
+                            'Comment' => $commentController->listComments(),
                         ]);
                 }
             } else {
@@ -82,9 +87,11 @@ switch ($page) {
                     ['affectedLines' => $memberController->createMember($_POST['surname'], $_POST['firstname'], $_POST['password']),
                         'message' => "<p class='alert alert-success'>Votre inscription a bien été prise en compte !</p>"
                     ]);
+                $bidule = new Member(array($_POST['surname'], $_POST['firstname'], $_POST['password']));
+                var_dump($bidule);
             } else {
                 echo $twig->render('inscription.twig',
-                    ['message' => "<p class='alert alert-warning'>Les deux mots de passe ne correspondent pas...</p>"
+                    ['message' => "<p class='alert alert-danger'>Les deux mots de passe ne correspondent pas !!! Veuillez réessayer...</p>"
                     ]);
             }
         } else {
@@ -99,7 +106,5 @@ switch ($page) {
         header('HTTP/1.0 404 Not Found');
         echo $twig->render('404.twig');                        
 }
-
-
 
 
