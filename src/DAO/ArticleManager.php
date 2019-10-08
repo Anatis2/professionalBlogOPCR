@@ -11,15 +11,19 @@ class ArticleManager extends Manager {
     }
 
     public function listArticles() {
-        $sql = 'SELECT idArticle, titleArticle, subtitleArticle, contentArticle, DATE_FORMAT(dateCreationArticle, \'%d/%m/%Y à %Hh%imin%ss\') as dateCreationArticle
+        $sql = 'SELECT idArticle, titleArticle, subtitleArticle, contentArticle, DATE_FORMAT(dateCreationArticle, \'%d/%m/%Y à %Hh%imin%ss\') as dateCreationArticle,
+                       pseudoPerson
                 FROM article 
+                JOIN person ON article.person_idPerson = person.idPerson
                 ORDER BY dateCreationArticle DESC';
         return $this->createQuery($sql);
     }
 
     public function getArticle() {
-        $sql = 'SELECT idArticle, titleArticle, subtitleArticle, contentArticle, DATE_FORMAT(dateCreationArticle, \'%d/%m/%Y à %Hh%imin%ss\') as dateCreationArticle
+        $sql = 'SELECT idArticle, titleArticle, subtitleArticle, contentArticle, DATE_FORMAT(dateCreationArticle, \'%d/%m/%Y à %Hh%imin%ss\') as dateCreationArticle,
+                        pseudoPerson
                 FROM article
+                JOIN person ON article.person_idPerson = person.idPerson
                 WHERE idArticle  = :idArticle';
         return $this->createQuery($sql, array('idArticle' => $_GET['idArticle']));
     }

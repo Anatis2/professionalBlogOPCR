@@ -1,0 +1,29 @@
+
+        <h3>Commentaires</h3>
+
+        <div class="comments">
+
+            {% for comment in comments %}
+
+                <div class="comment">
+                    <p class="dateComment">{{ comment.authorComment }}<em> ({{ comment.dateComment }})</em></p>
+                    <p class="contentComment">{{ comment.contentComment | nl2br }}</p>
+                </div>
+
+            {% endfor %}
+
+            <p>{{ messageComment }}</p>
+
+            <h5>Ajouter un commentaire</h5>
+
+            <form method="post" class="contactForm">
+                <div class="form-group">
+                    <label for="pseudo">Votre pseudo</label>
+                    <input type="text" name="pseudo" id="pseudo" placeholder="Votre pseudo" class="form-control"/>
+                    <br/>
+                    <label for="comment">Votre commentaire</label>
+                    <input type="text" name="comment" id="comment" placeholder="Votre commentaire" class="form-control"/>
+                </div>
+                <input type="submit" class="btn btn-primary">
+            </form>
+        </div>
