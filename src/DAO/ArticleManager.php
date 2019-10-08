@@ -26,12 +26,6 @@ class ArticleManager extends Manager {
         return $this->createQuery($sql, array('idArticle' => $_GET['idArticle']));
     }
 
-    public function countArticles() {
-        $sql = 'SELECT COUNT(*) as countArticles
-                FROM article';
-        return $this->createQuery($sql);
-    }
-
     /*public function addArticle($titleArticle, $subtitleArticle, $contentArticle, $idPerson) {
         $sql = 'INSERT INTO article(titleArticle, subtitleArticle, contentArticle, person_idPerson)
                 VALUES (?, ?, ?, ?)';

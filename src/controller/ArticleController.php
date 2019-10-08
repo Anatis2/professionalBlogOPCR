@@ -95,12 +95,7 @@ class ArticleController {
 
     public function getArticle() {
         $articleManager = new ArticleManager();
-        return $articleManager->getArticle();
-    }
-
-    public function countArticles() {
-        $articleManager = new ArticleManager();
-        return $articleManager->countArticles()->fetch();
+        return $articleManager->getArticle()->fetchAll();
     }
 
     /*public function addArticle($titleArticle, $subtitleArticle, $contentArticle, $idPerson) {

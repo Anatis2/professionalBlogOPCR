@@ -49,27 +49,25 @@ switch ($page) {
         $articleController->listArticles();
         break;
     case 'article':
-        if(isset($_GET['idArticle'])) {
-            $nbArticles = $articleController->countArticles();
+        if((isset($_GET['idArticle']) && ($_GET['idArticle']) > 0)) {
+            $article = $articleController->getArticle();
             $comments = $commentController->listComments();
-            if((($_GET['idArticle']) > 0) && (($_GET['idArticle']) <= $nbArticles[0])) {
-                if(empty($comments)) {
-                    echo $twig->render('blogArticle.twig',
-                        ['articles' => $articleController->getArticle(),
-                            'messageComment' => "Il n'y a pas de commentaire associé à cet article."
-                        ]);
-                } else {
-                    echo $twig->render('blogArticle.twig',
-                        ['articles' => $articleController->getArticle(),
-                            'Comment' => $commentController->listComments(),
-                        ]);
-                }
+            if(empty($article)) {
+                $msgArticle = "Il n'y a pas d'article associé à cet ID";
             } else {
-                echo $twig->render('blogArticle.twig',
-                    ['messageArticle' => "Il n'y a pas d'article associé à cet ID.",
-                        'messageComment' => "Il n'y a pas de commentaire associé à cet article.",
-                    ]);
+                $msgArticle = "";
             }
+            if(empty($comments)) {
+                $msgComments = "Il n'y a pas de commentaire associé à cet article.";
+            } else {
+                $msgComments = "";
+            }
+            echo $twig->render('blogArticle.twig',
+                                        ['articles' => $article,
+                                            'messageArticle' => $msgArticle,
+                                            'comments' => $comments,
+                                            'messageComment' => $msgComments
+                                        ]);
         } else {
             header('HTTP/1.0 404 Not Found');
             echo $twig->render('404.twig');
