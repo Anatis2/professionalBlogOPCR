@@ -12,9 +12,14 @@ class MemberController {
         ]);
     }
 
-    public function createMember($surname, $firstname, $passwordHash) {
+    public function createMember($surname, $firstname, $pseudo, $email, $passwordHash) {
         $memberManager = new MemberManager();
-        return $memberManager->createMember($surname, $firstname, $passwordHash);
+        return $memberManager->createMember($surname, $firstname, $pseudo, $email, $passwordHash);
+    }
+
+    public function connectMember($email) {
+        $memberManager = new MemberManager();
+        return $memberManager->connectMember($email)->fetchAll();
     }
 
 }

@@ -76,7 +76,7 @@ class ArticleController {
                             ]);
             } else {
                 echo $this->twig->render('blogArticles.twig',
-                                ['message' => "<div class='articles'><p>Cette page n'existe pas...</p></div>"
+                                ['messageArticles' => "<div class='articles'><p>Cette page n'existe pas...</p></div>"
                                 ]);
             }
         } else {

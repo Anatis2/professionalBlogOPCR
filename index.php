@@ -74,22 +74,23 @@ switch ($page) {
         }
         break;
     case 'inscription':
-        if((isset($_POST['surname']) && (isset($_POST['firstname']))) && (isset($_POST['password'])) && (isset($_POST['passwordConf']))) {
+        if((isset($_POST['surname']) && (isset($_POST['firstname']))) && (isset($_POST['email'])) && (isset($_POST['pseudo']))
+            && (isset($_POST['password'])) && (isset($_POST['passwordConf']))) {
             $surname = htmlspecialchars(trim($_POST['surname']));
             $firstname = htmlspecialchars(trim($_POST['firstname']));
+            $email = htmlspecialchars(trim($_POST['email']));
+            $pseudo = htmlspecialchars(trim($_POST['pseudo']));
             $password = htmlspecialchars(trim($_POST['password']));
             $passwordConf = htmlspecialchars(trim($_POST['passwordConf']));
             $passwordHash = htmlspecialchars(trim(password_hash($_POST['password'], PASSWORD_DEFAULT)));
             if (($password) == ($passwordConf)) {
-                echo $twig->render('inscription.twig',
-                    ['affectedLines' => $memberController->createMember($_POST['surname'], $_POST['firstname'], $_POST['password']),
-                        'message' => "<p class='alert alert-success'>Votre inscription a bien été prise en compte !</p>"
+                echo $twig->render('home.twig',
+                    ['affectedLinesCreateMember' => $memberController->createMember($surname, $firstname, $pseudo, $email, $passwordHash),
+                        'messageCreateMember' => "<p class='alert alert-success'>Votre inscription a bien été prise en compte !</p>"
                     ]);
-                $bidule = new Member(array($_POST['surname'], $_POST['firstname'], $_POST['password']));
-                var_dump($bidule);
             } else {
                 echo $twig->render('inscription.twig',
-                    ['message' => "<p class='alert alert-danger'>Les deux mots de passe ne correspondent pas !!! Veuillez réessayer...</p>"
+                    ['messageCreateMember' => "<p class='alert alert-danger'>Les deux mots de passe ne correspondent pas !!! Veuillez réessayer...</p>"
                     ]);
             }
         } else {
@@ -98,7 +99,24 @@ switch ($page) {
 
         break;
     case 'connexion':
-        echo $twig->render('connection.twig');
+        if ((isset($_POST['email'])) && (isset($_POST['password']))) {
+            $email = htmlspecialchars(trim($_POST['email']));
+            $password = htmlspecialchars(trim($_POST['password']));
+            $connectedMember = $memberController->connectMember($email);
+            $passwordPerson = $connectedMember[0]['passwordPerson'];
+            $passwordIsCorrect = password_verify($password, $passwordPerson);
+            if ($passwordIsCorrect) {
+                echo $twig->render('home.twig',
+                    ['affectedLinesConnectMember' => $connectedMember
+                    ]);
+            } else {
+                echo $twig->render('connection.twig',
+                    ['messageConnection' => "L'identifiant et/ou le mot de passe ne sont pas valides."
+                    ]);
+            }
+        } else {
+            echo $twig->render('connection.twig');
+        }
         break;
     default :
         header('HTTP/1.0 404 Not Found');

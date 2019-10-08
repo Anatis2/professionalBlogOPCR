@@ -12,4 +12,14 @@
 
     <h1>Page d'accueil</h1>
 
+    {% for affectedLineConnectMember in affectedLinesConnectMember %}
+
+        <p>Vous êtes connecté en tant que {{ affectedLineConnectMember.firstnamePerson }} {{ affectedLineConnectMember.surnamePerson }}</p>
+
+    {% endfor %}
+
+    {{ messageCreateMember | raw }}
+
+    <p>Blabla de la page d'accueil</p>
+
 {% endblock %}

@@ -4,8 +4,6 @@ require_once("src/DAO/Manager.php");
 
 use ClaireC\src\DAO\Manager;
 
-
-
 class ArticleManager extends Manager {
 
     public function __construct() {
