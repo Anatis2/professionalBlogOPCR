@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1336d255-795e-48a3-a280-4f2d43283df9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAO/ArticleManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/ArticleManager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/blogArticle.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/blogArticle.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/blogArticles.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/blogArticles.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,67 +17,28 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.php">
+        <entry file="file://$PROJECT_DIR$/src/DAO/Manager.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="612">
-              <caret line="69" column="43" lean-forward="true" selection-start-line="69" selection-start-column="43" selection-end-line="69" selection-end-column="43" />
+            <state relative-caret-position="540">
+              <caret line="30" selection-start-line="30" selection-end-line="30" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/controller/ArticleController.php">
+        <entry file="file://$USER_HOME$/Documents/TEICEE_Total/ProxyEPN/SuiviDesBoxTicnCube/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-288">
-              <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
-              <folding>
-                <element signature="e#71#107#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/blogArticles.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="17" column="129" selection-start-line="17" selection-start-column="99" selection-end-line="17" selection-end-column="129" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/blogArticle.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="522">
-              <caret line="29" column="33" selection-start-line="29" selection-start-column="33" selection-end-line="29" selection-end-column="33" />
+            <state relative-caret-position="270">
+              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/blogComments.twig">
+        <entry file="file://$USER_HOME$/Documents/TEICEE_Total/ProxyEPN/SuiviDesBoxTicnCube/index2.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="522">
-              <caret line="29" selection-start-line="29" selection-end-line="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/contact.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="522">
-              <caret line="29" column="52" lean-forward="true" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="52" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/inscription.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="15" column="103" selection-start-line="15" selection-start-column="59" selection-end-line="15" selection-end-column="103" />
+            <state relative-caret-position="252">
+              <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -88,17 +46,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/DAO/ArticleManager.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="25" column="72" selection-start-line="25" selection-start-column="72" selection-end-line="25" selection-end-column="72" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/home.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="16" column="118" selection-start-line="16" selection-start-column="118" selection-end-line="16" selection-end-column="118" />
+            <state relative-caret-position="198">
+              <caret line="11" selection-start-line="11" selection-end-line="11" />
             </state>
           </provider>
         </entry>
@@ -106,8 +55,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/layout.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="630">
-              <caret line="35" column="14" lean-forward="true" selection-start-line="35" selection-start-column="14" selection-end-line="35" selection-end-column="14" />
+            <state relative-caret-position="108">
+              <caret line="6" column="33" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -176,6 +125,8 @@
         <option value="$PROJECT_DIR$/src/DAO/ArticleManager.php" />
         <option value="$PROJECT_DIR$/templates/blogComments.twig" />
         <option value="$PROJECT_DIR$/templates/blogArticle.twig" />
+        <option value="$USER_HOME$/Documents/TEICEE_Total/ProxyEPN/SuiviDesBoxTicnCube/index.php" />
+        <option value="$USER_HOME$/Documents/TEICEE_Total/ProxyEPN/SuiviDesBoxTicnCube/index2.php" />
       </list>
     </option>
   </component>
@@ -211,10 +162,10 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="321" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="689" />
     <option name="y" value="27" />
-    <option name="width" value="1597" />
+    <option name="width" value="1231" />
     <option name="height" value="1053" />
   </component>
   <component name="ProjectLevelVcsManager">
@@ -226,63 +177,26 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="professionalBlogOPCR" type="b2602c69:ProjectViewProjectNode" />
-              <item name="professionalBlogOPCR" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="professionalBlogOPCR" type="b2602c69:ProjectViewProjectNode" />
-              <item name="professionalBlogOPCR" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="professionalBlogOPCR" type="b2602c69:ProjectViewProjectNode" />
-              <item name="professionalBlogOPCR" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="professionalBlogOPCR" type="b2602c69:ProjectViewProjectNode" />
-              <item name="professionalBlogOPCR" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="DAO" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="professionalBlogOPCR" type="b2602c69:ProjectViewProjectNode" />
-              <item name="professionalBlogOPCR" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="professionalBlogOPCR" type="b2602c69:ProjectViewProjectNode" />
-              <item name="professionalBlogOPCR" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
+      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Documents/TEICEE_Total/ProxyEPN/SuiviDesBoxTicnCube" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/templates" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/DAO" />
       <recent name="$PROJECT_DIR$/src" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$USER_HOME$/Documents/TEICEE_Total/ProxyEPN/SuiviDesBoxTicnCube" />
+      <recent name="$PROJECT_DIR$/templates" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -322,18 +236,24 @@
       <workItem from="1570088109335" duration="2495000" />
       <workItem from="1570173900056" duration="2215000" />
       <workItem from="1570520480374" duration="3724000" />
-      <workItem from="1570524400374" duration="16942000" />
+      <workItem from="1570524400374" duration="17353000" />
+      <workItem from="1570622736124" duration="1482000" />
+      <workItem from="1570692979114" duration="614000" />
+      <workItem from="1570702067640" duration="2353000" />
+      <workItem from="1570719126127" duration="625000" />
+      <workItem from="1570720944117" duration="22000" />
+      <workItem from="1571126835264" duration="3672000" />
+      <workItem from="1571317734439" duration="7204000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="131924000" />
+    <option name="totallyTimeSpent" value="148307000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="27" width="1920" height="1053" extended-state="6" />
-    <editor active="true" />
+    <frame x="689" y="27" width="1231" height="1053" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19284189" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27557057" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -346,7 +266,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32894737" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -432,13 +352,6 @@
     <entry file="file://$PROJECT_DIR$/vendor/autoload.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/DAO/CommentManager.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Article.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
@@ -481,13 +394,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/DAO/Manager.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="22" column="40" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/DAO/MemberManager.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
@@ -502,48 +408,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/layout.twig">
+    <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="35" column="14" lean-forward="true" selection-start-line="35" selection-start-column="14" selection-end-line="35" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/home.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="16" column="118" selection-start-line="16" selection-start-column="118" selection-end-line="16" selection-end-column="118" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DAO/ArticleManager.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="25" column="72" selection-start-line="25" selection-start-column="72" selection-end-line="25" selection-end-column="72" />
+        <state relative-caret-position="1206">
+          <caret line="69" column="43" selection-start-line="69" selection-start-column="43" selection-end-line="69" selection-end-column="43" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/ArticleController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-288">
+        <state relative-caret-position="180">
           <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
           <folding>
             <element signature="e#71#107#0#PHP" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/contact.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="29" column="52" lean-forward="true" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/inscription.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="15" column="103" selection-start-line="15" selection-start-column="59" selection-end-line="15" selection-end-column="103" />
         </state>
       </provider>
     </entry>
@@ -554,13 +432,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="69" column="43" lean-forward="true" selection-start-line="69" selection-start-column="43" selection-end-line="69" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/blogArticle.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="522">
@@ -568,10 +439,73 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/contact.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="522">
+          <caret line="29" column="52" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/inscription.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="15" column="103" selection-start-line="15" selection-start-column="59" selection-end-line="15" selection-end-column="103" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/home.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="16" column="118" selection-start-line="16" selection-start-column="118" selection-end-line="16" selection-end-column="118" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/blogComments.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="522">
           <caret line="29" selection-start-line="29" selection-end-line="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DAO/CommentManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" selection-start-line="2" selection-end-line="2" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DAO/Manager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DAO/ArticleManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/layout.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="33" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Documents/TEICEE_Total/ProxyEPN/SuiviDesBoxTicnCube/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Documents/TEICEE_Total/ProxyEPN/SuiviDesBoxTicnCube/index2.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
         </state>
       </provider>
     </entry>

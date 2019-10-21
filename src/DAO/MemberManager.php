@@ -19,7 +19,7 @@ class MemberManager extends Manager {
         $sql = 'SELECT *
                 FROM person
                 WHERE emailPerson = :emailPerson';
-        return $this->createQuery($sql, array('emailPerson' => $email));
+        return $this->createQuery($sql, array('emailPerson' => $email))->fetchAll();
     }
 
 }
