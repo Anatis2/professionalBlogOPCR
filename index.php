@@ -49,29 +49,7 @@ switch ($page) {
         $articleController->listArticles();
         break;
     case 'article':
-        if((isset($_GET['idArticle']) && ($_GET['idArticle']) > 0)) {
-            $article = $articleController->getArticle();
-            $comments = $commentController->listComments();
-            if(empty($article)) {
-                $msgArticle = "Il n'y a pas d'article associé à cet ID";
-            } else {
-                $msgArticle = "";
-            }
-            if(empty($comments)) {
-                $msgComments = "Il n'y a pas de commentaire associé à cet article.";
-            } else {
-                $msgComments = "";
-            }
-            echo $twig->render('blogArticle.twig',
-                                        ['articles' => $article,
-                                            'messageArticle' => $msgArticle,
-                                            'comments' => $comments,
-                                            'messageComment' => $msgComments
-                                        ]);
-        } else {
-            header('HTTP/1.0 404 Not Found');
-            echo $twig->render('404.twig');
-        }
+        $articleController->getArticle();
         break;
     case 'inscription':
         $memberController->createMember();

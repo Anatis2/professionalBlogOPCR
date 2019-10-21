@@ -9,25 +9,31 @@
 {% block content %}
 
         <h1>Article</h1>
+        
+        {% if articles %}
 
-        <div class="articles">
+            <div class="articles">
+
+                {% for article in articles %}
+
+                    <article class="idArticle">
+                        <h3 class="titleArticle">{{ article.titleArticle }}</h3>
+                        <p class="subtitleArticle"><strong>{{ article.subtitleArticle | nl2br }}</strong></p>
+                        <p class="dateCreationArticle"><em>Publié le {{ article.dateCreationArticle }} par {{ article.pseudoPerson }}</em></p>
+                        <p class="contentArticle">{{ article.contentArticle | nl2br }}</p>
+                    </article>
+
+                {% endfor %}
+
+            </div>
+
+            {% include 'blogComments.twig' %}
+   
+        {% endif %}
             
-            {% for article in articles %}
-
-                <article class="idArticle">
-                    <h3 class="titleArticle">{{ article.titleArticle }}</h3>
-                    <p class="subtitleArticle"><strong>{{ article.subtitleArticle | nl2br }}</strong></p>
-                    <p class="dateCreationArticle"><em>Publié le {{ article.dateCreationArticle }} par {{ article.pseudoPerson }}</em></p>
-                    <p class="contentArticle">{{ article.contentArticle | nl2br }}</p>
-                </article>
-                
-            {% endfor %}
-
-            <p>{{ messageArticle }}</p>
-
-        </div>
-
-    {% include 'blogComments.twig' %}
-
+        
+        {% if not articles %}
+            <p>Il n'y a pas d'article associé à cet ID</p>
+        {% endif %}
 
 {% endblock %}

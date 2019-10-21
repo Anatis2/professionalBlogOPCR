@@ -7,6 +7,7 @@ use Pagerfanta\Adapter\ArrayAdapter;
 use Pagerfanta\Pagerfanta;
 
 require_once('src/DAO/ArticleManager.php');
+//require_once('src/controller/CommentController.php');
 
 
 class ArticleController {
@@ -95,7 +96,30 @@ class ArticleController {
 
     public function getArticle() {
         $articleManager = new ArticleManager();
-        return $articleManager->getArticle()->fetchAll();
+        $commentController = new CommentController();
+        $msgComments = "";
+        $msgNewComment = "";
+        
+        if((isset($_GET['idArticle']) && ($_GET['idArticle']) > 0)) {
+            if((isset($_POST['pseudo'])) && (isset($_POST['comment']))) {
+                $commentController->addComment();
+                $msgNewComment = "<p class='alert alert-success'>Votre commentaire a bien été enregistré</p>";
+            } 
+            $article = $articleManager->getArticle()->fetchAll();
+            $comments = $commentController->listComments(); 
+            if((!empty($article)&&(empty($comments)))) {
+                $msgComments = "Il n'y a pas de commentaire associé à cet article.";
+            }
+            echo $this->twig->render('blogArticle.twig',
+                                        ['articles' => $article,
+                                            'comments' => $comments,
+                                            'messageComment' => $msgComments,
+                                            'msgNewComment' => $msgNewComment
+                                        ]);
+        } else {
+            header('HTTP/1.0 404 Not Found');
+            echo $this->twig->render('404.twig');
+        }
     }
 
     /*public function addArticle($titleArticle, $subtitleArticle, $contentArticle, $idPerson) {

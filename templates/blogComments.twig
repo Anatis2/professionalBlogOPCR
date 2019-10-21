@@ -2,6 +2,10 @@
         <h3>Commentaires</h3>
 
         <div class="comments">
+                
+            <p>{{ messageComment }}</p>
+            
+            {{ msgNewComment | raw }}
 
             {% for comment in comments %}
 
@@ -11,10 +15,8 @@
                 </div>
 
             {% endfor %}
-
-            <p>{{ messageComment }}</p>
-
-            <h5>Ajouter un commentaire</h5>
+            
+             <h5>Ajouter un commentaire</h5>
 
             <form method="post" class="contactForm">
                 <div class="form-group">
@@ -26,4 +28,7 @@
                 </div>
                 <input type="submit" class="btn btn-primary">
             </form>
+
+            
         </div>
+
