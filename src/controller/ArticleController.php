@@ -99,23 +99,33 @@ class ArticleController {
         $commentController = new CommentController();
         $msgComments = "";
         $msgNewComment = "";
-        
+
         if((isset($_GET['idArticle']) && ($_GET['idArticle']) > 0)) {
             if((isset($_POST['pseudo'])) && (isset($_POST['comment']))) {
-                $commentController->addComment();
-                $msgNewComment = "<p class='alert alert-success'>Votre commentaire a bien été enregistré</p>";
-            } 
+                function getCaptcha($secretKey) {
+                    $Response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=6LfA2b4UAAAAALrGE9pFN7-kXFO_A5zIrwKVAQ5R&response={$secretKey}");
+                    $Return = json_decode($Response);
+                    return $Return;
+                }
+                $Return = getCaptcha($_POST['g-recaptcha-response']);
+                if(($Return->success==true)&&($Return->score > 0.5)) {
+                    $msgNewComment = "<p class='alert alert-success'>Votre commentaire a bien été enregistré.</p>";
+                    $commentController->addComment();
+                } else {
+                    $msgNewComment = "<p class='alert alert-danger'>Votre commentaire n'a pas été enregistré car nous pensons qu'il s'agit d'un spam.</p>";
+                }
+            }
             $article = $articleManager->getArticle()->fetchAll();
-            $comments = $commentController->listComments(); 
+            $comments = $commentController->listComments();
             if((!empty($article)&&(empty($comments)))) {
                 $msgComments = "Il n'y a pas de commentaire associé à cet article.";
             }
             echo $this->twig->render('blogArticle.twig',
-                                        ['articles' => $article,
-                                            'comments' => $comments,
-                                            'messageComment' => $msgComments,
-                                            'msgNewComment' => $msgNewComment
-                                        ]);
+                ['articles' => $article,
+                    'comments' => $comments,
+                    'messageComment' => $msgComments,
+                    'msgNewComment' => $msgNewComment
+                ]);
         } else {
             header('HTTP/1.0 404 Not Found');
             echo $this->twig->render('404.twig');
