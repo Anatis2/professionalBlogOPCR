@@ -8,19 +8,24 @@
 
 {% block content %}
 
-    <h1>Connexion</h1>
+    <section class="content col-12">
 
-    <form class="contactForm" method="post">
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" name="email" id="email" aria-describedby="emailHelp" placeholder="Votre adresse email" class="form-control" required/>
-            <br/>
-            <label for="password">Mot de passe</label>
-            <input type="password" name="password" id="password" placeholder="Votre mot de passe" class="form-control" required />
-        </div>
-        <input type="submit" class="btn btn-primary" value="Envoyer" />
-    </form>
+        <h1>Connexion</h1>
 
-    {{ messageConnection }}
+        <form class="contactForm" method="post">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" aria-describedby="emailHelp" placeholder="Votre adresse email" class="form-control" required/>
+                <br/>
+                <label for="password">Mot de passe</label>
+                <input type="password" name="password" id="password" placeholder="Votre mot de passe" class="form-control" required />
+            </div>
+            <input type="submit" class="btn btn-primary" value="Envoyer" />
+        </form>
+
+    {{ messageConnection | raw }}
+
+
+    </section>
 
 {% endblock %}

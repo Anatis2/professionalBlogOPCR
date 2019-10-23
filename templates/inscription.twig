@@ -7,36 +7,37 @@
 
 
 {% block content %}
+    <section class="content col-12">
 
-    <h1>Formulaire d'inscription</h1>
+        <h1>Formulaire d'inscription</h1>
 
-    <form class="contactForm" method="post" action="">
-        <div class="form-group">
-            <label for="surname">Nom</label>
-            <input type="text" name="surname" id="surname" placeholder="Votre nom" class="form-control" required />
-            <br/>
-            <label for="firstname">Prénom</label>
-            <input type="text" name="firstname" id="firstname" placeholder="Votre prénom" class="form-control" required />
-            <br/>
-            <label for="email">Email</label>
-            <input type="email" name="email" id="email" aria-describedby="emailHelp" placeholder="Votre adresse email" class="form-control" required/>
-            <br/>
-            <label for="pseudo">Pseudo</label>
-            <input type="text" name="pseudo" id="pseudo" placeholder="Votre pseudo" class="form-control" required/>
-            <br/>
-            <label for="password">Mot de passe</label>
-            <input type="password" name="password" id="password" placeholder="Votre mot de passe" class="form-control" required />
-            <br/>
-            <label for="passwordConf">Confirmation de mot de passe</label>
-            <input type="password" name="passwordConf" id="passwordConf" placeholder="Confirmation de votre mot de passe" class="form-control" required />
-            <br/>
+        <form class="contactForm" method="post" action="">
+            <div class="form-group">
+                <label for="surname">Nom</label>
+                <input type="text" name="surname" id="surname" placeholder="Votre nom" class="form-control" required />
+                <br/>
+                <label for="firstname">Prénom</label>
+                <input type="text" name="firstname" id="firstname" placeholder="Votre prénom" class="form-control" required />
+                <br/>
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" aria-describedby="emailHelp" placeholder="Votre adresse email" class="form-control" required/>
+                <br/>
+                <label for="pseudo">Pseudo</label>
+                <input type="text" name="pseudo" id="pseudo" placeholder="Votre pseudo" class="form-control" required/>
+                <br/>
+                <label for="password">Mot de passe</label>
+                <input type="password" name="password" id="password" placeholder="Votre mot de passe" class="form-control" required />
+                <br/>
+                <label for="passwordConf">Confirmation de mot de passe</label>
+                <input type="password" name="passwordConf" id="passwordConf" placeholder="Confirmation de votre mot de passe" class="form-control" required />
+                <br/>
+            </div>
+            <input type="submit" class="btn btn-primary" value="Envoyer" />
+        </form>
+
+        <div class="notification">
+            {{ messageCreateMember | raw }}
         </div>
-        <input type="submit" class="btn btn-primary" value="Envoyer" />
-    </form>
-
-    <div class="notification">
-        {{ messageCreateMember | raw }}
-    </div>
-
+    </section>
 
 {% endblock %}

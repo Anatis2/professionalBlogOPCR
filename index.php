@@ -51,6 +51,17 @@ switch ($page) {
     case 'article':
         $articleController->getArticle();
         break;
+    case 'addArticle':
+        $articleIsAdded = $articleController->addArticle();
+        if($articleIsAdded) {
+            $msgAddArticle = "<p class='alert alert-success'>Votre article a bien été ajouté</p>";
+        } else {
+            $msgAddArticle = "";
+        }
+        echo $twig->render('blogFormAddArticle.twig', array(
+            'msgAddArticle' => $msgAddArticle
+        ));
+        break;
     case 'inscription':
         $memberController->createMember();
         break;

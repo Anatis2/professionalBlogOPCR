@@ -7,105 +7,121 @@ h3 {
 }
 
 .container {
-	.articles {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: left;
-		margin-top: 2%;
-
-		.article {
-			border-bottom: solid #d5d8dc 1px;
-			margin: 2px;
-			padding: 10px;
-			height: auto;
-			width: 49%;
-			overflow: hidden;
-
-			.titleArticle {
-				text-transform: none;
-				font-size: 1em;
-			}
-
-			.subtitleArticle, .contentArticle {
-				margin-top: 2%;
-				text-align: justify;
-				font-size: 1em;
-			}
-
-			.dateCreationArticle {
-				margin-top: 2%;
-				text-align: justify;
-				font-size: 0.8em;
-			}
-		}
-
-		.idArticle {
-			border: solid black 1px;
-			margin: 2px;
-			padding: 10px;
-			height: auto;
-			width: 90%;
-
-			.titleArticle {
-				text-transform: none;
-				font-size: 1.3em;
-			}
-
-			.subtitleArticle, .contentArticle {
-				margin-top: 2%;
-				text-align: justify;
-				font-size: 1em;
-			}
-
-			.dateCreationArticle {
-				margin-top: 2%;
-				text-align: justify;
-				font-size: 0.8em;
-			}
-		}
+	.aside {
+		padding-left: 0px;
 	}
-	.pagesManagement {
-		margin-top: 2%;
-		border: 1px solid #d2d5d6;
-		text-align: center;
-		.previousPage {
-
-		}
-		.currentPage {
-
-		}
-		.nextPage {
-
-		}
-	}
-	.comments {
-
-		.comment {
-			background-color: #d2d5d6;
-			border: solid 1px #d2d5d6;
+	.content {
+		padding-top: 0px;
+		.articles {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: left;
 			margin-top: 2%;
-                        margin-bottom: 2%;
-			padding: 1%;
-			width: 70%;
-			.dateComment {
-				margin-top: 2%;
-				text-align: justify;
-				font-size: 1.1em;
+
+			.article {
+				border-bottom: solid #d5d8dc 1px;
+				margin: 2px;
+				padding: 10px;
+				height: auto;
+				width: 49%;
+				overflow: hidden;
+
+				.titleArticle {
+					text-transform: none;
+					font-size: 1em;
+				}
+
+				.subtitleArticle, .contentArticle {
+					margin-top: 2%;
+					text-align: justify;
+					font-size: 1em;
+				}
+
+				.dateCreationArticle {
+					margin-top: 2%;
+					text-align: justify;
+					font-size: 0.8em;
+				}
 			}
-			.contentComment {
-				margin-top: 2%;
-				text-align: justify;
-				font-size: 1em;
+
+			.idArticle {
+				border: solid black 1px;
+				margin: 2px;
+				padding: 10px;
+				height: auto;
+				width: 90%;
+
+				.titleArticle {
+					text-transform: none;
+					font-size: 1.3em;
+				}
+
+				.subtitleArticle, .contentArticle {
+					margin-top: 2%;
+					text-align: justify;
+					font-size: 1em;
+				}
+
+				.dateCreationArticle {
+					margin-top: 2%;
+					text-align: justify;
+					font-size: 0.8em;
+				}
 			}
 		}
+		.pagesManagement {
+			margin-top: 2%;
+			border: 1px solid #d2d5d6;
+			text-align: center;
+			.previousPage {
 
+			}
+			.currentPage {
 
+			}
+			.nextPage {
+
+			}
+		}
+		.comments {
+
+			.comment {
+				background-color: #d2d5d6;
+				border: solid 1px #d2d5d6;
+				margin-top: 2%;
+				margin-bottom: 2%;
+				padding: 1%;
+				width: 70%;
+				.dateComment {
+					margin-top: 2%;
+					text-align: justify;
+					font-size: 1.1em;
+				}
+				.contentComment {
+					margin-top: 2%;
+					text-align: justify;
+					font-size: 1em;
+				}
+			}
+		}
+		.contactForm {
+			margin-top: 2%;
+		}
+		.notification {
+			margin-top: 2%;
+		}
 	}
-	.contactForm {
-		margin-top: 2%;
+}
+
+@media screen and (max-width: 605px) {
+	.container {
+		margin-top: 30px;
 	}
-	.notification {
-		margin-top: 2%;
+}
+
+@media screen and (max-width: 386px) {
+	.container {
+		margin-top: 70px;
 	}
 }
 

@@ -5,9 +5,16 @@
     <title>Blog</title>
 {% endblock %}
 
+{% block aside %}
+    <aside class="aside col-2">
+        <a href="index.php?page=addArticle" class="btn btn-info">Ajouter un article</a>
+    </aside>
+{% endblock %}
+
 
 {% block content %}
 
+    <section class="content col-10">
         <h1>Articles du blog</h1>
 
         <div class="articles">
@@ -23,11 +30,12 @@
 
         </div>
 
-    <div class="pagesManagement">
-        <span class="previousPage"><a href="index.php?page=blog&numPage={{ previousPage }}">{{ textPreviousPage }}</a></span>
-        <span class="currentPage col-lg-12 col-md-12 col-sm-1 col-xs-1">{{ currentPage }}</span>
-        <span class="nextPage"><a href="index.php?page=blog&numPage={{ nextPage }}">{{ textNextPage }}</a></span>
-    </div>
+        <div class="pagesManagement">
+            <span class="previousPage"><a href="index.php?page=blog&numPage={{ previousPage }}">{{ textPreviousPage }}</a></span>
+            <span class="currentPage col-lg-12 col-md-12 col-sm-1 col-xs-1">{{ currentPage }}</span>
+            <span class="nextPage"><a href="index.php?page=blog&numPage={{ nextPage }}">{{ textNextPage }}</a></span>
+        </div>
+    </section>
 
 
 {% endblock %}

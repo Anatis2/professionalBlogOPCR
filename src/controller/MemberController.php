@@ -52,7 +52,7 @@ class MemberController {
                     ]);
             } else {
                 echo $this->twig->render('connection.twig',
-                    ['messageConnection' => "L'identifiant et/ou le mot de passe ne sont pas valides."
+                    ['messageConnection' => "<p class='alert alert-danger'>L'identifiant et/ou le mot de passe ne sont pas valides.</p>"
                     ]);
             }
         } else {

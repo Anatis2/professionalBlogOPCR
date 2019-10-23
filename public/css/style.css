@@ -4,67 +4,79 @@ h1 {
 h3 {
   margin-top: 2%; }
 
-.container .articles {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: left;
-  margin-top: 2%; }
-  .container .articles .article {
-    border-bottom: solid #d5d8dc 1px;
-    margin: 2px;
-    padding: 10px;
-    height: auto;
-    width: 49%;
-    overflow: hidden; }
-    .container .articles .article .titleArticle {
-      text-transform: none;
-      font-size: 1em; }
-    .container .articles .article .subtitleArticle, .container .articles .article .contentArticle {
-      margin-top: 2%;
-      text-align: justify;
-      font-size: 1em; }
-    .container .articles .article .dateCreationArticle {
-      margin-top: 2%;
-      text-align: justify;
-      font-size: 0.8em; }
-  .container .articles .idArticle {
-    border: solid black 1px;
-    margin: 2px;
-    padding: 10px;
-    height: auto;
-    width: 90%; }
-    .container .articles .idArticle .titleArticle {
-      text-transform: none;
-      font-size: 1.3em; }
-    .container .articles .idArticle .subtitleArticle, .container .articles .idArticle .contentArticle {
-      margin-top: 2%;
-      text-align: justify;
-      font-size: 1em; }
-    .container .articles .idArticle .dateCreationArticle {
-      margin-top: 2%;
-      text-align: justify;
-      font-size: 0.8em; }
-.container .pagesManagement {
-  margin-top: 2%;
-  border: 1px solid #d2d5d6;
-  text-align: center; }
-.container .comments .comment {
-  background-color: #d2d5d6;
-  border: solid 1px #d2d5d6;
-  margin-top: 2%;
-  padding: 1%;
-  width: 70%; }
-  .container .comments .comment .dateComment {
+.container .aside {
+  padding-left: 0px; }
+.container .content {
+  padding-top: 0px; }
+  .container .content .articles {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    margin-top: 2%; }
+    .container .content .articles .article {
+      border-bottom: solid #d5d8dc 1px;
+      margin: 2px;
+      padding: 10px;
+      height: auto;
+      width: 49%;
+      overflow: hidden; }
+      .container .content .articles .article .titleArticle {
+        text-transform: none;
+        font-size: 1em; }
+      .container .content .articles .article .subtitleArticle, .container .content .articles .article .contentArticle {
+        margin-top: 2%;
+        text-align: justify;
+        font-size: 1em; }
+      .container .content .articles .article .dateCreationArticle {
+        margin-top: 2%;
+        text-align: justify;
+        font-size: 0.8em; }
+    .container .content .articles .idArticle {
+      border: solid black 1px;
+      margin: 2px;
+      padding: 10px;
+      height: auto;
+      width: 90%; }
+      .container .content .articles .idArticle .titleArticle {
+        text-transform: none;
+        font-size: 1.3em; }
+      .container .content .articles .idArticle .subtitleArticle, .container .content .articles .idArticle .contentArticle {
+        margin-top: 2%;
+        text-align: justify;
+        font-size: 1em; }
+      .container .content .articles .idArticle .dateCreationArticle {
+        margin-top: 2%;
+        text-align: justify;
+        font-size: 0.8em; }
+  .container .content .pagesManagement {
     margin-top: 2%;
-    text-align: justify;
-    font-size: 1.1em; }
-  .container .comments .comment .contentComment {
+    border: 1px solid #d2d5d6;
+    text-align: center; }
+  .container .content .comments .comment {
+    background-color: #d2d5d6;
+    border: solid 1px #d2d5d6;
     margin-top: 2%;
-    text-align: justify;
-    font-size: 1em; }
-.container .contactForm {
-  margin-top: 2%; }
-.container .notification {
-  margin-top: 2%; }
+    margin-bottom: 2%;
+    padding: 1%;
+    width: 70%; }
+    .container .content .comments .comment .dateComment {
+      margin-top: 2%;
+      text-align: justify;
+      font-size: 1.1em; }
+    .container .content .comments .comment .contentComment {
+      margin-top: 2%;
+      text-align: justify;
+      font-size: 1em; }
+  .container .content .contactForm {
+    margin-top: 2%; }
+  .container .content .notification {
+    margin-top: 2%; }
+
+@media screen and (max-width: 605px) {
+  .container {
+    margin-top: 30px; } }
+@media screen and (max-width: 386px) {
+  .container {
+    margin-top: 70px; } }
 
 /*# sourceMappingURL=style.css.map */

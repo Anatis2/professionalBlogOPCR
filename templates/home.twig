@@ -5,21 +5,31 @@
     <title>Accueil</title>
 {% endblock %}
 
+{% block aside %}
 
+    <section class="content col-3">
+
+        {% for affectedLineConnectMember in affectedLinesConnectMember %}
+
+            <p>Vous êtes connecté en tant que {{ affectedLineConnectMember.firstnamePerson }} {{ affectedLineConnectMember.surnamePerson }}</p>
+
+        {% endfor %}
+
+    </section>
+
+{% endblock %}
 
 
 {% block content %}
 
-    <h1>Page d'accueil</h1>
+    <section class="content col-9">
 
-    {% for affectedLineConnectMember in affectedLinesConnectMember %}
+        <h1>Page d'accueil</h1>
 
-        <p>Vous êtes connecté en tant que {{ affectedLineConnectMember.firstnamePerson }} {{ affectedLineConnectMember.surnamePerson }}</p>
+        {{ messageCreateMember | raw }}
 
-    {% endfor %}
+        <p>Blabla de la page d'accueil</p>
 
-    {{ messageCreateMember | raw }}
-
-    <p>Blabla de la page d'accueil</p>
+    </section>
 
 {% endblock %}

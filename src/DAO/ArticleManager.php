@@ -28,10 +28,15 @@ class ArticleManager extends Manager {
         return $this->createQuery($sql, array('idArticle' => $_GET['idArticle']));
     }
 
-    /*public function addArticle($titleArticle, $subtitleArticle, $contentArticle, $idPerson) {
+    public function addArticle($titleArticle, $subtitleArticle, $contentArticle, $person_idPerson) {
         $sql = 'INSERT INTO article(titleArticle, subtitleArticle, contentArticle, person_idPerson)
-                VALUES (?, ?, ?, ?)';
-        return $this->createQuery($sql, array($titleArticle, $subtitleArticle, $contentArticle, 1));
-    }*/
+                VALUES (:titleArticle, :subtitleArticle, :contentArticle, :person_idPerson)';
+        return $this->createQuery($sql, array(
+                                            'titleArticle' => $titleArticle,
+                                            'subtitleArticle' => $subtitleArticle,
+                                            'contentArticle' => $contentArticle,
+                                            'person_idPerson' => $person_idPerson
+                                    ));
+    }
 
 }

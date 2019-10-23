@@ -37,10 +37,11 @@
         </nav>
 
 
-        <section class='container'>
-
-            {% block content %}{% endblock %}
-
+        <section class="container">
+            <div class="row">
+                {% block aside %}{% endblock %}
+                {% block content %}{% endblock %}
+            </div>
         </section>
         
         <!-- jQuery -->

@@ -132,10 +132,17 @@ class ArticleController {
         }
     }
 
-    /*public function addArticle($titleArticle, $subtitleArticle, $contentArticle, $idPerson) {
+    public function addArticle() {
         $articleManager = new ArticleManager();
-        return $articleManager->addArticle($titleArticle, $subtitleArticle, $contentArticle, $idPerson);
-    }*/
+        if(isset($_POST['titleArticle']) && isset($_POST['subtitleArticle']) && isset($_POST['contentArticle'])) {
+            $titleArticle = htmlspecialchars($_POST['titleArticle']);
+            $subtitleArticle = htmlspecialchars($_POST['titleArticle']);
+            $contentArticle = htmlspecialchars($_POST['contentArticle']);
+            $person_idPerson = 1;
+            return $articleManager->addArticle($titleArticle, $subtitleArticle, $contentArticle, $person_idPerson);
+        }
+
+    }
 
 }
 
