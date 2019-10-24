@@ -66,7 +66,7 @@ switch ($page) {
         $memberController->createMember();
         break;
     case 'connexion':
-       $memberController->connectMember();
+        $memberController->connectMember();
         break;
     default :
         header('HTTP/1.0 404 Not Found');

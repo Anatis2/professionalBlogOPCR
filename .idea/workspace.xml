@@ -4,20 +4,8 @@
     <list default="true" id="1336d255-795e-48a3-a280-4f2d43283df9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/.sass-cache/47e80b998f2f4671c7ed941a075c29797af0e404/style.scssc" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/.sass-cache/47e80b998f2f4671c7ed941a075c29797af0e404/style.scssc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/style.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAO/ArticleManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/ArticleManager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/ArticleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ArticleController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/MemberController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/MemberController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/blogArticle.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/blogArticle.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/blogArticles.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/blogArticles.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/connection.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/connection.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/contact.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contact.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/inscription.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/inscription.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/layout.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/layout.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,81 +17,89 @@
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <executablePath>composer</executablePath>
   </component>
-  <component name="DockManager">
-    <window id="2">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/src/DAO/ArticleManager.php">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="702">
-                    <caret line="39" column="5" lean-forward="true" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-    <window id="3">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/templates/connection.twig">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="108">
-                    <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-  </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="477">
-              <caret line="62" column="11" selection-start-line="62" selection-start-column="11" selection-end-line="62" selection-end-column="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/controller/MemberController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="491">
-              <caret line="48" column="37" selection-start-line="48" selection-start-column="37" selection-end-line="48" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/home.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="9" column="33" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/blogArticles.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="7" selection-start-line="7" selection-end-line="11" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.47667465">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/index.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="239">
+                  <caret line="41" column="16" selection-start-line="41" selection-start-column="16" selection-end-line="41" selection-end-column="16" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/templates/connection.twig">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="252">
+                  <caret line="14" column="27" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/controller/MemberController.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="424">
+                  <caret line="61" column="13" selection-start-line="61" selection-start-column="13" selection-end-line="61" selection-end-column="13" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/templates/layout.twig">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="648">
+                  <caret line="36" column="14" lean-forward="true" selection-start-line="36" selection-start-column="14" selection-end-line="36" selection-end-column="14" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/DAO/MemberManager.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="72">
+                  <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/templates/home.twig">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="234">
+                  <caret line="13" column="64" selection-start-line="13" selection-start-column="64" selection-end-line="13" selection-end-column="64" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/templates/blogArticles.twig">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="126">
+                  <caret line="7" selection-start-line="7" selection-end-line="11" selection-end-column="14" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/controller/MemberController.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="500">
+                  <caret line="52" column="22" selection-start-line="52" selection-start-column="22" selection-end-line="52" selection-end-column="22" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -164,15 +160,15 @@
         <option value="$PROJECT_DIR$/public/css/style.scss" />
         <option value="$PROJECT_DIR$/src/DAO/ArticleManager.php" />
         <option value="$PROJECT_DIR$/src/controller/ArticleController.php" />
-        <option value="$PROJECT_DIR$/templates/layout.twig" />
         <option value="$PROJECT_DIR$/templates/blogFormAddArticle.twig" />
         <option value="$PROJECT_DIR$/templates/inscription.twig" />
         <option value="$PROJECT_DIR$/templates/contact.twig" />
         <option value="$PROJECT_DIR$/templates/blogArticle.twig" />
-        <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/templates/connection.twig" />
         <option value="$PROJECT_DIR$/templates/home.twig" />
+        <option value="$PROJECT_DIR$/templates/connection.twig" />
+        <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/src/controller/MemberController.php" />
+        <option value="$PROJECT_DIR$/templates/layout.twig" />
       </list>
     </option>
   </component>
@@ -208,13 +204,13 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="5" />
-    <option name="y" value="27" />
-    <option name="width" value="1550" />
-    <option name="height" value="1048" />
+    <option name="y" value="114" />
+    <option name="width" value="1540" />
+    <option name="height" value="789" />
   </component>
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
   </component>
   <component name="ProjectView">
@@ -222,7 +218,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -267,25 +262,26 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates" />
+      <recent name="$USER_HOME$/Documents/TEICEE_Total/ProxyEPN/SuiviDesBoxTicnCube" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/DAO" />
       <recent name="$PROJECT_DIR$/src" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$USER_HOME$/Documents/TEICEE_Total/ProxyEPN/SuiviDesBoxTicnCube" />
-      <recent name="$PROJECT_DIR$/templates" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -334,18 +330,21 @@
       <workItem from="1571126835264" duration="3672000" />
       <workItem from="1571317734439" duration="7204000" />
       <workItem from="1571757958999" duration="220000" />
-      <workItem from="1571817605855" duration="9917000" />
+      <workItem from="1571817605855" duration="13068000" />
+      <workItem from="1571834805719" duration="6715000" />
+      <workItem from="1571844010359" duration="173000" />
+      <workItem from="1571902578786" duration="2304000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="158444000" />
+    <option name="totallyTimeSpent" value="170787000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="5" y="27" width="1550" height="1048" extended-state="0" />
+    <frame x="0" y="27" width="1920" height="1053" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2217044" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.10683761" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -465,13 +464,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/DAO/MemberManager.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="13" column="46" selection-start-line="13" selection-start-column="46" selection-end-line="13" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/DAO/CommentManager.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
@@ -509,13 +501,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/layout.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="36" column="14" lean-forward="true" selection-start-line="36" selection-start-column="14" selection-end-line="36" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/inscription.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
@@ -537,24 +522,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="477">
-          <caret line="62" column="11" selection-start-line="62" selection-start-column="11" selection-end-line="62" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/blogFormAddArticle.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="30" column="14" lean-forward="true" selection-start-line="30" selection-start-column="14" selection-end-line="30" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/DAO/ArticleManager.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="702">
-          <caret line="39" column="5" lean-forward="true" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
+          <caret line="39" column="5" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -568,6 +539,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/home.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="13" column="64" selection-start-line="13" selection-start-column="64" selection-end-line="13" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/blogArticles.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
@@ -575,24 +553,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/connection.twig">
+    <entry file="file://$PROJECT_DIR$/templates/blogFormAddArticle.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+        <state relative-caret-position="540">
+          <caret line="30" column="14" lean-forward="true" selection-start-line="30" selection-start-column="14" selection-end-line="30" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/home.twig">
+    <entry file="file://$PROJECT_DIR$/templates/connection.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="33" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
+        <state relative-caret-position="252">
+          <caret line="14" column="27" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DAO/MemberManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="41" column="16" selection-start-line="41" selection-start-column="16" selection-end-line="41" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/MemberController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="491">
-          <caret line="48" column="37" selection-start-line="48" selection-start-column="37" selection-end-line="48" selection-end-column="37" />
+        <state relative-caret-position="424">
+          <caret line="61" column="13" selection-start-line="61" selection-start-column="13" selection-end-line="61" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/layout.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="648">
+          <caret line="36" column="14" lean-forward="true" selection-start-line="36" selection-start-column="14" selection-end-line="36" selection-end-column="14" />
         </state>
       </provider>
     </entry>
