@@ -5,25 +5,18 @@
     <title>Contact</title>
 {% endblock %}
 
+
 {% block aside %}
-
     <section class="content col-3">
-
         {{ messageConnection | raw }}
-
         {{ lienDeconnexion | raw }}
-
     </section>
-
 {% endblock %}
 
 
 {% block content %}
-
     <section class="content col-9">
-
     <h1>Page de contact</h1>
-
         <form class="contactForm">
             <div class="form-group">
                 <label for="nom">Nom</label>
@@ -44,5 +37,4 @@
             <input type="submit" class="btn btn-primary" value="Envoyer" />
         </form>
     </section>
-
 {% endblock %}

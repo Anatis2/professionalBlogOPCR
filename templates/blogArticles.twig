@@ -5,6 +5,7 @@
     <title>Blog</title>
 {% endblock %}
 
+
 {% block aside %}
     <aside class="aside col-2">
         {{ messageConnection | raw }}
@@ -17,14 +18,15 @@
 
     <section class="content col-10">
         <h1>Articles du blog</h1>
-
         <div class="articles">
+
             {% for article in articles %}
                 <article class="article">
                     <h3 class="titleArticle"><a href="index.php?page=article&idArticle={{ article.idArticle }}">{{ article.titleArticle }}</a></h3>
                     <p class="subtitleArticle">{{ article.subtitleArticle | nl2br }}</p>
                     <p class="dateCreationArticle"><em>Publié le {{ article.dateCreationArticle }} par {{ article.pseudoPerson }}</em></p>
                 </article>
+
             {% endfor %}
 
             {{ messageArticles | raw }}

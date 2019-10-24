@@ -41,6 +41,7 @@ if(isset($_GET['numPage'])) {
 session_start();
 if(!empty($_SESSION)) {
     $isConnected = true;
+    $pseudoPerson = $_SESSION['pseudoPerson'];
 } else {
     $isConnected = false;
 }
@@ -49,7 +50,7 @@ switch ($page) {
     case 'home':
         if($isConnected) {
             echo $twig->render('home.twig',
-                ['messageConnection' => "<p class='alert alert-success'>Vous êtes connecté</p>",
+                ['messageConnection' => "<p class='alert alert-success'>Vous êtes connecté en tant que $pseudoPerson</p>",
                     'lienDeconnexion' => "<a href=\"index.php?page=deconnexion\">Se déconnecter</a>"
                 ]);
         } else {
@@ -59,7 +60,7 @@ switch ($page) {
     case 'contact':
         if($isConnected) {
             echo $twig->render('contact.twig',
-                ['messageConnection' => "<p class='alert alert-success'>Vous êtes connecté</p>",
+                ['messageConnection' => "<p class='alert alert-success'>Vous êtes connecté en tant que $pseudoPerson</p>",
                     'lienDeconnexion' => "<a href=\"index.php?page=deconnexion\">Se déconnecter</a>"
                 ]);
         } else {
@@ -74,10 +75,9 @@ switch ($page) {
         break;
     case 'addArticle':
         if($isConnected) {
-            $msgAddArticle = $articleController->addArticle();
             echo $twig->render('blogFormAddArticle.twig',
-                ['msgAddArticle' => $msgAddArticle,
-                    'messageConnection' => "<p class='alert alert-success'>Vous êtes connecté</p>",
+                ['msgAddArticle' => $articleController->addArticle(),
+                    'messageConnection' => "<p class='alert alert-success'>Vous êtes connecté en tant que $pseudoPerson</p>",
                     'lienDeconnexion' => "<a href=\"index.php?page=deconnexion\">Se déconnecter</a>"
                 ]);
         } else {
@@ -87,7 +87,7 @@ switch ($page) {
     case 'inscription':
         if($isConnected) {
             echo $twig->render('403Inscription.twig',
-                ['messageConnection' => "<p class='alert alert-success'>Vous êtes connecté</p>",
+                ['messageConnection' => "<p class='alert alert-success'>Vous êtes connecté en tant que $pseudoPerson</p>",
                     'lienDeconnexion' => "<a href=\"index.php?page=deconnexion\">Se déconnecter</a>"
                 ]);
         } else {
@@ -96,7 +96,9 @@ switch ($page) {
         }
         break;
     case 'connexion':
-        $memberController->connectMember();
+        echo $twig->render('connection.twig',
+            [ 'messageConnection' => $memberController->connectMember()
+            ]);
         break;
     case 'deconnexion':
         header('Location: index.php?page=home');

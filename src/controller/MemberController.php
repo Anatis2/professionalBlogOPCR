@@ -50,21 +50,15 @@ class MemberController {
                 $passwordIsCorrect = password_verify($password, $passwordPerson);
                 if ($passwordIsCorrect) {
                     $_SESSION['pseudoPerson'] = $pseudoPerson;
-                    echo $this->twig->render('connection.twig',
-                        ['messageConnection' => "<p class='alert alert-success'>Vous êtes connecté en tant que $pseudoPerson</p>"
-                        ]);
+                    header('Location: index.php?page=home');
                 } else {
-                    echo $this->twig->render('connection.twig',
-                        ['messageConnection' => "<p class='alert alert-danger'>L'identifiant et/ou le mot de passe ne sont pas valides.</p>"
-                        ]);
+                    $messageConnection = "<p class='alert alert-danger'>L'identifiant et/ou le mot de passe ne sont pas valides.</p>";
+                    return $messageConnection;
                 }
             } else {
-                echo $this->twig->render('connection.twig',
-                    ['messageConnection' => "<p class='alert alert-danger'>L'identifiant et/ou le mot de passe ne sont pas valides.</p>"
-                    ]);
+                $messageConnection = "<p class='alert alert-danger'>L'identifiant et/ou le mot de passe ne sont pas valides.</p>";
+                return $messageConnection;
             }
-        } else {
-            echo $this->twig->render('connection.twig');
         }
     }
 

@@ -8,22 +8,18 @@
 
 {% block content %}
     <section class="content col-12">
-
         <h1>Article</h1>
 
         {% if articles %}
-
             <div class="articles">
 
                 {% for article in articles %}
-
                     <article class="idArticle">
                         <h3 class="titleArticle">{{ article.titleArticle }}</h3>
                         <p class="subtitleArticle"><strong>{{ article.subtitleArticle | nl2br }}</strong></p>
                         <p class="dateCreationArticle"><em>Publié le {{ article.dateCreationArticle }} par {{ article.pseudoPerson }}</em></p>
                         <p class="contentArticle">{{ article.contentArticle | nl2br }}</p>
                     </article>
-
                 {% endfor %}
 
             </div>

@@ -7,27 +7,18 @@
 
 
 {% block aside %}
-
     <section class="content col-3">
-
         {{ messageConnection | raw }}
-
         {{ lienDeconnexion | raw }}
-
     </section>
-
 {% endblock %}
 
 
-
-
 {% block content %}
-
     <section class="content col-9">
         <p>
             Erreur 403 : vous ne pouvez pas accéder à cette page car vous êtes actuellement connecté et donc déjà inscrit.<br/>
             Pour effectuer une nouvelle inscription, veuillez vous déconnecter.
         </p>
     </section>
-
 {% endblock %}
