@@ -9,11 +9,9 @@
 
     <section class="content col-3">
 
-        {% for affectedLineConnectMember in affectedLinesConnectMember %}
+        {{ messageConnection | raw }}
 
-            <p>Vous êtes connecté en tant que {{ affectedLineConnectMember.firstnamePerson }} {{ affectedLineConnectMember.surnamePerson }}</p>
-
-        {% endfor %}
+        {{ lienDeconnexion | raw }}
 
     </section>
 

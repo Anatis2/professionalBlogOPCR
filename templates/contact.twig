@@ -5,12 +5,25 @@
     <title>Contact</title>
 {% endblock %}
 
+{% block aside %}
+
+    <section class="content col-3">
+
+        {{ messageConnection | raw }}
+
+        {{ lienDeconnexion | raw }}
+
+    </section>
+
+{% endblock %}
+
 
 {% block content %}
 
+    <section class="content col-9">
+
     <h1>Page de contact</h1>
 
-    <section class="content col-12">
         <form class="contactForm">
             <div class="form-group">
                 <label for="nom">Nom</label>

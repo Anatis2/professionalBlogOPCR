@@ -49,8 +49,7 @@ class MemberController {
                 $passwordPerson = $connectedMember[0]['passwordPerson'];
                 $passwordIsCorrect = password_verify($password, $passwordPerson);
                 if ($passwordIsCorrect) {
-                    //session_start();
-                    //$_SESSION['pseudoPerson'] = $pseudoPerson;
+                    $_SESSION['pseudoPerson'] = $pseudoPerson;
                     echo $this->twig->render('connection.twig',
                         ['messageConnection' => "<p class='alert alert-success'>Vous êtes connecté en tant que $pseudoPerson</p>"
                         ]);

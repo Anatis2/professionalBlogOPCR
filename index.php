@@ -38,12 +38,33 @@ if(isset($_GET['numPage'])) {
     $numPage = $_GET['numPage'];
 }
 
+session_start();
+if(!empty($_SESSION)) {
+    $isConnected = true;
+} else {
+    $isConnected = false;
+}
+
 switch ($page) {
     case 'home':
-        echo $twig->render('home.twig');
+        if($isConnected) {
+            echo $twig->render('home.twig',
+                ['messageConnection' => "<p class='alert alert-success'>Vous êtes connecté</p>",
+                    'lienDeconnexion' => "<a href=\"index.php?page=deconnexion\">Se déconnecter</a>"
+                ]);
+        } else {
+            echo $twig->render('home.twig');
+        }
         break;
     case 'contact':
-        echo $twig->render('contact.twig');
+        if($isConnected) {
+            echo $twig->render('contact.twig',
+                ['messageConnection' => "<p class='alert alert-success'>Vous êtes connecté</p>",
+                    'lienDeconnexion' => "<a href=\"index.php?page=deconnexion\">Se déconnecter</a>"
+                ]);
+        } else {
+            echo $twig->render('contact.twig');
+        }
         break;
     case 'blog':
         $articleController->listArticles();
@@ -67,6 +88,10 @@ switch ($page) {
         break;
     case 'connexion':
         $memberController->connectMember();
+        break;
+    case 'deconnexion':
+        header('Location: index.php?page=home');
+        session_destroy();
         break;
     default :
         header('HTTP/1.0 404 Not Found');
