@@ -73,18 +73,27 @@ switch ($page) {
         $articleController->getArticle();
         break;
     case 'addArticle':
-        $articleIsAdded = $articleController->addArticle();
-        if($articleIsAdded) {
-            $msgAddArticle = "<p class='alert alert-success'>Votre article a bien été ajouté</p>";
+        if($isConnected) {
+            $msgAddArticle = $articleController->addArticle();
+            echo $twig->render('blogFormAddArticle.twig',
+                ['msgAddArticle' => $msgAddArticle,
+                    'messageConnection' => "<p class='alert alert-success'>Vous êtes connecté</p>",
+                    'lienDeconnexion' => "<a href=\"index.php?page=deconnexion\">Se déconnecter</a>"
+                ]);
         } else {
-            $msgAddArticle = "";
+            echo $twig->render('403.twig');
         }
-        echo $twig->render('blogFormAddArticle.twig', array(
-            'msgAddArticle' => $msgAddArticle
-        ));
         break;
     case 'inscription':
-        $memberController->createMember();
+        if($isConnected) {
+            echo $twig->render('403Inscription.twig',
+                ['messageConnection' => "<p class='alert alert-success'>Vous êtes connecté</p>",
+                    'lienDeconnexion' => "<a href=\"index.php?page=deconnexion\">Se déconnecter</a>"
+                ]);
+        } else {
+            $memberController->createMember();
+            echo $twig->render('inscription.twig');
+        }
         break;
     case 'connexion':
         $memberController->connectMember();

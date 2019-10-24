@@ -139,9 +139,14 @@ class ArticleController {
             $subtitleArticle = htmlspecialchars($_POST['titleArticle']);
             $contentArticle = htmlspecialchars($_POST['contentArticle']);
             $person_idPerson = 1;
-            return $articleManager->addArticle($titleArticle, $subtitleArticle, $contentArticle, $person_idPerson);
+            $articleIsAdded = $articleManager->addArticle($titleArticle, $subtitleArticle, $contentArticle, $person_idPerson);
+            if ($articleIsAdded) {
+                $msgAddArticle = "<p class='alert alert-success'>Votre article a bien été ajouté</p>";
+            } else {
+                $msgAddArticle = "";
+            }
+            return $msgAddArticle;
         }
-
     }
 
 }

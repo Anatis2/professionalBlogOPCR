@@ -5,10 +5,20 @@
     <title>Ajouter un article</title>
 {% endblock %}
 
+{% block aside %}
 
+    <section class="content col-3">
+
+        {{ messageConnection | raw }}
+
+        {{ lienDeconnexion | raw }}
+
+    </section>
+
+{% endblock %}
 
 {% block content %}
-    <section class="content col-12">
+    <section class="content col-9">
 
         {{ msgAddArticle | raw }}
 
