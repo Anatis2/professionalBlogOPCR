@@ -15,7 +15,6 @@ class CommentManager extends Manager {
     }
     
      public function addComment($pseudo, $comment, $idArticle ) {
-
         $sql = 'INSERT INTO comment(authorComment, contentComment, article_idArticle) '
                . 'VALUES (:pseudo, :comment, :idArticle)'; 
         return $this->createQuery($sql, array('pseudo' => $pseudo, 

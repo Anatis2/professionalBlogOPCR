@@ -19,7 +19,6 @@ class CommentController {
             $newComments = $commentManager->addComment($pseudo,$comment, $idArticle);
             return $newComments;
         }
-
     }
 
 }

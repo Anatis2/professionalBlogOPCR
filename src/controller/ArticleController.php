@@ -99,7 +99,6 @@ class ArticleController {
         $commentController = new CommentController();
         $msgComments = "";
         $msgNewComment = "";
-
         if((isset($_GET['idArticle']) && ($_GET['idArticle']) > 0)) {
             if((isset($_POST['pseudo'])) && (isset($_POST['comment']))) {
                 function getCaptcha($secretKey) {

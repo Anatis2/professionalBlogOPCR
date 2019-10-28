@@ -14,7 +14,7 @@ class MemberController {
 
     public function createMember() {
         $memberManager = new MemberManager();
-         if((isset($_POST['surname']) && (isset($_POST['firstname']))) && (isset($_POST['email'])) && (isset($_POST['pseudo']))
+        if((isset($_POST['surname']) && (isset($_POST['firstname']))) && (isset($_POST['email'])) && (isset($_POST['pseudo']))
             && (isset($_POST['password'])) && (isset($_POST['passwordConf']))) {
             $surname = htmlspecialchars(trim($_POST['surname']));
             $firstname = htmlspecialchars(trim($_POST['firstname']));
@@ -24,9 +24,9 @@ class MemberController {
             $passwordConf = htmlspecialchars(trim($_POST['passwordConf']));
             $passwordHash = htmlspecialchars(trim(password_hash($_POST['password'], PASSWORD_DEFAULT)));
             if (($password) == ($passwordConf)) {
+                $memberManager->createMember($surname, $firstname, $pseudo, $email, $passwordHash);
                 echo $this->twig->render('home.twig',
-                    ['affectedLinesCreateMember' => $memberManager->createMember($surname, $firstname, $pseudo, $email, $passwordHash),
-                        'messageCreateMember' => "<p class='alert alert-success'>Votre inscription a bien été prise en compte !</p>"
+                    [ 'messageCreateMember' => "<p class='alert alert-success'>Votre inscription a bien été prise en compte !</p>"
                     ]);
             } else {
                 echo $this->twig->render('inscription.twig',

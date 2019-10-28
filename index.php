@@ -20,6 +20,13 @@ use ClaireC\src\model\Article;
 use ClaireC\src\model\Comment;
 use ClaireC\src\model\Member;
 
+session_start();
+if(!empty($_SESSION)) {
+    $isConnected = true;
+    $pseudoPerson = $_SESSION['pseudoPerson'];
+} else {
+    $isConnected = false;
+}
 
 // instanciation of our classes
 $articleController = new ArticleController();
@@ -36,14 +43,6 @@ if(isset($_GET['page'])) {
 
 if(isset($_GET['numPage'])) {
     $numPage = $_GET['numPage'];
-}
-
-session_start();
-if(!empty($_SESSION)) {
-    $isConnected = true;
-    $pseudoPerson = $_SESSION['pseudoPerson'];
-} else {
-    $isConnected = false;
 }
 
 switch ($page) {
@@ -92,7 +91,6 @@ switch ($page) {
                 ]);
         } else {
             $memberController->createMember();
-            echo $twig->render('inscription.twig');
         }
         break;
     case 'connexion':
