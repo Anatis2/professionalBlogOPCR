@@ -21,10 +21,13 @@ class ArticleController {
     }
 
     public function listArticles() {
-
         $articleManager = new ArticleManager();
         $articles = $articleManager->listArticles();
+        return $articles;
+    }
 
+    public function pagesManager() {
+        $articles = $this->listArticles();
         $adapter = new ArrayAdapter($articles->fetchAll());
         $pagerfanta = new Pagerfanta($adapter);
 
@@ -69,16 +72,16 @@ class ArticleController {
                 $currentPageResults = $pagerfanta->getCurrentPageResults(); // list the articles (consider the maxPerPage and the currentPage)
                 $previousPage = $pagerfanta->getPreviousPage();
                 echo $this->twig->render('blogArticles.twig',
-                            ['articles' => $currentPageResults,
-                                'currentPage' => $currentPage,
-                                'textPreviousPage' => "Page précédente",
-                                'previousPage' => $previousPage,
-                                'textNextPage' => ""
-                            ]);
+                    ['articles' => $currentPageResults,
+                        'currentPage' => $currentPage,
+                        'textPreviousPage' => "Page précédente",
+                        'previousPage' => $previousPage,
+                        'textNextPage' => ""
+                    ]);
             } else {
                 echo $this->twig->render('blogArticles.twig',
-                                ['messageArticles' => "<div class='articles'><p>Cette page n'existe pas...</p></div>"
-                                ]);
+                    ['messageArticles' => "<div class='articles'><p>Cette page n'existe pas...</p></div>"
+                    ]);
             }
         } else {
             $pagerfanta->setCurrentPage(1);
@@ -93,6 +96,8 @@ class ArticleController {
                 ]);
         }
     }
+
+
 
     public function getArticle() {
         $articleManager = new ArticleManager();

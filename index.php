@@ -56,13 +56,13 @@ switch ($page) {
         echo $twig->render('contact.twig');
         break;
     case 'blog':
-        $articleController->listArticles();
+        $articleController->pagesManager();
         break;
     case 'article':
         $articleController->getArticle();
         break;
     case 'inscription':
-            $memberController->createMember();
+        $memberController->createMember();
         break;
     case 'connexion':
         echo $twig->render('connection.twig',
@@ -76,7 +76,6 @@ switch ($page) {
             echo $twig->render('adminHome.twig',
                 [   'isConnected' => $isConnected,
                     'messageConnection' => "<p>Vous êtes connecté en tant que $pseudoPerson</p>",
-                    'lienDeconnexion' => "<p><a href=\"index.php?page=deconnexion\">Se déconnecter</a></p>"
                 ]);
         } else {
             echo $twig->render('403.twig');
@@ -88,7 +87,6 @@ switch ($page) {
             echo $twig->render('adminAddArticle.twig',
                 [   'isConnected' => $isConnected,
                     'messageConnection' => "<p>Vous êtes connecté en tant que $pseudoPerson</p>",
-                    'lienDeconnexion' => "<p><a href=\"index.php?page=deconnexion\">Se déconnecter</a></p>",
                     'msgAddArticle' => $articleController->addArticle()
                 ]);
         } else {
@@ -100,8 +98,7 @@ switch ($page) {
             $pseudoPerson = $_SESSION['pseudoPerson'];
             echo $twig->render('adminManageArticles.twig',
                 [   'isConnected' => $isConnected,
-                    'messageConnection' => "<p>Vous êtes connecté en tant que $pseudoPerson</p>",
-                    'lienDeconnexion' => "<p><a href=\"index.php?page=deconnexion\">Se déconnecter</a></p>"
+                    'messageConnection' => "<p>Vous êtes connecté en tant que $pseudoPerson</p>"
                 ]);
         } else {
             echo $twig->render('403.twig');
@@ -112,7 +109,6 @@ switch ($page) {
         echo $twig->render('adminValidComments.twig',
             [   'isConnected' => $isConnected,
                 'messageConnection' => "<p>Vous êtes connecté en tant que $pseudoPerson</p>",
-                'lienDeconnexion' => "<p><a href=\"index.php?page=deconnexion\">Se déconnecter</a></p>"
             ]);
         break;
     case 'deconnexion':
