@@ -50,7 +50,7 @@ class MemberController {
                 $passwordIsCorrect = password_verify($password, $passwordPerson);
                 if ($passwordIsCorrect) {
                     $_SESSION['pseudoPerson'] = $pseudoPerson;
-                    header('Location: index.php?page=home');
+                    header('Location: index.php?page=adminHome');
                 } else {
                     $messageConnection = "<p class='alert alert-danger'>L'identifiant et/ou le mot de passe ne sont pas valides.</p>";
                     return $messageConnection;

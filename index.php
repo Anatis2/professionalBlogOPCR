@@ -21,12 +21,14 @@ use ClaireC\src\model\Comment;
 use ClaireC\src\model\Member;
 
 session_start();
-if(!empty($_SESSION)) {
-    $isConnected = true;
-    $pseudoPerson = $_SESSION['pseudoPerson'];
-} else {
-    $isConnected = false;
+$pseudoPerson = "";
+
+function verifyConnection() {
+#    return ! empty($_SESSION);
+     return empty($_SESSION) ? false : true;
 }
+$isConnected = verifyConnection();
+
 
 // instanciation of our classes
 $articleController = new ArticleController();
@@ -46,25 +48,12 @@ if(isset($_GET['numPage'])) {
 }
 
 switch ($page) {
+    // Users
     case 'home':
-        if($isConnected) {
-            echo $twig->render('home.twig',
-                ['messageConnection' => "<p class='alert alert-success'>Vous êtes connecté en tant que $pseudoPerson</p>",
-                    'lienDeconnexion' => "<a href=\"index.php?page=deconnexion\">Se déconnecter</a>"
-                ]);
-        } else {
-            echo $twig->render('home.twig');
-        }
+        echo $twig->render('home.twig');
         break;
     case 'contact':
-        if($isConnected) {
-            echo $twig->render('contact.twig',
-                ['messageConnection' => "<p class='alert alert-success'>Vous êtes connecté en tant que $pseudoPerson</p>",
-                    'lienDeconnexion' => "<a href=\"index.php?page=deconnexion\">Se déconnecter</a>"
-                ]);
-        } else {
-            echo $twig->render('contact.twig');
-        }
+        echo $twig->render('contact.twig');
         break;
     case 'blog':
         $articleController->listArticles();
@@ -72,30 +61,58 @@ switch ($page) {
     case 'article':
         $articleController->getArticle();
         break;
-    case 'addArticle':
+    case 'inscription':
+            $memberController->createMember();
+        break;
+    case 'connexion':
+        echo $twig->render('connection.twig',
+            [ 'messageConnection' => $memberController->connectMember()
+            ]);
+        break;
+    // Admin
+    case 'adminHome':
         if($isConnected) {
-            echo $twig->render('blogFormAddArticle.twig',
-                ['msgAddArticle' => $articleController->addArticle(),
-                    'messageConnection' => "<p class='alert alert-success'>Vous êtes connecté en tant que $pseudoPerson</p>",
-                    'lienDeconnexion' => "<a href=\"index.php?page=deconnexion\">Se déconnecter</a>"
+            $pseudoPerson = $_SESSION['pseudoPerson'];
+            echo $twig->render('adminHome.twig',
+                [   'isConnected' => $isConnected,
+                    'messageConnection' => "<p>Vous êtes connecté en tant que $pseudoPerson</p>",
+                    'lienDeconnexion' => "<p><a href=\"index.php?page=deconnexion\">Se déconnecter</a></p>"
                 ]);
         } else {
             echo $twig->render('403.twig');
         }
         break;
-    case 'inscription':
+    case 'addArticle':
         if($isConnected) {
-            echo $twig->render('403Inscription.twig',
-                ['messageConnection' => "<p class='alert alert-success'>Vous êtes connecté en tant que $pseudoPerson</p>",
-                    'lienDeconnexion' => "<a href=\"index.php?page=deconnexion\">Se déconnecter</a>"
+            $pseudoPerson = $_SESSION['pseudoPerson'];
+            echo $twig->render('adminAddArticle.twig',
+                [   'isConnected' => $isConnected,
+                    'messageConnection' => "<p>Vous êtes connecté en tant que $pseudoPerson</p>",
+                    'lienDeconnexion' => "<p><a href=\"index.php?page=deconnexion\">Se déconnecter</a></p>",
+                    'msgAddArticle' => $articleController->addArticle()
                 ]);
         } else {
-            $memberController->createMember();
+            echo $twig->render('403.twig');
         }
         break;
-    case 'connexion':
-        echo $twig->render('connection.twig',
-            [ 'messageConnection' => $memberController->connectMember()
+    case 'manageArticle':
+        if($isConnected) {
+            $pseudoPerson = $_SESSION['pseudoPerson'];
+            echo $twig->render('adminManageArticles.twig',
+                [   'isConnected' => $isConnected,
+                    'messageConnection' => "<p>Vous êtes connecté en tant que $pseudoPerson</p>",
+                    'lienDeconnexion' => "<p><a href=\"index.php?page=deconnexion\">Se déconnecter</a></p>"
+                ]);
+        } else {
+            echo $twig->render('403.twig');
+        }
+        break;
+    case 'validComments':
+        $pseudoPerson = $_SESSION['pseudoPerson'];
+        echo $twig->render('adminValidComments.twig',
+            [   'isConnected' => $isConnected,
+                'messageConnection' => "<p>Vous êtes connecté en tant que $pseudoPerson</p>",
+                'lienDeconnexion' => "<p><a href=\"index.php?page=deconnexion\">Se déconnecter</a></p>"
             ]);
         break;
     case 'deconnexion':

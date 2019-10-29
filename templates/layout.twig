@@ -13,6 +13,7 @@
 
     <body id="page-top">
 
+    {% if not isConnected %}
         <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
             <a class="navbar-brand js-scroll-trigger" href="index.php?page=home">Blog professionnel</a>
             <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,11 +36,39 @@
             <a class="btn btn-primary" href="index.php?page=inscription">S'inscrire</a>
             <a class="btn btn-primary" href="index.php?page=connexion">Se connecter</a>
         </nav>
+    {% else %}
+        <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+            <a class="navbar-brand js-scroll-trigger" href="index.php?page=home">Blog professionnel</a>
+            <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item mx-0 mx-lg-1">
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="index.php?page=adminHome">Accueil</a>
+                    </li>
+                    <li class="nav-item mx-0 mx-lg-1">
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="index.php?page=addArticle">Ajouter un article</a>
+                    </li>
+                    <li class="nav-item mx-0 mx-lg-1">
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="index.php?page=manageArticle">Administrer les article</a>
+                    </li>
+                    <li class="nav-item mx-0 mx-lg-1">
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="index.php?page=validComments">Administrer les commentaires</a>
+                    </li>
+                </ul>
+            </div>
+            <a class="btn btn-primary" href="index.php?page=deconnexion">Se déconnecter</a>
+        </nav>
+    {% endif %}
 
 
         <section class="container">
             <div class="row">
-                {% block aside %}{% endblock %}
+                {% if isConnected %}
+                    {% block aside %}{% endblock %}
+                {% endif %}
                 {% block content %}{% endblock %}
             </div>
         </section>
