@@ -14,5 +14,40 @@
 {% block content %}
     <section class="content col-9">
         <h1>Commentaires en attente</h1>
+
+        {% if not commentsToValidate %}
+
+            <p>Il n'y a actuellement aucun commentaire à valider.</p>
+
+        {% else %}
+
+        <table class="tableCommentsAdministration">
+            <tr>
+                <th>Titre de l'article</th>
+                <th>Commentaire</th>
+                <th>Date du commentaire</th>
+                <th>Auteur du commentaire</th>
+                <th>Statut de validation</th>
+                <th>Action</th>
+            </tr>
+                {% for commentToValidate in commentsToValidate %}
+                    <tr>
+                        <td>{{ commentToValidate.titleArticle }}</td>
+                        <td>{{ commentToValidate.contentComment }}</td>
+                        <td>{{ commentToValidate.dateComment }}</td>
+                        <td>{{ commentToValidate.authorComment }}</td>
+                        <td>{{ commentToValidate.validate }}</td>
+                        <td>
+                            <a href="index.php?page=manageComments&idCommentToValidate={{ commentToValidate.idComment }}">Valider</a>
+                            <a href="index.php?page=manageComments&idCommentToRefuse={{ commentToValidate.idComment }}">Refuser</a>
+                        </td>
+                    </tr>
+
+                {% endfor %}
+
+        </table>
+
+        {% endif %}
+
     </section>
 {% endblock %}

@@ -113,7 +113,7 @@ class ArticleController {
                 }
                 $Return = getCaptcha($_POST['g-recaptcha-response']);
                 if(($Return->success==true)&&($Return->score > 0.5)) {
-                    $msgNewComment = "<p class='alert alert-success'>Votre commentaire a bien été enregistré.</p>";
+                    $msgNewComment = "<p class='alert alert-success'>Votre commentaire a bien été enregistré et est en attente de modération.</p>";
                     $commentController->addComment();
                 } else {
                     $msgNewComment = "<p class='alert alert-danger'>Votre commentaire n'a pas été enregistré car nous pensons qu'il s'agit d'un spam.</p>";

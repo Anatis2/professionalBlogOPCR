@@ -7,10 +7,11 @@ use ClaireC\src\DAO\Manager;
 class CommentManager extends Manager {
 
     public function listComments() {
-        $sql = 'SELECT *
+        $sql = "SELECT *
                 FROM comment 
                 WHERE article_idArticle  = :idArticle
-                ORDER BY dateComment DESC';
+                AND comment.validate = 'Validé'
+                ORDER BY dateComment DESC";
         return $this->createQuery($sql, array('idArticle' => $_GET['idArticle']));
     }
     
@@ -21,6 +22,24 @@ class CommentManager extends Manager {
                                               'comment' => $comment,
                                               'idArticle' => $idArticle
                                               ));
+    }
+
+    public function listCommentsToValidate() {
+        $sql = "SELECT titleArticle, idComment, contentComment, dateComment, authorComment, validate
+                    FROM comment
+                    JOIN article ON article_idArticle = idArticle
+                    WHERE validate = 'En attente'";
+        return $this->createQuery($sql);
+    }
+
+    public function validateComment($idComment) {
+        $sql = "UPDATE comment SET validate='Validé' WHERE idComment = :idComment";
+        return $this->createQuery($sql, array('idComment' => $idComment));
+    }
+
+    public function refuseComment($idComment) {
+        $sql = "UPDATE comment SET validate='Refusé' WHERE idComment = :idComment";
+        return $this->createQuery($sql, array('idComment' => $idComment));
     }
 
 

@@ -71,6 +71,13 @@ h3 {
     margin-top: 2%; }
   .container .content .notification {
     margin-top: 2%; }
+  .container .content .tableCommentsAdministration {
+    border-collapse: collapse; }
+    .container .content .tableCommentsAdministration th {
+      text-align: center; }
+    .container .content .tableCommentsAdministration th, .container .content .tableCommentsAdministration td {
+      border: 1px solid black;
+      padding: 5px; }
 
 @media screen and (max-width: 605px) {
   .container {

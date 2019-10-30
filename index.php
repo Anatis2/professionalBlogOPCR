@@ -24,7 +24,6 @@ session_start();
 $pseudoPerson = "";
 
 function verifyConnection() {
-#    return ! empty($_SESSION);
      return empty($_SESSION) ? false : true;
 }
 $isConnected = verifyConnection();
@@ -93,7 +92,7 @@ switch ($page) {
             echo $twig->render('403.twig');
         }
         break;
-    case 'manageArticle':
+    case 'manageArticles':
         if($isConnected) {
             $pseudoPerson = $_SESSION['pseudoPerson'];
             echo $twig->render('adminManageArticles.twig',
@@ -104,11 +103,12 @@ switch ($page) {
             echo $twig->render('403.twig');
         }
         break;
-    case 'validComments':
+    case 'manageComments':
         $pseudoPerson = $_SESSION['pseudoPerson'];
         echo $twig->render('adminValidComments.twig',
             [   'isConnected' => $isConnected,
                 'messageConnection' => "<p>Vous êtes connecté en tant que $pseudoPerson</p>",
+                'commentsToValidate' => $commentController->listCommentsToValidate()
             ]);
         break;
     case 'deconnexion':

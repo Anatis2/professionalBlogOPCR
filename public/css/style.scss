@@ -110,6 +110,16 @@ h3 {
 		.notification {
 			margin-top: 2%;
 		}
+		.tableCommentsAdministration {
+			border-collapse: collapse;
+			th {
+				text-align: center;
+			}
+			th, td {
+				border: 1px solid black;
+				padding: 5px;
+			}
+		}
 	}
 }
 

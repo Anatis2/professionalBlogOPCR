@@ -21,4 +21,22 @@ class CommentController {
         }
     }
 
+    public function listCommentsToValidate() {
+        $commentManager = new CommentManager();
+
+        if(isset($_GET['idCommentToValidate'])) {
+            $idComment = $_GET['idCommentToValidate'];
+            header('Location: index.php?page=manageComments');
+            return $commentManager->validateComment($idComment);
+        }
+        if(isset($_GET['idCommentToRefuse'])) {
+            $idComment = $_GET['idCommentToRefuse'];
+            header('Location: index.php?page=manageComments');
+            return $commentManager->refuseComment($idComment);
+        }
+        $commentsToValidate = $commentManager->listCommentsToValidate()->fetchAll();
+        return $commentsToValidate;
+
+    }
+
 }
