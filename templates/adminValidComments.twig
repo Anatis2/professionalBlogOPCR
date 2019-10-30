@@ -15,6 +15,29 @@
     <section class="content col-9">
         <h1>Commentaires en attente</h1>
 
+        <p>Filtrer les commentaires :</p>
+        <form method="post">
+            <label>par statut</label>
+            <select name="statute">
+                <option disabled>statut</option>
+                <option name="Tous">Tous</option>
+                <option name="En attente">En attente</option>
+                <option name="Validé">Validé</option>
+                <option name="Refusé">Refusé</option>
+            </select>
+            <input type="submit" />
+        </form>
+        <form method="post">
+            <label>par auteur</label>
+            <select name="author">
+                <option disabled selected>auteur</option>
+                {% for authorComment in authorsComments %}
+                    <option name="{{ authorComment.authorComment }}">{{ authorComment.authorComment }}</option>
+                {% endfor %}
+            </select>
+            <input type="submit" />
+        </form>
+
         {% if not commentsToValidate %}
 
             <p>Il n'y a actuellement aucun commentaire à valider.</p>

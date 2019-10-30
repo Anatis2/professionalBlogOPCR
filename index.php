@@ -108,7 +108,8 @@ switch ($page) {
         echo $twig->render('adminValidComments.twig',
             [   'isConnected' => $isConnected,
                 'messageConnection' => "<p>Vous êtes connecté en tant que $pseudoPerson</p>",
-                'commentsToValidate' => $commentController->listCommentsToValidate()
+                'commentsToValidate' => $commentController->listCommentsToValidate(),
+                'authorsComments' => $commentController->getAuthorsComments()
             ]);
         break;
     case 'deconnexion':

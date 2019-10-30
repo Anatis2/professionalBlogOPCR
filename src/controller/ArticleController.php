@@ -120,7 +120,7 @@ class ArticleController {
                 }
             }
             $article = $articleManager->getArticle()->fetchAll();
-            $comments = $commentController->listComments();
+            $comments = $commentController->listCommentsById();
             if((!empty($article)&&(empty($comments)))) {
                 $msgComments = "Il n'y a pas de commentaire associé à cet article.";
             }

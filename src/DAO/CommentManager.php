@@ -6,7 +6,7 @@ use ClaireC\src\DAO\Manager;
 
 class CommentManager extends Manager {
 
-    public function listComments() {
+    public function listCommentsById() {
         $sql = "SELECT *
                 FROM comment 
                 WHERE article_idArticle  = :idArticle
@@ -40,6 +40,35 @@ class CommentManager extends Manager {
     public function refuseComment($idComment) {
         $sql = "UPDATE comment SET validate='Refusé' WHERE idComment = :idComment";
         return $this->createQuery($sql, array('idComment' => $idComment));
+    }
+
+    public function getAuthorsComments(){
+        $sql = "SELECT DISTINCT authorComment
+                    FROM comment";
+        return $this->createQuery($sql);
+    }
+
+    public function filterCommentsByStatute($statute) {
+        $sql = "SELECT titleArticle, idComment, contentComment, dateComment, authorComment, validate
+                    FROM comment
+                    JOIN article ON article_idArticle = idArticle
+                    WHERE validate = :statute";
+        return $this->createQuery($sql, array('statute' => $statute));
+    }
+
+    public function filterCommentsByAuthor($author) {
+        $sql = "SELECT titleArticle, idComment, contentComment, dateComment, authorComment, validate
+                    FROM comment
+                    JOIN article ON article_idArticle = idArticle
+                    WHERE authorComment = :authorComment";
+        return $this->createQuery($sql, array('authorComment' => $author));
+    }
+
+    public function listComments() {
+        $sql = "SELECT titleArticle, idComment, contentComment, dateComment, authorComment, validate
+                    FROM comment
+                    JOIN article ON article_idArticle = idArticle";
+        return $this->createQuery($sql);
     }
 
 

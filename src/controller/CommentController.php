@@ -4,9 +4,9 @@ require_once('src/DAO/CommentManager.php');
 
 class CommentController {
 
-    public function listComments() {
+    public function listCommentsById() {
         $commentManager = new CommentManager();
-        $comments = $commentManager->listComments();
+        $comments = $commentManager->listCommentsById();
         return $comments->fetchAll();
     }
     
@@ -34,9 +34,29 @@ class CommentController {
             header('Location: index.php?page=manageComments');
             return $commentManager->refuseComment($idComment);
         }
+        if(isset($_POST['author'])) {
+            $author = $_POST['author'];
+            return $commentManager->filterCommentsByAuthor($author);
+        }
+        if(isset($_POST['statute'])) {
+            $statute = $_POST['statute'];
+            if($statute === "Tous") {
+                return $commentManager->listComments();
+            } else {
+                return $commentManager->filterCommentsByStatute($statute);
+            }
+
+        }
+
         $commentsToValidate = $commentManager->listCommentsToValidate()->fetchAll();
         return $commentsToValidate;
 
+    }
+
+    public function getAuthorsComments() {
+        $commentManager = new CommentManager();
+        $authorsComments = $commentManager->getAuthorsComments()->fetchAll();
+        return $authorsComments;
     }
 
 }
