@@ -2,15 +2,7 @@
 
 require_once('src/DAO/MemberManager.php');
 
-class MemberController {
-
-    public function __construct() {
-        // Initilisation to use Twig
-        $loader = new Twig_Loader_Filesystem('templates');
-        $this->twig = new Twig_Environment($loader, [
-            'cache' => false, // __DIR__ . '/tmp'
-        ]);
-    }
+class MemberController extends \ClaireC\controller\controller {
 
     public function createMember() {
         $memberManager = new MemberManager();
@@ -61,5 +53,19 @@ class MemberController {
             }
         }
     }
+
+    public function getPageAdminHome() {
+        $isConnected = parent::verifyConnection();
+        if($isConnected) {
+            $pseudoPerson = $_SESSION['pseudoPerson'];
+            echo $this->twig->render('adminHome.twig',
+                [   'isConnected' => $isConnected,
+                    'messageConnection' => "<p>Vous êtes connecté en tant que $pseudoPerson</p>",
+                ]);
+        } else {
+            echo $this->twig->render('403.twig');
+        }
+    }
+
 
 }

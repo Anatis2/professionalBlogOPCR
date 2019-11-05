@@ -2,7 +2,7 @@
 
 require_once('src/DAO/CommentManager.php');
 
-class CommentController {
+class CommentController extends \ClaireC\controller\controller {
 
     public function listCommentsById() {
         $commentManager = new CommentManager();
@@ -57,6 +57,21 @@ class CommentController {
         $commentManager = new CommentManager();
         $authorsComments = $commentManager->getAuthorsComments()->fetchAll();
         return $authorsComments;
+    }
+
+    public function getPageManageComments() {
+        $isConnected = parent::verifyConnection();
+        if($isConnected) {
+            $pseudoPerson = $_SESSION['pseudoPerson'];
+            echo $this->twig->render('adminValidComments.twig',
+                ['isConnected' => $isConnected,
+                    'messageConnection' => "<p>Vous êtes connecté en tant que $pseudoPerson</p>",
+                    'commentsToValidate' => $this->listCommentsToValidate(),
+                    'authorsComments' => $this->getAuthorsComments()
+                ]);
+        } else {
+            echo $this->twig->render('403.twig');
+        }
     }
 
 }

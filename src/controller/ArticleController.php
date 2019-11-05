@@ -10,15 +10,7 @@ require_once('src/DAO/ArticleManager.php');
 //require_once('src/controller/CommentController.php');
 
 
-class ArticleController {
-
-    public function __construct() {
-        // Initilisation to use Twig
-        $loader = new Twig_Loader_Filesystem('templates');
-        $this->twig = new Twig_Environment($loader, [
-            'cache' => false, // __DIR__ . '/tmp'
-        ]);
-    }
+class ArticleController extends \ClaireC\controller\controller {
 
     public function listArticles() {
         $articleManager = new ArticleManager();
@@ -98,7 +90,6 @@ class ArticleController {
     }
 
 
-
     public function getArticle() {
         $articleManager = new ArticleManager();
         $commentController = new CommentController();
@@ -151,7 +142,37 @@ class ArticleController {
             }
             return $msgAddArticle;
         }
+
     }
+
+    public function getPageAdminAddArticle() {
+        $isConnected = parent::verifyConnection();
+        if($isConnected) {
+            $pseudoPerson = $_SESSION['pseudoPerson'];
+            echo $this->twig->render('adminAddArticle.twig',
+                [   'isConnected' => $isConnected,
+                    'messageConnection' => "<p>Vous êtes connecté en tant que $pseudoPerson</p>",
+                    'msgAddArticle' => $this->addArticle()
+                ]);
+        } else {
+            echo $this->twig->render('403.twig');
+        }
+    }
+
+    public function getPageManageArticle() {
+        $isConnected = parent::verifyConnection();
+        if($isConnected) {
+            $pseudoPerson = $_SESSION['pseudoPerson'];
+            echo $this->twig->render('adminManageArticles.twig',
+                [   'isConnected' => $isConnected,
+                    'messageConnection' => "<p>Vous êtes connecté en tant que $pseudoPerson</p>"
+                ]);
+        } else {
+            echo $this->twig->render('403.twig');
+        }
+    }
+
+
 
 }
 

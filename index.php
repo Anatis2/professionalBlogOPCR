@@ -23,17 +23,10 @@ use ClaireC\src\model\Member;
 session_start();
 $pseudoPerson = "";
 
-function verifyConnection() {
-     return empty($_SESSION) ? false : true;
-}
-$isConnected = verifyConnection();
-
-
 // instanciation of our classes
 $articleController = new ArticleController();
 $commentController = new CommentController();
 $memberController = new MemberController();
-
 
 // Routing
 $page = "home";
@@ -70,47 +63,16 @@ switch ($page) {
         break;
     // Admin
     case 'adminHome':
-        if($isConnected) {
-            $pseudoPerson = $_SESSION['pseudoPerson'];
-            echo $twig->render('adminHome.twig',
-                [   'isConnected' => $isConnected,
-                    'messageConnection' => "<p>Vous êtes connecté en tant que $pseudoPerson</p>",
-                ]);
-        } else {
-            echo $twig->render('403.twig');
-        }
+        $memberController->getPageAdminHome();
         break;
     case 'addArticle':
-        if($isConnected) {
-            $pseudoPerson = $_SESSION['pseudoPerson'];
-            echo $twig->render('adminAddArticle.twig',
-                [   'isConnected' => $isConnected,
-                    'messageConnection' => "<p>Vous êtes connecté en tant que $pseudoPerson</p>",
-                    'msgAddArticle' => $articleController->addArticle()
-                ]);
-        } else {
-            echo $twig->render('403.twig');
-        }
+        $articleController->getPageAdminAddArticle();
         break;
     case 'manageArticles':
-        if($isConnected) {
-            $pseudoPerson = $_SESSION['pseudoPerson'];
-            echo $twig->render('adminManageArticles.twig',
-                [   'isConnected' => $isConnected,
-                    'messageConnection' => "<p>Vous êtes connecté en tant que $pseudoPerson</p>"
-                ]);
-        } else {
-            echo $twig->render('403.twig');
-        }
+        $articleController->getPageManageArticle();
         break;
     case 'manageComments':
-        $pseudoPerson = $_SESSION['pseudoPerson'];
-        echo $twig->render('adminValidComments.twig',
-            [   'isConnected' => $isConnected,
-                'messageConnection' => "<p>Vous êtes connecté en tant que $pseudoPerson</p>",
-                'commentsToValidate' => $commentController->listCommentsToValidate(),
-                'authorsComments' => $commentController->getAuthorsComments()
-            ]);
+        $commentController->getPageManageComments();
         break;
     case 'deconnexion':
         header('Location: index.php?page=home');
