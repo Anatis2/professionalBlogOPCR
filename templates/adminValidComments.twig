@@ -25,9 +25,6 @@
                 <option name="Validé">Validé</option>
                 <option name="Refusé">Refusé</option>
             </select>
-            <input type="submit" />
-        </form>
-        <form method="post">
             <label>par auteur</label>
             <select name="author">
                 <option disabled selected>auteur</option>
@@ -44,7 +41,7 @@
 
         {% else %}
 
-        <table class="tableCommentsAdministration">
+        <table class="tableCommentsAdministration" id="myTable">
             <tr>
                 <th>Titre de l'article</th>
                 <th>Commentaire</th>
@@ -71,6 +68,15 @@
         </table>
 
         {% endif %}
+
+        {% block script %}
+        <!-- TODO : use library datatables (https://www.datatables.net/)
+        <script>
+            $(document).ready( function () {
+                $('#myTable').DataTable();
+            } );
+        </script>-->
+        {% endblock %}
 
     </section>
 {% endblock %}

@@ -7,6 +7,7 @@
     "require": {
         "twig/twig": "^1.0",
         "swiftmailer/swiftmailer": "^6.0",
-        "pagerfanta/pagerfanta": "^2.1"
+        "pagerfanta/pagerfanta": "^2.1",
+        "datatables/datatables": "^1.10"
     }
 }
