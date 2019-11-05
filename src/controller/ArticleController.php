@@ -96,7 +96,7 @@ class ArticleController extends \ClaireC\controller\controller {
         $msgComments = "";
         $msgNewComment = "";
         if((isset($_GET['idArticle']) && ($_GET['idArticle']) > 0)) {
-            if((isset($_POST['pseudo'])) && (isset($_POST['comment']))) {
+            if((isset($_POST['pseudo'])) && (isset($_POST['comment'])) && (!empty($_POST['pseudo'])) && (!empty($_POST['comment']))) {
                 function getCaptcha($secretKey) {
                     $Response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=6LfA2b4UAAAAALrGE9pFN7-kXFO_A5zIrwKVAQ5R&response={$secretKey}");
                     $Return = json_decode($Response);
@@ -109,6 +109,8 @@ class ArticleController extends \ClaireC\controller\controller {
                 } else {
                     $msgNewComment = "<p class='alert alert-danger'>Votre commentaire n'a pas été enregistré car nous pensons qu'il s'agit d'un spam.</p>";
                 }
+            } else {
+                $msgNewComment = "<p class='alert alert-danger'>Veuillez remplir tous les champs</p>";
             }
             $article = $articleManager->getArticle()->fetchAll();
             $comments = $commentController->listCommentsById();

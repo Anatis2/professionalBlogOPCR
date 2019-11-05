@@ -9,10 +9,6 @@ use Twig_Loader_Filesystem;
 
 class controller {
 
-    public function verifyConnection() {
-        return empty($_SESSION) ? false : true;
-    }
-
     public function __construct() {
         // Initilisation to use Twig
         $loader = new Twig_Loader_Filesystem('templates');
@@ -20,5 +16,16 @@ class controller {
             'cache' => false, // __DIR__ . '/tmp'
         ]);
     }
+
+    public function verifyConnection() {
+        $isConnected = empty($_SESSION) ? false : true;
+        return $isConnected;
+    }
+
+    public function getSessionInformations() {
+
+    }
+
+
 
 }

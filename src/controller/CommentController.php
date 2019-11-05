@@ -12,7 +12,7 @@ class CommentController extends \ClaireC\controller\controller {
     
     public function addComment() {
         $commentManager = new CommentManager(); 
-        if((isset($_POST['pseudo'])) && (isset($_POST['comment']))) {
+        if((isset($_POST['pseudo'])) && (isset($_POST['comment'])) && (!empty($_POST['pseudo'])) && (!empty($_POST['comment']))) {
             $pseudo = htmlspecialchars($_POST['pseudo']);
             $comment = htmlspecialchars($_POST['comment']);
             $idArticle = htmlspecialchars($_GET['idArticle']);
