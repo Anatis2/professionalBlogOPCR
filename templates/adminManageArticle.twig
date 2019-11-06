@@ -1,0 +1,39 @@
+{% extends 'layout.twig' %}
+
+
+{% block head %}
+    <title>Administrer des articles</title>
+{% endblock %}
+
+{% block aside %}
+    <section class="content col-3">
+        {{ messageConnection | raw }}
+    </section>
+{% endblock %}
+
+{% block content %}
+    <section class="content col-9">
+        <h1>Administration des articles</h1>
+        {% if articles %}
+            <div class="articles">
+
+                {% for article in articles %}
+                    <article class="idArticle">
+                        <h3 class="titleArticle">{{ article.titleArticle }}</h3>
+                        <p class="subtitleArticle"><strong>{{ article.subtitleArticle | nl2br }}</strong></p>
+                        <p class="dateCreationArticle"><em>Publié le {{ article.dateCreationArticle }} par {{ article.pseudoPerson }}</em></p>
+                        <a class="btn btn-info" href="">Modifier l'article</a>
+                        <p class="contentArticle">{{ article.contentArticle | nl2br }}</p>
+                    </article>
+                {% endfor %}
+
+            </div>
+
+        {% endif %}
+
+
+        {% if not articles %}
+            <p>Il n'y a pas d'article associé à cet ID</p>
+        {% endif %}
+    </section>
+{% endblock %}

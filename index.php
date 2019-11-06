@@ -69,7 +69,10 @@ switch ($page) {
         $articleController->getPageAdminAddArticle();
         break;
     case 'manageArticles':
-        $articleController->getPageManageArticle();
+        $articleController->pagesManager();
+        break;
+    case 'manageArticle':
+        $articleController->getArticle();
         break;
     case 'manageComments':
         $commentController->getPageManageComments();
