@@ -212,7 +212,7 @@ class ArticleController extends \ClaireC\controller\Controller {
             $titleArticle = htmlspecialchars($_POST['titleArticle']);
             $subtitleArticle = htmlspecialchars($_POST['titleArticle']);
             $contentArticle = htmlspecialchars($_POST['contentArticle']);
-            $person_idPerson = 1;
+            $person_idPerson = $_SESSION['idPerson'];
             $articleIsAdded = $articleManager->addArticle($titleArticle, $subtitleArticle, $contentArticle, $person_idPerson);
             if ($articleIsAdded) {
                 $msgAddArticle = "<p class='alert alert-success'>Votre article a bien été ajouté</p>";

@@ -1,0 +1,25 @@
+{% extends 'layout.twig' %}
+
+
+{% block head %}
+    <title>Mon profil</title>
+{% endblock %}
+
+{% block aside %}
+    <section class="content col-3">
+        {{ messageConnection | raw }}
+        <a href="" class="btn btn-info">Modifier mon profil</a>
+    </section>
+{% endblock %}
+
+{% block content %}
+    <section class="content col-9">
+        <h1>Mon profil</h1>
+        <p>Nom : {{ surnamePerson }}</p>
+        <p>Prénom : {{ firstnamePerson }}</p>
+        <p>Pseudo : {{ pseudoPerson }}</p>
+        <p>Adresse mail : {{ emailPerson }}</p>
+        <p>Date d'enregistrement : {{ dateRegistrationPerson }}</p>
+        <p>Statut : {{ typePerson }}</p>
+    </section>
+{% endblock %}

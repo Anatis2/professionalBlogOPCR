@@ -65,6 +65,9 @@ switch ($page) {
     case 'adminHome':
         $memberController->getPageAdminHome();
         break;
+    case 'seeMyProfile':
+        $memberController->getMemberProfile();
+        break;
     case 'addArticle':
         $articleController->getPageAdminAddArticle();
         break;

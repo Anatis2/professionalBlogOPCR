@@ -37,11 +37,23 @@ class MemberController extends \ClaireC\controller\Controller {
             $password = htmlspecialchars(trim($_POST['password']));
             $connectedMember = $memberManager->connectMember($email);
             if(!empty($connectedMember)) {
+                $idPerson = $connectedMember[0]['idPerson'];
+                $surnamePerson = $connectedMember[0]['surnamePerson'];
+                $firstnamePerson = $connectedMember[0]['firstnamePerson'];
                 $pseudoPerson = $connectedMember[0]['pseudoPerson'];
+                $emailPerson = $connectedMember[0]['emailPerson'];
+                $dateRegistrationPerson = $connectedMember[0]['dateRegistrationPerson'];
+                $typePerson = $connectedMember[0]['typePerson'];
                 $passwordPerson = $connectedMember[0]['passwordPerson'];
                 $passwordIsCorrect = password_verify($password, $passwordPerson);
                 if ($passwordIsCorrect) {
+                    $_SESSION['idPerson'] = $idPerson;
+                    $_SESSION['surnamePerson'] = $surnamePerson;
+                    $_SESSION['firstnamePerson'] = $firstnamePerson;
                     $_SESSION['pseudoPerson'] = $pseudoPerson;
+                    $_SESSION['emailPerson'] = $emailPerson;
+                    $_SESSION['dateRegistrationPerson'] = $dateRegistrationPerson;
+                    $_SESSION['typePerson'] = $typePerson;
                     header('Location: index.php?page=adminHome');
                 } else {
                     $messageConnection = "<p class='alert alert-danger'>L'identifiant et/ou le mot de passe ne sont pas valides.</p>";
@@ -64,6 +76,32 @@ class MemberController extends \ClaireC\controller\Controller {
                 ]);
         } else {
             echo $this->twig->render('403.twig');
+        }
+    }
+
+
+    public function getMemberProfile() {
+        $isConnected = self::verifyConnection();
+        if($isConnected) {
+            $memberProfile = [
+                'idPerson' => $_SESSION['idPerson'],
+                'surnamePerson' => $_SESSION['surnamePerson'],
+                'firstnamePerson' => $_SESSION['firstnamePerson'],
+                'pseudoPerson' => $_SESSION['pseudoPerson'],
+                'emailPerson' => $_SESSION['emailPerson'],
+                'dateRegistrationPerson' => $_SESSION['dateRegistrationPerson'],
+                'typePerson' => $_SESSION['typePerson']
+            ];
+            echo $this->twig->render('adminSeeMyProfile.twig',
+                [   'isConnected' => $isConnected,
+                    'messageConnection' => "<p>Vous êtes connecté en tant que $memberProfile[pseudoPerson]</p>",
+                    'surnamePerson' => $memberProfile['surnamePerson'],
+                    'firstnamePerson' => $memberProfile['firstnamePerson'],
+                    'pseudoPerson' => $memberProfile['pseudoPerson'],
+                    'emailPerson' => $memberProfile['emailPerson'],
+                    'dateRegistrationPerson' => $memberProfile['dateRegistrationPerson'],
+                    'typePerson' => $memberProfile['typePerson']
+                ]);
         }
     }
 
