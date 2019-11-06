@@ -2,7 +2,7 @@
 
 require_once('src/DAO/MemberManager.php');
 
-class MemberController extends \ClaireC\controller\controller {
+class MemberController extends \ClaireC\controller\Controller {
 
     public function createMember() {
         $memberManager = new MemberManager();

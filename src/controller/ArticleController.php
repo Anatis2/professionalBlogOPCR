@@ -10,7 +10,7 @@ require_once('src/DAO/ArticleManager.php');
 //require_once('src/controller/CommentController.php');
 
 
-class ArticleController extends \ClaireC\controller\controller {
+class ArticleController extends \ClaireC\controller\Controller {
 
     public function listArticles() {
         $articleManager = new ArticleManager();

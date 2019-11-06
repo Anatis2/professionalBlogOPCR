@@ -2,7 +2,7 @@
 
 require_once('src/DAO/CommentManager.php');
 
-class CommentController extends \ClaireC\controller\controller {
+class CommentController extends \ClaireC\controller\Controller {
 
     public function listCommentsById() {
         $commentManager = new CommentManager();

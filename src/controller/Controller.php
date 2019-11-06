@@ -4,10 +4,11 @@
 namespace ClaireC\controller;
 
 
+use mysql_xdevapi\Exception;
 use Twig_Environment;
 use Twig_Loader_Filesystem;
 
-class controller {
+class Controller {
 
     public function __construct() {
         // Initilisation to use Twig
@@ -20,10 +21,6 @@ class controller {
     public function verifyConnection() {
         $isConnected = empty($_SESSION) ? false : true;
         return $isConnected;
-    }
-
-    public function getSessionInformations() {
-
     }
 
 
