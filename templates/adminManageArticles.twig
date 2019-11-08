@@ -21,7 +21,7 @@
                 <article class="article">
                     <h3 class="titleArticle"><a href="index.php?page=article&idArticle={{ article.idArticle }}">{{ article.titleArticle }}</a></h3>
                     <p class="subtitleArticle">{{ article.subtitleArticle | nl2br }}</p>
-                    <p class="dateCreationArticle"><em>Publié le {{ article.dateCreationArticle }} par {{ article.pseudoPerson }}</em></p>
+                    <p class="dateCreationArticle"><em>Publié le {{ article.dateArticle }} par {{ article.pseudoPerson }}</em></p>
                 </article>
 
             {% endfor %}

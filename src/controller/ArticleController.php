@@ -20,16 +20,15 @@ class ArticleController extends \ClaireC\controller\Controller {
 
     public function pagesManager() {
         $articles = $this->listArticles();
-        $adapter = new ArrayAdapter($articles);
-        $pagerfanta = new Pagerfanta($adapter);
         $isConnected = parent::verifyConnection();
 
+        // pagerFanta
+        $adapter = new ArrayAdapter($articles);
+        $pagerfanta = new Pagerfanta($adapter);
         $pagerfanta->setMaxPerPage(8); // set the max number of articles by page
         $maxPerPage = $pagerfanta->getMaxPerPage(); // get the max number of articles by page
-
         $nbResults = $pagerfanta->getNbResults(); // get the total number of articles in the db
         $nbPages = $pagerfanta->getNbPages(); // get the total number of pages (consider the maxPerPage)
-
         $currentPageResults = $pagerfanta->getCurrentPageResults(); // list the articles (consider the maxPerPage and the currentPage)
 
         if (isset($_GET['numPage'])) {
@@ -175,7 +174,6 @@ class ArticleController extends \ClaireC\controller\Controller {
                         $msgNewComment = "<p class='alert alert-danger'>Votre commentaire n'a pas été enregistré car nous pensons qu'il s'agit d'un spam.</p>";
                     }
                 }
-
             }
             $article = $articleManager->getArticle()->fetchAll();
             $comments = $commentController->listCommentsById();
@@ -221,7 +219,6 @@ class ArticleController extends \ClaireC\controller\Controller {
             }
             return $msgAddArticle;
         }
-
     }
 
     public function getPageAdminAddArticle() {

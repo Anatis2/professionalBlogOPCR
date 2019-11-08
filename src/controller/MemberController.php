@@ -83,24 +83,15 @@ class MemberController extends \ClaireC\controller\Controller {
     public function getMemberProfile() {
         $isConnected = self::verifyConnection();
         if($isConnected) {
-            $memberProfile = [
-                'idPerson' => $_SESSION['idPerson'],
-                'surnamePerson' => $_SESSION['surnamePerson'],
-                'firstnamePerson' => $_SESSION['firstnamePerson'],
-                'pseudoPerson' => $_SESSION['pseudoPerson'],
-                'emailPerson' => $_SESSION['emailPerson'],
-                'dateRegistrationPerson' => $_SESSION['dateRegistrationPerson'],
-                'typePerson' => $_SESSION['typePerson']
-            ];
             echo $this->twig->render('adminSeeMyProfile.twig',
                 [   'isConnected' => $isConnected,
-                    'messageConnection' => "<p>Vous êtes connecté en tant que $memberProfile[pseudoPerson]</p>",
-                    'surnamePerson' => $memberProfile['surnamePerson'],
-                    'firstnamePerson' => $memberProfile['firstnamePerson'],
-                    'pseudoPerson' => $memberProfile['pseudoPerson'],
-                    'emailPerson' => $memberProfile['emailPerson'],
-                    'dateRegistrationPerson' => $memberProfile['dateRegistrationPerson'],
-                    'typePerson' => $memberProfile['typePerson']
+                    'messageConnection' => "<p>Vous êtes connecté en tant que $_SESSION[pseudoPerson]</p>",
+                    'surnamePerson' => $_SESSION['surnamePerson'],
+                    'firstnamePerson' => $_SESSION['firstnamePerson'],
+                    'pseudoPerson' => $_SESSION['pseudoPerson'],
+                    'emailPerson' => $_SESSION['emailPerson'],
+                    'dateRegistrationPerson' => $_SESSION['dateRegistrationPerson'],
+                    'typePerson' => $_SESSION['typePerson']
                 ]);
         }
     }

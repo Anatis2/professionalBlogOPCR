@@ -11,7 +11,7 @@ class ArticleManager extends Manager {
     }
 
     public function listArticles() {
-        $sql = 'SELECT idArticle, titleArticle, subtitleArticle, contentArticle, DATE_FORMAT(dateCreationArticle, \'%d/%m/%Y à %Hh%imin%ss\') as dateCreationArticle,
+        $sql = 'SELECT idArticle, titleArticle, subtitleArticle, contentArticle, DATE_FORMAT(dateCreationArticle, \'%d/%m/%Y à %Hh%imin%ss\') as dateArticle,
                        pseudoPerson
                 FROM article 
                 JOIN person ON article.person_idPerson = person.idPerson
