@@ -6,12 +6,25 @@ h3 {
 	margin-top: 2%;
 }
 
+footer {
+	background-color: #6C757D;
+}
+
 .container {
 	.aside {
 		padding-left: 0px;
 	}
 	.content {
 		padding-top: 0px;
+		#photoMoi2 {
+			width: 100px;
+			margin-top: 20px;
+			border: 4px white solid;
+			border-radius: 100px;
+		}
+		#headerTextRight {
+			margin-top: 20px;
+		}
 		.articles {
 			display: flex;
 			flex-wrap: wrap;

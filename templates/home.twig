@@ -8,8 +8,59 @@
 
 {% block content %}
     <section class="content col-9">
-        <h1>Page d'accueil</h1>
+        <h1>Bienvenue sur la page d'accueil de mon blog professionnel !</h1>
         {{ messageCreateMember | raw }}
-        <p>Blabla de la page d'accueil</p>
+
+        <div class="row">
+
+            <div class="col-2" id="divPhotoMoi2">
+                <img src="public/img/moi2.jpg" alt="photo de Claire Coubard" id="photoMoi2" />
+            </div>
+
+            <div class="col-10" id="headerTextRight">
+                <p>
+                    <strong id="headerTextNom">Claire COUBARD</strong> <br/>
+                    <strong id="headerTextMetier">Développeuse PHP/Symfony</strong> <br/>
+                    <span id="headerTextEntreprise">En contrat de professionnalisation chez <strong>Téïcée</strong>.</span> <br/>
+                </p>
+            </div>
+        </div>
+
+        <hr/>
+
+        <div>
+            <p>
+                <em id="headerTextPresentation">
+                    Diplômée d’un titre professionnel de développeur logiciel, je continue à acquérir des compétences en développement web dans le cadre d’un contrat de professionnalisation. <br/>
+                    Autonome, je réalise une veille technologique permanente et possède par ailleurs de bonnes capacités rédactionnelles et relationnelles.
+                </em>
+            </p>
+
+        </div>
+
+        <div>
+            <p>Retrouvez mon CV <a href="https://www.slideshare.net/slideshow/embed_code/key/9oNAMQJQzvMv6k" target="_blank">ici</a></p>
+        </div>
     </section>
+{% endblock %}
+
+{% block footer %}
+    <footer class="footer text-center">
+        <div class="container">
+            <div class="row">
+
+                <!-- Footer Social Icons -->
+                <div class="col-lg-12 mb-5 mb-lg-0">
+                    <h4 class="text-uppercase mb-4">Retrouvez moi sur les réseaux sociaux</h4>
+                    <a class="btn btn-outline-light btn-social mx-1" href="https://www.linkedin.com/in/claire-coubard/" title="LinkedIn" target="_blank">
+                        <i class="fab fa-fw fa-linkedin-in"></i>
+                    </a>
+                    <a class="btn btn-outline-light btn-social mx-1" href="https://www.viadeo.com/p/00258bet27r6y96" title="Viadéo" target="_blank">
+                        <i class="fab fa-fw fa-linkedin-in"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </footer>
 {% endblock %}
