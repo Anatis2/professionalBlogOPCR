@@ -4,14 +4,14 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit3052167aafaf2ddb1196e3076c810570
+class ComposerStaticInit509e3682b1bef5ce59cd4b8f2b21db76
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '25072dd6e2470089de65ae7bf11d3109' => __DIR__ . '/..' . '/symfony/polyfill-php72/bootstrap.php',
-        '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         'f598d06aa772fa33d905e87be6398fb1' => __DIR__ . '/..' . '/symfony/polyfill-intl-idn/bootstrap.php',
         'def43f6c87e4f8dfd0c9e1b1bab14fe8' => __DIR__ . '/..' . '/symfony/polyfill-iconv/bootstrap.php',
+        '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
     );
 
@@ -102,9 +102,9 @@ class ComposerStaticInit3052167aafaf2ddb1196e3076c810570
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit3052167aafaf2ddb1196e3076c810570::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit3052167aafaf2ddb1196e3076c810570::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit3052167aafaf2ddb1196e3076c810570::$prefixesPsr0;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit509e3682b1bef5ce59cd4b8f2b21db76::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit509e3682b1bef5ce59cd4b8f2b21db76::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit509e3682b1bef5ce59cd4b8f2b21db76::$prefixesPsr0;
 
         }, null, ClassLoader::class);
     }
