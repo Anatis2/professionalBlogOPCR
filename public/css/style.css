@@ -4,13 +4,16 @@ h1 {
 h3 {
   margin-top: 2%; }
 
-footer {
-  background-color: #6C757D; }
+nav .btn-nav {
+  margin: 0.2%;
+  font-weight: 600; }
 
-.container .aside {
-  padding-left: 0px; }
-.container .content {
-  padding-top: 0px; }
+.container {
+  margin-top: 8%;
+  margin-bottom: 2%;
+  font-size: 1.1em; }
+  .container .aside {
+    padding-left: 0px; }
   .container .content #photoMoi2 {
     width: 100px;
     margin-top: 20px;
@@ -89,11 +92,51 @@ footer {
       border: 1px solid black;
       padding: 5px; }
 
-@media screen and (max-width: 605px) {
+.footer {
+  padding-top: 10px;
+  padding-bottom: 15px;
+  background-color: #2c3e50;
+  color: #fff; }
+
+@media screen and (max-width: 1400px) {
   .container {
-    margin-top: 30px; } }
-@media screen and (max-width: 386px) {
+    margin-top: 11%; } }
+@media screen and (max-width: 1010px) {
+  h1 {
+    font-size: 2em; }
+
+  h4 {
+    font-size: 1.3em; }
+
+  nav {
+    font-size: 1em; }
+    nav .btn-nav {
+      margin: 1px 1px;
+      font-size: 0.9em; } }
+@media screen and (max-width: 643px) {
   .container {
-    margin-top: 70px; } }
+    margin-top: 25%; } }
+@media screen and (max-width: 460px) {
+  .container {
+    margin-top: 31%; }
+    .container #divPhotoMoi2 #photoMoi2 {
+      width: 80px; } }
+@media screen and (max-width: 364px) {
+  h1 {
+    font-size: 1.4em; }
+
+  h4 {
+    font-size: 1.1em; }
+
+  nav {
+    font-size: 0.9em; }
+    nav .btn-nav {
+      margin: 15px 1px;
+      font-size: 0.8em; }
+
+  .container {
+    margin-top: 55%; }
+    .container #divPhotoMoi2 #photoMoi2 {
+      width: 60px; } }
 
 /*# sourceMappingURL=style.css.map */
