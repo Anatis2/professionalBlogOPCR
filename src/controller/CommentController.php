@@ -61,13 +61,15 @@ class CommentController extends \ClaireC\controller\Controller {
 
     public function getPageManageComments() {
         $isConnected = parent::verifyConnection();
-        if($isConnected) {
+        $isAdmin = parent::isAdmin();
+        if($isAdmin) {
             $pseudoPerson = $_SESSION['pseudoPerson'];
             echo $this->twig->render('adminValidComments.twig',
                 ['isConnected' => $isConnected,
                     'messageConnection' => "<p>Vous êtes connecté en tant que $pseudoPerson</p>",
                     'commentsToValidate' => $this->listCommentsToValidate(),
-                    'authorsComments' => $this->getAuthorsComments()
+                    'authorsComments' => $this->getAuthorsComments(),
+                    'isAdmin' => $isAdmin
                 ]);
         } else {
             echo $this->twig->render('403.twig');

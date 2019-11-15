@@ -40,12 +40,12 @@ if(isset($_GET['numPage'])) {
 }
 
 switch ($page) {
-    // Visitors
+    // Visitors && Members
     case 'home':
-        echo $twig->render('home.twig');
+        $articleController->getPageHome();
         break;
     case 'contact':
-        echo $twig->render('contact.twig');
+        $articleController->getPageContact();
         break;
     case 'blog':
         $articleController->pagesManager();
@@ -57,12 +57,8 @@ switch ($page) {
         $memberController->createMember();
         break;
     case 'connexion':
-        echo $twig->render('connection.twig',
-            [ 'messageConnection' => $memberController->connectMember()
-            ]);
+        $memberController->connectMember();
         break;
-    // Members
-    // TODO : only members can add comments
     // Admin
     case 'adminHome':
         $memberController->getPageAdminHome();

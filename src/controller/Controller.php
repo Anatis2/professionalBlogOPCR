@@ -23,4 +23,17 @@ class Controller {
         return $isConnected;
     }
 
+    public function isAdmin() {
+        $isConnected = self::verifyConnection();
+        if($isConnected) {
+            $typePerson = $_SESSION['typePerson'];
+            if($typePerson=='Admin') {
+                $isAdmin = true;
+            } else {
+                $isAdmin = false;
+            }
+            return $isAdmin;
+        }
+    }
+
 }

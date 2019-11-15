@@ -21,6 +21,7 @@ class ArticleController extends \ClaireC\controller\Controller {
     public function pagesManager() {
         $articles = $this->listArticles();
         $isConnected = parent::verifyConnection();
+        $isAdmin = parent::isAdmin();
 
         // pagerFanta
         $adapter = new ArrayAdapter($articles);
@@ -37,7 +38,7 @@ class ArticleController extends \ClaireC\controller\Controller {
                 $currentPage = $pagerfanta->getCurrentPage();
                 $currentPageResults = $pagerfanta->getCurrentPageResults(); // list the articles (consider the maxPerPage and the currentPage)
                 $nextPage = $pagerfanta->getNextPage();
-                if($isConnected){
+                if(($isAdmin)||($isConnected)) {
                     $pseudoPerson = $_SESSION['pseudoPerson'];
                     echo $this->twig->render('adminManageArticles.twig',
                         ['articles' => $currentPageResults,
@@ -46,7 +47,8 @@ class ArticleController extends \ClaireC\controller\Controller {
                             'textNextPage' => "Page suivante",
                             'nextPage' => $nextPage,
                             'isConnected' => $isConnected,
-                            'messageConnection' => "<p>Vous êtes connecté en tant que $pseudoPerson</p>"
+                            'messageConnection' => "<p>Vous êtes connecté en tant que $pseudoPerson</p>",
+                            'isAdmin' => $isAdmin
                         ]);
                 } else {
                     echo $this->twig->render('blogArticles.twig',
@@ -54,7 +56,8 @@ class ArticleController extends \ClaireC\controller\Controller {
                             'textPreviousPage' => "",
                             'currentPage' => $currentPage,
                             'textNextPage' => "Page suivante",
-                            'nextPage' => $nextPage
+                            'nextPage' => $nextPage,
+                            'isConnected' => $isConnected,
                         ]);
                 }
             } elseif ((($_GET['numPage']) > 1) && (($_GET['numPage']) < $nbPages)) {
@@ -63,7 +66,7 @@ class ArticleController extends \ClaireC\controller\Controller {
                 $currentPageResults = $pagerfanta->getCurrentPageResults(); // list the articles (consider the maxPerPage and the currentPage)
                 $nextPage = $pagerfanta->getNextPage();
                 $previousPage = $pagerfanta->getPreviousPage();
-                if($isConnected) {
+                if(($isAdmin)||($isConnected)) {
                     $pseudoPerson = $_SESSION['pseudoPerson'];
                     echo $this->twig->render('adminManageArticles.twig',
                         ['articles' => $currentPageResults,
@@ -73,7 +76,8 @@ class ArticleController extends \ClaireC\controller\Controller {
                             'textNextPage' => "Page suivante",
                             'nextPage' => $nextPage,
                             'isConnected' => $isConnected,
-                            'messageConnection' => "<p>Vous êtes connecté en tant que $pseudoPerson</p>"
+                            'messageConnection' => "<p>Vous êtes connecté en tant que $pseudoPerson</p>",
+                            'isAdmin' => $isAdmin
                         ]);
                 } else {
                     echo $this->twig->render('blogArticles.twig',
@@ -82,7 +86,8 @@ class ArticleController extends \ClaireC\controller\Controller {
                             'previousPage' => $previousPage,
                             'currentPage' => $currentPage,
                             'textNextPage' => "Page suivante",
-                            'nextPage' => $nextPage
+                            'nextPage' => $nextPage,
+                            'isConnected' => $isConnected,
                         ]);
                 }
             } elseif (($_GET['numPage']) == $nbPages) {
@@ -90,7 +95,7 @@ class ArticleController extends \ClaireC\controller\Controller {
                 $currentPage = $pagerfanta->getCurrentPage();
                 $currentPageResults = $pagerfanta->getCurrentPageResults(); // list the articles (consider the maxPerPage and the currentPage)
                 $previousPage = $pagerfanta->getPreviousPage();
-                if($isConnected) {
+                if(($isAdmin)||($isConnected)) {
                     $pseudoPerson = $_SESSION['pseudoPerson'];
                     echo $this->twig->render('adminManageArticles.twig',
                         ['articles' => $currentPageResults,
@@ -99,7 +104,8 @@ class ArticleController extends \ClaireC\controller\Controller {
                             'previousPage' => $previousPage,
                             'textNextPage' => "",
                             'isConnected' => $isConnected,
-                            'messageConnection' => "<p>Vous êtes connecté en tant que $pseudoPerson</p>"
+                            'messageConnection' => "<p>Vous êtes connecté en tant que $pseudoPerson</p>",
+                            'isAdmin' => $isAdmin
                         ]);
                 } else {
                     echo $this->twig->render('blogArticles.twig',
@@ -107,17 +113,20 @@ class ArticleController extends \ClaireC\controller\Controller {
                             'currentPage' => $currentPage,
                             'textPreviousPage' => "Page précédente",
                             'previousPage' => $previousPage,
-                            'textNextPage' => ""
+                            'textNextPage' => "",
+                            'isConnected' => $isConnected
                         ]);
                 }
             } else {
-                if($isConnected) {
+                if($isAdmin) {
                     echo $this->twig->render('adminManageArticles.twig',
-                        ['messageArticles' => "<div class='articles'><p>Cette page n'existe pas...</p></div>"
+                        ['messageArticles' => "<div class='articles'><p>Cette page n'existe pas...</p></div>",
+                            'isAdmin' => $isAdmin
                         ]);
                 } else {
                     echo $this->twig->render('blogArticles.twig',
-                        ['messageArticles' => "<div class='articles'><p>Cette page n'existe pas...</p></div>"
+                        ['messageArticles' => "<div class='articles'><p>Cette page n'existe pas...</p></div>",
+                            'isConnected' => $isConnected
                         ]);
                 }
             }
@@ -125,7 +134,7 @@ class ArticleController extends \ClaireC\controller\Controller {
             $pagerfanta->setCurrentPage(1);
             $currentPage = $pagerfanta->getCurrentPage();
             $nextPage = $pagerfanta->getNextPage();
-            if($isConnected) {
+            if(($isAdmin)||($isConnected)) {
                 $pseudoPerson = $_SESSION['pseudoPerson'];
                 echo $this->twig->render('adminManageArticles.twig',
                     ['articles' => $currentPageResults,
@@ -134,7 +143,8 @@ class ArticleController extends \ClaireC\controller\Controller {
                         'textNextPage' => "Page suivante",
                         'nextPage' => $nextPage,
                         'isConnected' => $isConnected,
-                        'messageConnection' => "<p>Vous êtes connecté en tant que $pseudoPerson</p>"
+                        'messageConnection' => "<p>Vous êtes connecté en tant que $pseudoPerson</p>",
+                        'isAdmin' => $isAdmin
                     ]);
             } else {
                 echo $this->twig->render('blogArticles.twig',
@@ -142,7 +152,8 @@ class ArticleController extends \ClaireC\controller\Controller {
                         'textPreviousPage' => "",
                         'currentPage' => $currentPage,
                         'textNextPage' => "Page suivante",
-                        'nextPage' => $nextPage
+                        'nextPage' => $nextPage,
+                        'isConnected' => $isConnected
                     ]);
             }
 
@@ -155,7 +166,9 @@ class ArticleController extends \ClaireC\controller\Controller {
         $commentController = new CommentController();
         $msgComments = "";
         $msgNewComment = "";
+        $pseudoPerson = "";
         $isConnected = parent::verifyConnection();
+        $isAdmin = parent::isAdmin();
         if((isset($_GET['idArticle']) && ($_GET['idArticle']) > 0)) {
             if((isset($_POST['pseudo'])) && (isset($_POST['comment']))) {
                 if ((empty($_POST['pseudo'])) || (empty($_POST['comment']))) {
@@ -182,20 +195,26 @@ class ArticleController extends \ClaireC\controller\Controller {
             }
             if($isConnected) {
                 $pseudoPerson = $_SESSION['pseudoPerson'];
+            }
+            if($isAdmin) {
                 echo $this->twig->render('adminManageArticle.twig',
                     ['articles' => $article,
                         'comments' => $comments,
                         'messageComment' => $msgComments,
                         'msgNewComment' => $msgNewComment,
                         'isConnected' => $isConnected,
-                        'messageConnection' => "<p>Vous êtes connecté en tant que $pseudoPerson</p>"
+                        'messageConnection' => "<p>Vous êtes connecté en tant que $pseudoPerson</p>",
+                        'isAdmin' => $isAdmin
                     ]);
             } else {
                 echo $this->twig->render('blogArticle.twig',
                     ['articles' => $article,
                         'comments' => $comments,
                         'messageComment' => $msgComments,
-                        'msgNewComment' => $msgNewComment
+                        'msgNewComment' => $msgNewComment,
+                        'isConnected' => $isConnected,
+                        'messageConnection' => "<p>Vous êtes connecté en tant que $pseudoPerson</p>",
+                        'isAdmin' => $isAdmin
                     ]);
             }
         } else {
@@ -208,7 +227,7 @@ class ArticleController extends \ClaireC\controller\Controller {
         $articleManager = new ArticleManager();
         if(isset($_POST['titleArticle']) && isset($_POST['subtitleArticle']) && isset($_POST['contentArticle'])) {
             $titleArticle = htmlspecialchars($_POST['titleArticle']);
-            $subtitleArticle = htmlspecialchars($_POST['titleArticle']);
+            $subtitleArticle = htmlspecialchars($_POST['subtitleArticle']);
             $contentArticle = htmlspecialchars($_POST['contentArticle']);
             $person_idPerson = $_SESSION['idPerson'];
             $articleIsAdded = $articleManager->addArticle($titleArticle, $subtitleArticle, $contentArticle, $person_idPerson);
@@ -223,15 +242,49 @@ class ArticleController extends \ClaireC\controller\Controller {
 
     public function getPageAdminAddArticle() {
         $isConnected = parent::verifyConnection();
+        $isAdmin = parent::isAdmin();
         if($isConnected) {
             $pseudoPerson = $_SESSION['pseudoPerson'];
             echo $this->twig->render('adminAddArticle.twig',
                 [   'isConnected' => $isConnected,
+                    'isAdmin' => $isAdmin,
                     'messageConnection' => "<p>Vous êtes connecté en tant que $pseudoPerson</p>",
                     'msgAddArticle' => $this->addArticle()
                 ]);
         } else {
             echo $this->twig->render('403.twig');
+        }
+    }
+
+    public function getPageContact() {
+        $isConnected = parent::verifyConnection();
+        $isAdmin = parent::isAdmin();
+        if($isConnected) {
+            $pseudoPerson = $_SESSION['pseudoPerson'];
+            echo $this->twig->render('contact.twig',
+                [   'isConnected' => $isConnected,
+                    'isAdmin' => $isAdmin,
+                    'messageConnection' => "<p>Vous êtes connecté en tant que $pseudoPerson</p>",
+                    'msgAddArticle' => $this->addArticle()
+                ]);
+        } else {
+            echo $this->twig->render('contact.twig');
+        }
+    }
+
+    public function getPageHome() {
+        $isConnected = parent::verifyConnection();
+        $isAdmin = parent::isAdmin();
+        if($isConnected) {
+            $pseudoPerson = $_SESSION['pseudoPerson'];
+            echo $this->twig->render('home.twig',
+                [   'isConnected' => $isConnected,
+                    'isAdmin' => $isAdmin,
+                    'messageConnection' => "<p>Vous êtes connecté en tant que $pseudoPerson</p>",
+                    'msgAddArticle' => $this->addArticle()
+                ]);
+        } else {
+            echo $this->twig->render('home.twig');
         }
     }
 

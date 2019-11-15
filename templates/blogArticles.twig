@@ -9,7 +9,9 @@
 {% block aside %}
     <aside class="aside col-2">
         {{ messageConnection | raw }}
-        <a href="index.php?page=addArticle" class="btn btn-info">Ajouter un article</a>
+        {% if isAdmin %}
+            <a href="index.php?page=addArticle" class="btn btn-info">Ajouter un article</a>
+        {% endif %}
     </aside>
 {% endblock %}
 

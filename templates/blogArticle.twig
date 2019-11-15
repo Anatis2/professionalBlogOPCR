@@ -5,9 +5,19 @@
     <title>Blog</title>
 {% endblock %}
 
+{% block aside %}
+    <aside class="aside col-2">
+        {{ messageConnection | raw }}
+        <a href="index.php?page=seeMyProfile" class="btn btn-info">Voir mon profil</a>
+        {% if isAdmin %}
+            <a href="index.php?page=addArticle" class="btn btn-info">Ajouter un article</a>
+        {% endif %}
+    </aside>
+{% endblock %}
+
 
 {% block content %}
-    <section class="content col-12">
+    <section class="content col-10">
         <h1>Article</h1>
 
         {% if articles %}

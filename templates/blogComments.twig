@@ -16,6 +16,8 @@
 
     {% endfor %}
 
+    {% if isConnected %}
+
     <h5>Ajouter un commentaire</h5>
 
     <form method="post" class="contactForm">
@@ -30,6 +32,12 @@
         </div>
         <input type="submit" class="btn btn-primary">
     </form>
+
+    {% else %}
+
+    <h5>Vous devez être connecté pour ajouter un commentaire</h5>
+
+    {% endif %}
 
     <script>
         grecaptcha.ready(function() {

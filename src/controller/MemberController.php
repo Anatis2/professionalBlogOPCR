@@ -54,25 +54,41 @@ class MemberController extends \ClaireC\controller\Controller {
                     $_SESSION['emailPerson'] = $emailPerson;
                     $_SESSION['dateRegistrationPerson'] = $dateRegistrationPerson;
                     $_SESSION['typePerson'] = $typePerson;
-                    header('Location: index.php?page=adminHome');
+                    $isConnected = parent::verifyConnection();
+                    $isAdmin = parent::isAdmin();
+                    if($isAdmin){
+                        header('Location: index.php?page=adminHome');
+                    } else {
+                        echo $this->twig->render('home.twig',
+                            [ 'isConnected' => $isConnected,
+                                'messageConnection' => "<p>Vous êtes connecté en tant que $pseudoPerson</p>",
+                                'isAdmin' => $isAdmin
+                            ]);
+                    }
                 } else {
-                    $messageConnection = "<p class='alert alert-danger'>L'identifiant et/ou le mot de passe ne sont pas valides.</p>";
-                    return $messageConnection;
+                    echo $this->twig->render('connection.twig',
+                        [ 'messageConnection' => "<p class='alert alert-danger'>L'identifiant et/ou le mot de passe ne sont pas valides.</p>"
+                        ]);
                 }
             } else {
-                $messageConnection = "<p class='alert alert-danger'>L'identifiant et/ou le mot de passe ne sont pas valides.</p>";
-                return $messageConnection;
+                echo $this->twig->render('connection.twig',
+                    [ 'messageConnection' => "<p class='alert alert-danger'>L'identifiant et/ou le mot de passe ne sont pas valides.</p>"
+                    ]);
             }
-        }
+        } else {
+             echo $this->twig->render('connection.twig');
+         }
     }
 
     public function getPageAdminHome() {
         $isConnected = parent::verifyConnection();
-        if($isConnected) {
+        $isAdmin = parent::isAdmin();
+        if($isAdmin) {
             $pseudoPerson = $_SESSION['pseudoPerson'];
             echo $this->twig->render('adminHome.twig',
                 [   'isConnected' => $isConnected,
-                    'messageConnection' => "<p>Vous êtes connecté en tant que $pseudoPerson</p>",
+                    'isAdmin' => $isAdmin,
+                    'messageConnection' => "<p>Vous êtes connecté en tant que $pseudoPerson</p>"
                 ]);
         } else {
             echo $this->twig->render('403.twig');
@@ -82,9 +98,11 @@ class MemberController extends \ClaireC\controller\Controller {
 
     public function getMemberProfile() {
         $isConnected = self::verifyConnection();
+        $isAdmin = parent::isAdmin();
         if($isConnected) {
             echo $this->twig->render('adminSeeMyProfile.twig',
                 [   'isConnected' => $isConnected,
+                    'isAdmin' => $isAdmin,
                     'messageConnection' => "<p>Vous êtes connecté en tant que $_SESSION[pseudoPerson]</p>",
                     'surnamePerson' => $_SESSION['surnamePerson'],
                     'firstnamePerson' => $_SESSION['firstnamePerson'],
