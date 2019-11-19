@@ -22,7 +22,11 @@ class MemberController extends \ClaireC\controller\Controller {
                     ]);
             } else {
                 echo $this->twig->render('inscription.twig',
-                    ['messageCreateMember' => "<p class='alert alert-danger'>Les deux mots de passe ne correspondent pas !!! Veuillez réessayer...</p>"
+                    ['messageCreateMember' => "<p class='alert alert-danger'>Les deux mots de passe ne correspondent pas !!! Veuillez réessayer...</p>",
+                        'surname' => $surname,
+                        'firstname' => $firstname,
+                        'email' => $email,
+                        'pseudo' => $pseudo
                     ]);
             }
         } else {
