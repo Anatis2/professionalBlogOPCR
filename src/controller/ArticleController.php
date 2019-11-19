@@ -288,6 +288,33 @@ class ArticleController extends \ClaireC\controller\Controller {
         }
     }
 
+    public function modifyArticle() {
+        $articleManager = new ArticleManager();
+        $isConnected = parent::verifyConnection();
+        $isAdmin = parent::isAdmin();
+        $msgModifyArticle = "";
+        if($isConnected) {
+            $pseudoPerson = $_SESSION['pseudoPerson'];
+            if(isset($_POST['titleArticle']) && isset($_POST['subtitleArticle']) && isset($_POST['contentArticle'])) {
+                $titleArticle = $_POST['titleArticle'];
+                $subtitleArticle = $_POST['subtitleArticle'];
+                $contentArticle = $_POST['contentArticle'];
+                $articleManager->modifyArticle($titleArticle, $subtitleArticle, $contentArticle);
+                $msgModifyArticle = "<p class='alert alert-success'>Votre article a bien été modifié</p>";
+            }
+            $article = $articleManager->getArticle()->fetchAll();
+            echo $this->twig->render('adminModifyArticle.twig',
+                [   'isConnected' => $isConnected,
+                    'isAdmin' => $isAdmin,
+                    'messageConnection' => "<p>Vous êtes connecté en tant que $pseudoPerson</p>",
+                    'article' => $article[0],
+                    'msgModifyArticle' => $msgModifyArticle
+                ]);
+        } else {
+            echo $this->twig->render('403.twig');
+        }
+    }
+
 }
 
 

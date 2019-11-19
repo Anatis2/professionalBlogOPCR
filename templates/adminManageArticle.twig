@@ -23,7 +23,7 @@
                         <h3 class="titleArticle">{{ article.titleArticle }}</h3>
                         <p class="subtitleArticle"><strong>{{ article.subtitleArticle | nl2br }}</strong></p>
                         <p class="dateCreationArticle"><em>Publié le {{ article.dateCreationArticle }} par {{ article.pseudoPerson }}</em></p>
-                        <a class="btn btn-info" href="">Modifier l'article</a>
+                        <a class="btn btn-info" href="index.php?page=modifyArticle&idArticle={{ article.idArticle }}">Modifier l'article</a>
                         <p class="contentArticle">{{ article.contentArticle | nl2br }}</p>
                     </article>
                 {% endfor %}

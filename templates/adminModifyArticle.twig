@@ -2,7 +2,7 @@
 
 
 {% block head %}
-    <title>Ajouter un article</title>
+    <title>Modifier un article</title>
 {% endblock %}
 
 
@@ -17,22 +17,23 @@
 {% block content %}
     <section class="content col-9">
 
-        {{ msgAddArticle | raw }}
+        <h1>Modifier un article</h1>
 
-        <h1>Ajouter un article</h1>
+        {{ msgModifyArticle | raw }}
+
             <form method="post" class="contactForm">
                 <div class="form-group">
                     <label for="titleArticle">Titre</label>
-                    <input type="text" name="titleArticle" id="titleArticle" class="form-control"/>
+                    <input type="text" name="titleArticle" id="titleArticle" class="form-control" value="{{ article.titleArticle }}"/>
                     <br/>
                     <label for="subtitleArticle">Sous-titre</label>
-                    <input type="text" name="subtitleArticle" id="subtitleArticle" class="form-control"/>
+                    <input type="text" name="subtitleArticle" id="subtitleArticle" class="form-control" value="{{ article.subtitleArticle }}"/>
                     <br/>
                     <label for="contentArticle">Contenu</label>
-                    <textarea name="contentArticle" rows="10" id="contentArticle" class="form-control"></textarea>
-                    <input type="hidden" name="idPerson" value="{{ person_idPerson }}" />
+                    <textarea name="contentArticle" rows="10" id="contentArticle" class="form-control">{{ article.contentArticle }}</textarea>
+                    <input type="hidden" name="idPerson" value="{{ pseudoPerson }}" />
                 </div>
-                <input type="submit" class="btn btn-primary">
+                <input type="submit" class="btn btn-primary" value="Modifier l'article" />
             </form>
     </section>
 {% endblock %}

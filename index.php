@@ -75,6 +75,9 @@ switch ($page) {
     case 'manageArticle':
         $articleController->getArticle();
         break;
+    case 'modifyArticle':
+        $articleController->modifyArticle();
+        break;
     case 'manageComments':
         $commentController->getPageManageComments();
         break;

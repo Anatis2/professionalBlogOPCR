@@ -39,4 +39,18 @@ class ArticleManager extends Manager {
                                     ));
     }
 
+    public function modifyArticle($titleArticle, $subtitleArticle, $contentArticle) {
+        $sql = 'UPDATE article
+                SET titleArticle = :titleArticle,
+                    subtitleArticle = :subtitleArticle,
+                    contentArticle = :contentArticle
+                WHERE idArticle = :idArticle ';
+        return $this->createQuery($sql, array(
+            'titleArticle' => $titleArticle,
+            'subtitleArticle' => $subtitleArticle,
+            'contentArticle' => $contentArticle,
+            'idArticle' => $_GET['idArticle']
+        ));
+    }
+
 }
