@@ -10,7 +10,6 @@ $twig = new Twig_Environment($loader, [
 ]);
 
 // inclusion of our Controllers
-// TODO : autoloader
 require 'src/controller/ArticleController.php';
 require 'src/controller/CommentController.php';
 require 'src/controller/MemberController.php';

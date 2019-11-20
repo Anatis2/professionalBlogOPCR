@@ -22,38 +22,9 @@
 
     <body id="page-top">
 
-    {% if not isAdmin %}
+    {% if isAdmin == true %}
         <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
-            <a class="navbar-brand js-scroll-trigger" href="index.php?page=home">Blog professionnel</a>
-            <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                Menu
-                <i class="fas fa-bars"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item mx-0 mx-lg-1">
-                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="index.php?page=home">Accueil</a>
-                    </li>
-                    <li class="nav-item mx-0 mx-lg-1">
-                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="index.php?page=blog">Blog</a>
-                    </li>
-                    <li class="nav-item mx-0 mx-lg-1">
-                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="index.php?page=contact">Contact</a>
-                    </li>
-                </ul>
-
-                {%  if not isConnected %}
-                    <a class="btn btn-primary btn-nav" href="index.php?page=inscription">S'inscrire</a>
-                    <a class="btn btn-primary btn-nav" href="index.php?page=connexion">Se connecter</a>
-                {% else %}
-                    <a class="btn btn-primary btn-nav" href="index.php?page=deconnexion">Se déconnecter</a>
-                {% endif %}
-            </div>
-
-        </nav>
-    {% else %}
-        <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
-            <a class="navbar-brand js-scroll-trigger" href="index.php?page=home">Blog professionnel</a>
+            <a class="navbar-brand js-scroll-trigger" href="index.php?page=adminHome">Blog professionnel</a>
             <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu
                 <i class="fas fa-bars"></i>
@@ -75,6 +46,33 @@
                 </ul>
             </div>
             <a class="btn btn-primary btn-nav" href="index.php?page=deconnexion">Se déconnecter</a>
+        </nav>
+    {% else %}
+        <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+            <a class="navbar-brand js-scroll-trigger" href="index.php?page=home">Blog professionnel</a>
+            <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item mx-0 mx-lg-1">
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="index.php?page=home">Accueil</a>
+                    </li>
+                    <li class="nav-item mx-0 mx-lg-1">
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="index.php?page=blog">Blog</a>
+                    </li>
+                    <li class="nav-item mx-0 mx-lg-1">
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="index.php?page=contact">Contact</a>
+                    </li>
+                </ul>
+                {%  if not isConnected %}
+                    <a class="btn btn-primary btn-nav" href="index.php?page=inscription">S'inscrire</a>
+                    <a class="btn btn-primary btn-nav" href="index.php?page=connexion">Se connecter</a>
+                {% else %}
+                    <a class="btn btn-primary btn-nav" href="index.php?page=deconnexion">Se déconnecter</a>
+                {% endif %}
+            </div>
         </nav>
     {% endif %}
 

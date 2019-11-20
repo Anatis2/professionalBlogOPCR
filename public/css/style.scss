@@ -146,6 +146,9 @@ nav {
 	padding-bottom: 15px;
 	background-color: #2c3e50;
 	color: #fff;
+	#connexionLink {
+		padding-top: 30px;
+	}
 }
 
 
@@ -170,6 +173,16 @@ nav {
 		.btn-nav {
 			margin: 1px 1px;
 			font-size: 0.9em;
+		}
+	}
+	footer {
+		h4 {
+			font-size: 1em;
+		}
+		.btn-social {
+			width: 1rem;
+			height: 2rem;
+			font-size: 1rem;
 		}
 	}
 }

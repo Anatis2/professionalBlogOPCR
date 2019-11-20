@@ -9,6 +9,7 @@
 {% block aside %}
     <aside class="aside col-2">
         {{ messageConnection | raw }}
+        <a href="index.php?page=seeMyProfile" class="btn btn-info">Voir mon profil</a>
         {% if isAdmin %}
             <a href="index.php?page=addArticle" class="btn btn-info">Ajouter un article</a>
         {% endif %}
@@ -20,6 +21,7 @@
 
     <section class="content col-10">
         <h1>Articles du blog</h1>
+
         <div class="articles">
 
             {% for article in articles %}

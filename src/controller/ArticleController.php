@@ -22,6 +22,11 @@ class ArticleController extends \ClaireC\controller\Controller {
         $articles = $this->listArticles();
         $isConnected = parent::verifyConnection();
         $isAdmin = parent::isAdmin();
+        if($isConnected) {
+            $pseudoPerson = $_SESSION['pseudoPerson'];
+        } else {
+            $pseudoPerson = "";
+        }
 
         // pagerFanta
         $adapter = new ArrayAdapter($articles);
@@ -38,8 +43,7 @@ class ArticleController extends \ClaireC\controller\Controller {
                 $currentPage = $pagerfanta->getCurrentPage();
                 $currentPageResults = $pagerfanta->getCurrentPageResults(); // list the articles (consider the maxPerPage and the currentPage)
                 $nextPage = $pagerfanta->getNextPage();
-                if(($isAdmin)||($isConnected)) {
-                    $pseudoPerson = $_SESSION['pseudoPerson'];
+                if($isAdmin) {
                     echo $this->twig->render('adminManageArticles.twig',
                         ['articles' => $currentPageResults,
                             'textPreviousPage' => "",
@@ -58,6 +62,8 @@ class ArticleController extends \ClaireC\controller\Controller {
                             'textNextPage' => "Page suivante",
                             'nextPage' => $nextPage,
                             'isConnected' => $isConnected,
+                            'messageConnection' => "<p>Vous êtes connecté en tant que $pseudoPerson</p>",
+                            'isAdmin' => $isAdmin
                         ]);
                 }
             } elseif ((($_GET['numPage']) > 1) && (($_GET['numPage']) < $nbPages)) {
@@ -66,8 +72,7 @@ class ArticleController extends \ClaireC\controller\Controller {
                 $currentPageResults = $pagerfanta->getCurrentPageResults(); // list the articles (consider the maxPerPage and the currentPage)
                 $nextPage = $pagerfanta->getNextPage();
                 $previousPage = $pagerfanta->getPreviousPage();
-                if(($isAdmin)||($isConnected)) {
-                    $pseudoPerson = $_SESSION['pseudoPerson'];
+                if($isAdmin) {
                     echo $this->twig->render('adminManageArticles.twig',
                         ['articles' => $currentPageResults,
                             'textPreviousPage' => "Page précédente",
@@ -88,6 +93,8 @@ class ArticleController extends \ClaireC\controller\Controller {
                             'textNextPage' => "Page suivante",
                             'nextPage' => $nextPage,
                             'isConnected' => $isConnected,
+                            'messageConnection' => "<p>Vous êtes connecté en tant que $pseudoPerson</p>",
+                            'isAdmin' => $isAdmin
                         ]);
                 }
             } elseif (($_GET['numPage']) == $nbPages) {
@@ -95,8 +102,7 @@ class ArticleController extends \ClaireC\controller\Controller {
                 $currentPage = $pagerfanta->getCurrentPage();
                 $currentPageResults = $pagerfanta->getCurrentPageResults(); // list the articles (consider the maxPerPage and the currentPage)
                 $previousPage = $pagerfanta->getPreviousPage();
-                if(($isAdmin)||($isConnected)) {
-                    $pseudoPerson = $_SESSION['pseudoPerson'];
+                if($isAdmin) {
                     echo $this->twig->render('adminManageArticles.twig',
                         ['articles' => $currentPageResults,
                             'currentPage' => $currentPage,
@@ -114,7 +120,9 @@ class ArticleController extends \ClaireC\controller\Controller {
                             'textPreviousPage' => "Page précédente",
                             'previousPage' => $previousPage,
                             'textNextPage' => "",
-                            'isConnected' => $isConnected
+                            'isConnected' => $isConnected,
+                            'messageConnection' => "<p>Vous êtes connecté en tant que $pseudoPerson</p>",
+                            'isAdmin' => $isAdmin
                         ]);
                 }
             } else {
@@ -134,8 +142,7 @@ class ArticleController extends \ClaireC\controller\Controller {
             $pagerfanta->setCurrentPage(1);
             $currentPage = $pagerfanta->getCurrentPage();
             $nextPage = $pagerfanta->getNextPage();
-            if(($isAdmin)||($isConnected)) {
-                $pseudoPerson = $_SESSION['pseudoPerson'];
+            if($isAdmin) {
                 echo $this->twig->render('adminManageArticles.twig',
                     ['articles' => $currentPageResults,
                         'textPreviousPage' => "",
@@ -153,7 +160,9 @@ class ArticleController extends \ClaireC\controller\Controller {
                         'currentPage' => $currentPage,
                         'textNextPage' => "Page suivante",
                         'nextPage' => $nextPage,
-                        'isConnected' => $isConnected
+                        'isConnected' => $isConnected,
+                        'messageConnection' => "<p>Vous êtes connecté en tant que $pseudoPerson</p>",
+                        'isAdmin' => $isAdmin
                     ]);
             }
 

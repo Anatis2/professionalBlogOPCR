@@ -1,13 +1,23 @@
 
 
     <footer class="footer text-center">
-        <div class="col-lg-12 mb-5 mb-lg-0">
-            <h4 class="text-uppercase mb-4">Retrouvez moi sur les réseaux sociaux</h4>
-            <a class="btn btn-outline-light btn-social mx-1" href="https://www.linkedin.com/in/claire-coubard/" title="LinkedIn" target="_blank">
-                <i class="fab fa-fw fa-linkedin-in"></i>
-            </a>
-            <a class="btn btn-outline-light btn-social mx-1" href="https://www.viadeo.com/p/00258bet27r6y96" title="Viadéo" target="_blank">
-                <i class="fab fa-fw fa-viadeo"></i>
-            </a>
+        <div class="row">
+            <div class="col-lg-8 col-md-8 col-sm-8">
+                <h4 class="text-uppercase mb-4">Retrouvez moi sur les réseaux sociaux</h4>
+                <a class="btn btn-outline-light btn-social mx-1" href="https://www.linkedin.com/in/claire-coubard/" title="LinkedIn" target="_blank">
+                    <i class="fab fa-fw fa-linkedin-in"></i>
+                </a>
+                <a class="btn btn-outline-light btn-social mx-1" href="https://www.viadeo.com/p/00258bet27r6y96" title="Viadéo" target="_blank">
+                    <i class="fab fa-fw fa-viadeo"></i>
+                </a>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4" id="connexionLink">
+                {%  if not isConnected %}
+                    <a href="index.php?page=connexion">Se connecter</a>
+                {% else %}
+                    <a href="index.php?page=deconnexion">Se déconnecter</a>
+                {% endif %}
+            </div>
         </div>
+
     </footer>

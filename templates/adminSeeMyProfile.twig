@@ -8,7 +8,6 @@
 {% block aside %}
     <section class="content col-3">
         {{ messageConnection | raw }}
-        <a href="" class="btn btn-info">Modifier mon profil</a>
     </section>
 {% endblock %}
 
@@ -23,3 +22,9 @@
         <p>Statut : {{ typePerson }}</p>
     </section>
 {% endblock %}
+
+{% if not isAdmin %}
+    {% block footer %}
+        {% include 'footer.twig' %}
+    {% endblock %}
+{% endif %}
