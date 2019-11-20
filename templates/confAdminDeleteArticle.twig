@@ -1,0 +1,30 @@
+{% extends 'layout.twig' %}
+
+
+{% block head %}
+    <title>Supprimer un article</title>
+{% endblock %}
+
+
+{% block aside %}
+    <section class="content col-3">
+        {{ messageConnection | raw }}
+        <a href="index.php?page=seeMyProfile" class="btn btn-info">Voir mon profil</a>
+    </section>
+{% endblock %}
+
+
+{% block content %}
+    <section class="content col-9">
+
+        <h1>Supprimer un article</h1>
+
+        <div>
+            <p class="alert alert-success">L'article n° {{ idArticle }} a bien été supprimé</p>
+        </div>
+
+{% endblock %}
+
+{% block footer %}
+    {% include 'footer.twig' %}
+{% endblock %}

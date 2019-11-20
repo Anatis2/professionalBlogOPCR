@@ -53,4 +53,11 @@ class ArticleManager extends Manager {
         ));
     }
 
+    public function deleteArticle($idArticle) {
+        $sql = 'DELETE FROM `article` WHERE idArticle = :idArticle';
+        return $this->createQuery($sql, [
+            'idArticle' => $idArticle
+        ]);
+    }
+
 }

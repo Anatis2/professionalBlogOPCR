@@ -70,12 +70,16 @@ switch ($page) {
         break;
     case 'manageArticles':
         $articleController->pagesManager();
+        var_dump($_GET);
         break;
     case 'manageArticle':
         $articleController->getArticle();
         break;
     case 'modifyArticle':
         $articleController->modifyArticle();
+        break;
+    case 'deleteArticle':
+        $articleController->deleteArticle();
         break;
     case 'manageComments':
         $commentController->getPageManageComments();

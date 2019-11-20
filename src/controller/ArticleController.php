@@ -324,6 +324,38 @@ class ArticleController extends \ClaireC\controller\Controller {
         }
     }
 
+    public function deleteArticle() {
+        $isConnected = parent::verifyConnection();
+        $isAdmin = parent::isAdmin();
+        $articleManager = new ArticleManager();
+        $idArticle = $_GET['idArticle'];
+        if($isConnected) {
+            $pseudoPerson = $_SESSION['pseudoPerson'];
+        } else {
+            $pseudoPerson = "";
+        }
+        if(isset($_GET['conf'])) {
+            $articleManager->deleteArticle($idArticle);
+            echo $this->twig->render('confAdminDeleteArticle.twig',
+                [
+                    'isConnected' => $isConnected,
+                    'isAdmin' => $isAdmin,
+                    'messageConnection' => "<p>Vous êtes connecté en tant que $pseudoPerson</p>",
+                    'idArticle' => $_GET['idArticle'],
+                    'msgSupprArticle' => "<p class='alert alert-success'>L'article a bien été supprimé</p>"
+                ]);
+        } else {
+            echo $this->twig->render('adminDeleteArticle.twig',
+                [
+                    'isConnected' => $isConnected,
+                    'isAdmin' => $isAdmin,
+                    'messageConnection' => "<p>Vous êtes connecté en tant que $pseudoPerson</p>",
+                    'idArticle' => $_GET['idArticle']
+                ]);
+        }
+
+    }
+
 }
 
 

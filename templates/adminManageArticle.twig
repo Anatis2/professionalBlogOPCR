@@ -15,6 +15,7 @@
 {% block content %}
     <section class="content col-9">
         <h1>Administration des articles</h1>
+        {{ msgSupprArticle | raw }}
         {% if articles %}
             <div class="articles">
 
@@ -24,11 +25,13 @@
                         <p class="subtitleArticle"><strong>{{ article.subtitleArticle | nl2br }}</strong></p>
                         <p class="dateCreationArticle"><em>Publié le {{ article.dateCreationArticle }} par {{ article.pseudoPerson }}</em></p>
                         <a class="btn btn-info" href="index.php?page=modifyArticle&idArticle={{ article.idArticle }}">Modifier l'article</a>
+                        <a class="btn btn-info" href="index.php?page=deleteArticle&idArticle={{ article.idArticle }}">Supprimer l'article</a>
                         <p class="contentArticle">{{ article.contentArticle | nl2br }}</p>
                     </article>
                 {% endfor %}
-
             </div>
+
+            {% include 'blogComments.twig' %}
 
         {% endif %}
 
