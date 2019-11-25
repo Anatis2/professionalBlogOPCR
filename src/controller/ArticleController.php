@@ -300,8 +300,8 @@ class ArticleController extends \ClaireC\controller\Controller {
             $object = htmlentities($_POST['object']);
             $message = htmlentities($_POST['message']);
             if((!empty($name))&&(!empty($surname))&&(!empty($email))&&(!empty($object))&&(!empty($message))) {
-                /*// Create the Transport
-                $transport = (new Swift_SmtpTransport('smtp.gmail.com', 587, 'tls'))
+                // Create the Transport
+                $transport = (new Swift_SmtpTransport('smtp.gmail.com', 465, 'ssl'))
                         ->setAuthMode('login')
                             ->setUsername('claire.coubard.test@gmail.com')
                             ->setPassword('test14120*');
@@ -320,7 +320,7 @@ class ArticleController extends \ClaireC\controller\Controller {
                 var_dump($message);
                 echo "</pre>";
                 // Send the message
-                $result = $mailer->send($message);*/
+                $result = $mailer->send($message);
 
                 echo $this->twig->render('contact.twig',
                     [   'isConnected' => $isConnected,
