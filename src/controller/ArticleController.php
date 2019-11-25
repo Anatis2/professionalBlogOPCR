@@ -12,12 +12,19 @@ require_once('src/DAO/ArticleManager.php');
 
 class ArticleController extends \ClaireC\controller\Controller {
 
+    /**
+     * 
+     * @return type
+     */
     public function listArticles() {
         $articleManager = new ArticleManager();
         $articles = $articleManager->listArticles()->fetchAll();
         return $articles;
     }
 
+    /**
+     * 
+     */
     public function pagesManager() {
         $articles = $this->listArticles();
         $isConnected = parent::verifyConnection();
@@ -169,7 +176,9 @@ class ArticleController extends \ClaireC\controller\Controller {
         }
     }
 
-
+    /**
+     * 
+     */
     public function getArticle() {
         $articleManager = new ArticleManager();
         $commentController = new CommentController();
@@ -232,6 +241,10 @@ class ArticleController extends \ClaireC\controller\Controller {
         }
     }
 
+    /**
+     * 
+     * @return string
+     */
     public function addArticle() {
         $articleManager = new ArticleManager();
         if(isset($_POST['titleArticle']) && isset($_POST['subtitleArticle']) && isset($_POST['contentArticle'])) {
@@ -249,6 +262,9 @@ class ArticleController extends \ClaireC\controller\Controller {
         }
     }
 
+    /**
+     * 
+     */
     public function getPageAdminAddArticle() {
         $isConnected = parent::verifyConnection();
         $isAdmin = parent::isAdmin();
@@ -265,22 +281,73 @@ class ArticleController extends \ClaireC\controller\Controller {
         }
     }
 
+    /**
+     * 
+     */
     public function getPageContact() {
         $isConnected = parent::verifyConnection();
         $isAdmin = parent::isAdmin();
         if($isConnected) {
             $pseudoPerson = $_SESSION['pseudoPerson'];
+        } else {
+            $pseudoPerson = "";
+        }
+
+        if(isset($_POST['name'])&&isset($_POST['surname'])&&isset($_POST['email'])&&isset($_POST['object'])&&isset($_POST['message'])) {
+            $name = htmlentities($_POST['name']);
+            $surname = htmlentities($_POST['surname']);
+            $email = htmlentities($_POST['email']);
+            $object = htmlentities($_POST['object']);
+            $message = htmlentities($_POST['message']);
+            if((!empty($name))&&(!empty($surname))&&(!empty($email))&&(!empty($object))&&(!empty($message))) {
+                /*// Create the Transport
+                $transport = (new Swift_SmtpTransport('smtp.gmail.com', 587, 'tls'))
+                        ->setAuthMode('login')
+                            ->setUsername('claire.coubard.test@gmail.com')
+                            ->setPassword('test14120*');
+
+                // Create the Mailer using your created Transport
+                $mailer = new Swift_Mailer($transport);
+
+                // Create a message
+                $message = (new Swift_Message('Wonderful Subject'))
+                    ->setFrom(['claire.coubard@gmail.com' => 'John Doe'])
+                    ->setTo(['claire.coubard.test@gmail.com' => 'A name'])
+                    ->setBody('Here is the message itself')
+                ;
+
+                echo "<pre>";
+                var_dump($message);
+                echo "</pre>";
+                // Send the message
+                $result = $mailer->send($message);*/
+
+                echo $this->twig->render('contact.twig',
+                    [   'isConnected' => $isConnected,
+                        'isAdmin' => $isAdmin,
+                        'messageConnection' => "<p>Vous êtes connecté en tant que $pseudoPerson</p>",
+                        'messageMail' => "<p class='alert alert-success'>A GERER</p>",
+                    ]);
+            } else {
+                echo $this->twig->render('contact.twig',
+                    [   'isConnected' => $isConnected,
+                        'isAdmin' => $isAdmin,
+                        'messageConnection' => "<p>Vous êtes connecté en tant que $pseudoPerson</p>",
+                        'messageMail' => "<p class='alert alert-danger'>Veuillez remplir tous les champs.</p>"
+                    ]);
+            }
+        } else {
             echo $this->twig->render('contact.twig',
                 [   'isConnected' => $isConnected,
                     'isAdmin' => $isAdmin,
-                    'messageConnection' => "<p>Vous êtes connecté en tant que $pseudoPerson</p>",
-                    'msgAddArticle' => $this->addArticle()
+                    'messageConnection' => "<p>Vous êtes connecté en tant que $pseudoPerson</p>"
                 ]);
-        } else {
-            echo $this->twig->render('contact.twig');
         }
     }
 
+    /**
+     * 
+     */
     public function getPageHome() {
         $isConnected = parent::verifyConnection();
         $isAdmin = parent::isAdmin();
@@ -297,6 +364,9 @@ class ArticleController extends \ClaireC\controller\Controller {
         }
     }
 
+    /**
+     * 
+     */
     public function modifyArticle() {
         $articleManager = new ArticleManager();
         $isConnected = parent::verifyConnection();
@@ -324,6 +394,9 @@ class ArticleController extends \ClaireC\controller\Controller {
         }
     }
 
+    /**
+     * 
+     */
     public function deleteArticle() {
         $isConnected = parent::verifyConnection();
         $isAdmin = parent::isAdmin();

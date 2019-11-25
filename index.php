@@ -1,6 +1,6 @@
 <?php
 
-// inclusion of Twig's autoloader
+// inclusion of Twig's and others autoloaders
 require 'vendor/autoload.php';
 
 // initialisation to use Twig
@@ -45,6 +45,8 @@ switch ($page) {
         break;
     case 'contact':
         $articleController->getPageContact();
+        echo "POST : ";
+        var_dump($_POST);
         break;
     case 'blog':
         $articleController->pagesManager();
@@ -70,7 +72,6 @@ switch ($page) {
         break;
     case 'manageArticles':
         $articleController->pagesManager();
-        var_dump($_GET);
         break;
     case 'manageArticle':
         $articleController->getArticle();
