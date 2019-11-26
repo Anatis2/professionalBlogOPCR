@@ -293,32 +293,30 @@ class ArticleController extends \ClaireC\controller\Controller {
             $pseudoPerson = "";
         }
 
-        if(isset($_POST['name'])&&isset($_POST['surname'])&&isset($_POST['email'])&&isset($_POST['object'])&&isset($_POST['message'])) {
-            $name = htmlentities($_POST['name']);
+        if(isset($_POST['name'])&&isset($_POST['surname'])&&isset($_POST['emailFrom'])&&isset($_POST['subject'])&&isset($_POST['message'])) {
+            $name = htmlentities(strtoupper($_POST['name']));
             $surname = htmlentities($_POST['surname']);
-            $email = htmlentities($_POST['email']);
-            $object = htmlentities($_POST['object']);
+            $emailFrom = htmlentities($_POST['emailFrom']);
+            $subject = htmlentities($_POST['subject']);
             $message = htmlentities($_POST['message']);
-            if((!empty($name))&&(!empty($surname))&&(!empty($email))&&(!empty($object))&&(!empty($message))) {
+            if((!empty($name))&&(!empty($surname))&&(!empty($emailFrom))&&(!empty($subject))&&(!empty($message))) {
                 // Create the Transport
                 $transport = (new Swift_SmtpTransport('smtp.gmail.com', 465, 'ssl'))
                         ->setAuthMode('login')
-                            ->setUsername('claire.coubard.test@gmail.com')
-                            ->setPassword('test14120*');
+                        ->setUsername('claire.coubard.test@gmail.com')
+                        ->setPassword('test14120/')
+                ;
 
                 // Create the Mailer using your created Transport
                 $mailer = new Swift_Mailer($transport);
 
                 // Create a message
-                $message = (new Swift_Message('Wonderful Subject'))
-                    ->setFrom(['claire.coubard@gmail.com' => 'John Doe'])
-                    ->setTo(['claire.coubard.test@gmail.com' => 'A name'])
-                    ->setBody('Here is the message itself')
+                $message = (new Swift_Message($subject))
+                    ->setFrom([$emailFrom => "$name $surname"])
+                    ->setTo(['claire.coubard.test@gmail.com' => 'Claire Coubard'])
+                    ->setBody($message)
                 ;
 
-                echo "<pre>";
-                var_dump($message);
-                echo "</pre>";
                 // Send the message
                 $result = $mailer->send($message);
 
@@ -326,7 +324,7 @@ class ArticleController extends \ClaireC\controller\Controller {
                     [   'isConnected' => $isConnected,
                         'isAdmin' => $isAdmin,
                         'messageConnection' => "<p>Vous êtes connecté en tant que $pseudoPerson</p>",
-                        'messageMail' => "<p class='alert alert-success'>A GERER</p>",
+                        'messageMail' => "<p class='alert alert-success'>Votre email a bien été envoyé.</p>",
                     ]);
             } else {
                 echo $this->twig->render('contact.twig',
