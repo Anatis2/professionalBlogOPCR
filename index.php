@@ -9,6 +9,7 @@ $twig = new Twig_Environment($loader, [
     'cache' => false, // __DIR__ . '/tmp'
 ]);
 
+
 // inclusion of our Controllers
 require 'src/controller/ArticleController.php';
 require 'src/controller/CommentController.php';
@@ -45,8 +46,6 @@ switch ($page) {
         break;
     case 'contact':
         $articleController->getPageContact();
-        echo "POST : ";
-        var_dump($_POST);
         break;
     case 'blog':
         $articleController->pagesManager();

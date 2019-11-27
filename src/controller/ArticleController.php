@@ -7,6 +7,7 @@ use Pagerfanta\Adapter\ArrayAdapter;
 use Pagerfanta\Pagerfanta;
 
 require_once('src/DAO/ArticleManager.php');
+require_once('conf/config.php');
 //require_once('src/controller/CommentController.php');
 
 
@@ -303,8 +304,8 @@ class ArticleController extends \ClaireC\controller\Controller {
                 // Create the Transport
                 $transport = (new Swift_SmtpTransport('smtp.gmail.com', 465, 'ssl'))
                         ->setAuthMode('login')
-                        ->setUsername('claire.coubard.test@gmail.com')
-                        ->setPassword('test14120/')
+                        ->setUsername(MAILSWIFTMAILER)
+                        ->setPassword(PWDMAILSWIFTMAILER)
                 ;
 
                 // Create the Mailer using your created Transport
