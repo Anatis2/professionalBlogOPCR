@@ -45,9 +45,7 @@ class CommentController extends \ClaireC\controller\Controller {
             } else {
                 return $commentManager->filterCommentsByStatute($statute);
             }
-
         }
-
         $commentsToValidate = $commentManager->listCommentsToValidate()->fetchAll();
         return $commentsToValidate;
 

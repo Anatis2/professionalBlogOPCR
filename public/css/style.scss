@@ -130,11 +130,11 @@ nav {
 		}
 		.tableCommentsAdministration {
 			border-collapse: collapse;
-			th {
+			font-size: 0.8em;
+			thead {
 				text-align: center;
 			}
 			th, td {
-				border: 1px solid black;
 				padding: 5px;
 			}
 		}
