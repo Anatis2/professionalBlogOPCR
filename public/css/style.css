@@ -84,13 +84,17 @@ nav .btn-nav {
     margin-top: 2%; }
   .container .content .notification {
     margin-top: 2%; }
-  .container .content .tableCommentsAdministration {
-    border-collapse: collapse;
+  .container .content .formFilter {
     font-size: 0.8em; }
-    .container .content .tableCommentsAdministration thead {
-      text-align: center; }
-    .container .content .tableCommentsAdministration th, .container .content .tableCommentsAdministration td {
-      padding: 5px; }
+  .container .content .dataTables_wrapper {
+    font-size: 0.8em; }
+    .container .content .dataTables_wrapper .tableCommentsAdministration {
+      border-collapse: collapse;
+      font-size: 1em; }
+      .container .content .dataTables_wrapper .tableCommentsAdministration thead {
+        text-align: center; }
+      .container .content .dataTables_wrapper .tableCommentsAdministration th, .container .content .dataTables_wrapper .tableCommentsAdministration td {
+        padding: 5px; }
 
 .footer {
   padding-top: 10px;
@@ -100,10 +104,19 @@ nav .btn-nav {
   .footer #connexionLink {
     padding-top: 30px; }
 
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1570px) {
+  nav {
+    font-size: 0.9em; }
+    nav .btn-nav {
+      margin: 1px 1px;
+      font-size: 0.9em; }
+
   .container {
-    margin-top: 11%; } }
-@media screen and (max-width: 1010px) {
+    margin-top: 13%; } }
+@media screen and (max-width: 1090px) {
+  .container {
+    margin-top: 18%; }
+
   h1 {
     font-size: 2em; }
 
@@ -111,7 +124,7 @@ nav .btn-nav {
     font-size: 1.3em; }
 
   nav {
-    font-size: 1em; }
+    font-size: 0.9em; }
     nav .btn-nav {
       margin: 1px 1px;
       font-size: 0.9em; }
@@ -122,6 +135,9 @@ nav .btn-nav {
     width: 1rem;
     height: 2rem;
     font-size: 1rem; } }
+@media screen and (max-width: 990px) {
+  .container {
+    margin-top: 15%; } }
 @media screen and (max-width: 643px) {
   .container {
     margin-top: 25%; } }

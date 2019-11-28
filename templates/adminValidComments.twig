@@ -16,24 +16,29 @@
     <section class="content col-9">
         <h1>Commentaires en attente</h1>
 
-        <p>Filtrer les commentaires :</p>
-        <form method="post">
-            <label>par statut</label>
-            <select name="statute">
-                <option disabled>statut</option>
-                <option name="Tous">Tous</option>
-                <option name="En attente">En attente</option>
-                <option name="Validé">Validé</option>
-                <option name="Refusé">Refusé</option>
-            </select>
-            <label>par auteur</label>
-            <select name="author">
-                <option disabled selected>auteur</option>
-                {% for authorComment in authorsComments %}
-                    <option name="{{ authorComment.authorComment }}">{{ authorComment.authorComment }}</option>
-                {% endfor %}
-            </select>
-            <input type="submit" />
+        <form method="post" class="formFilter">
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label>Filtrer par statut :</label>
+                    <select name="statute" class="form-control form-control-sm">
+                        <option disabled>statut</option>
+                        <option name="Tous">Tous</option>
+                        <option name="En attente">En attente</option>
+                        <option name="Validé">Validé</option>
+                        <option name="Refusé">Refusé</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-3">
+                    <label>Filtrer par auteur :</label>
+                    <select name="author" class="form-control form-control-sm">
+                        <option disabled selected>Tous</option>
+                        {% for authorComment in authorsComments %}
+                            <option name="{{ authorComment.authorComment }}">{{ authorComment.authorComment }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <input type="submit" class="btn btn-outline-primary btn-sm col-md-6" value="Filtrer"/>
         </form>
 
         <br/>
@@ -44,43 +49,48 @@
 
         {% else %}
 
-        <table class="table-bordered table-striped table-hover tableCommentsAdministration" id="tableComments">
-            <thead>
-            <tr>
-                <th class="sorting">Titre de l'article</th>
-                <th class="sorting">Commentaire</th>
-                <th class="sorting">Date du commentaire</th>
-                <th class="sorting">Auteur du commentaire</th>
-                <th class="sorting">Statut de validation</th>
-                <th class="sorting">Action</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for commentToValidate in commentsToValidate %}
+            <table class="table-bordered table-striped table-hover tableCommentsAdministration" id="tableComments">
+                <thead>
                 <tr>
-                    <td>{{ commentToValidate.titleArticle }}</td>
-                    <td>{{ commentToValidate.contentComment }}</td>
-                    <td>{{ commentToValidate.dateComment }}</td>
-                    <td>{{ commentToValidate.authorComment }}</td>
-                    <td>{{ commentToValidate.validate }}</td>
-                    <td>
-                        <a href="index.php?page=manageComments&idCommentToValidate={{ commentToValidate.idComment }}">Valider</a>
-                        <a href="index.php?page=manageComments&idCommentToRefuse={{ commentToValidate.idComment }}">Refuser</a>
-                    </td>
+                    <th class="sorting">Titre de l'article</th>
+                    <th class="sorting">Commentaire</th>
+                    <th class="sorting">Date du commentaire</th>
+                    <th class="sorting">Auteur du commentaire</th>
+                    <th class="sorting">Statut de validation</th>
+                    <th class="sorting">Action</th>
                 </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                {% for commentToValidate in commentsToValidate %}
+                    <tr>
+                        <td>{{ commentToValidate.titleArticle }}</td>
+                        <td>{{ commentToValidate.contentComment }}</td>
+                        <td>{{ commentToValidate.dateComment }}</td>
+                        <td>{{ commentToValidate.authorComment }}</td>
+                        <td>{{ commentToValidate.validate }}</td>
+                        <td>
+                            <a href="index.php?page=manageComments&idCommentToValidate={{ commentToValidate.idComment }}">Valider</a>
+                            <a href="index.php?page=manageComments&idCommentToRefuse={{ commentToValidate.idComment }}">Refuser</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
 
         {% endif %}
 
         {% block script %}
         <!-- Using library datatables (https://www.datatables.net/) -->
-        <script>
+        <script type="text/javascript">
             $(document).ready( function () {
                 $('#tableComments').DataTable({
-                    paging: false,
-                    searching: false
+                    paging: true,
+                    searching: false,
+                    "language": {
+                        lengthMenu: "Voir _MENU_ lignes par page",
+                        search: "Rechercher :",
+                        info: "Page _PAGE_ / _PAGES_"
+                    }
                 });
             } );
         </script>

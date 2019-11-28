@@ -128,14 +128,20 @@ nav {
 		.notification {
 			margin-top: 2%;
 		}
-		.tableCommentsAdministration {
-			border-collapse: collapse;
+		.formFilter {
 			font-size: 0.8em;
-			thead {
-				text-align: center;
-			}
-			th, td {
-				padding: 5px;
+		}
+		.dataTables_wrapper {
+			font-size: 0.8em;
+			.tableCommentsAdministration {
+				border-collapse: collapse;
+				font-size: 1em;
+				thead {
+					text-align: center;
+				}
+				th, td {
+					padding: 5px;
+				}
 			}
 		}
 	}
@@ -155,13 +161,23 @@ nav {
 
 
 
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1570px) {
+	nav {
+		font-size: 0.9em;
+		.btn-nav {
+			margin: 1px 1px;
+			font-size: 0.9em;
+		}
+	}
 	.container {
-		margin-top: 11%;
+		margin-top: 13%;
 	}
 }
 
-@media screen and (max-width: 1010px) {
+@media screen and (max-width: 1090px) {
+	.container {
+		margin-top: 18%;
+	}
 	h1 {
 		font-size: 2em;
 	}
@@ -169,7 +185,7 @@ nav {
 		font-size: 1.3em;
 	}
 	nav {
-		font-size: 1em;
+		font-size: 0.9em;
 		.btn-nav {
 			margin: 1px 1px;
 			font-size: 0.9em;
@@ -184,6 +200,12 @@ nav {
 			height: 2rem;
 			font-size: 1rem;
 		}
+	}
+}
+
+@media screen and (max-width: 990px) {
+	.container {
+		margin-top: 15%;
 	}
 }
 
