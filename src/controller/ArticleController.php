@@ -228,7 +228,8 @@ class ArticleController extends \ClaireC\controller\Controller {
                         'msgNewComment' => $msgNewComment,
                         'isConnected' => $isConnected,
                         'messageConnection' => "<p>Vous êtes connecté en tant que $pseudoPerson</p>",
-                        'isAdmin' => $isAdmin
+                        'isAdmin' => $isAdmin,
+                        'pseudoPerson' => $pseudoPerson
                     ]);
             } else {
                 echo $this->twig->render('blogArticle.twig',
@@ -238,7 +239,8 @@ class ArticleController extends \ClaireC\controller\Controller {
                         'msgNewComment' => $msgNewComment,
                         'isConnected' => $isConnected,
                         'messageConnection' => "<p>Vous êtes connecté en tant que $pseudoPerson</p>",
-                        'isAdmin' => $isAdmin
+                        'isAdmin' => $isAdmin,
+                        'pseudoPerson' => $pseudoPerson
                     ]);
             }
         } else {
