@@ -1,0 +1,74 @@
+{% extends 'layout.twig' %}
+
+
+{% block head %}
+    <title>Liste des membres</title>
+{% endblock %}
+
+{% block aside %}
+    <section class="content col-3">
+        {{ messageConnection | raw }}
+        <a href="index.php?page=seeMyProfile" class="btn btn-info">Voir mon profil</a>
+    </section>
+{% endblock %}
+
+{% block content %}
+    <section class="content col-9">
+        <h1>Liste des membres</h1>
+
+        {% if not listMembers %}
+
+            <p>Il n'y a actuellement aucun membre dans la base de données.</p>
+
+        {% else %}
+
+            <table class="table-bordered table-striped table-hover tableCommentsAdministration" id="tableMembers">
+                <thead>
+                    <tr>
+                        <th class="sorting">Nom</th>
+                        <th class="sorting">Prénom</th>
+                        <th class="sorting">Pseudo</th>
+                        <th class="sorting">Mail</th>
+                        <th class="sorting">Date d'inscription</th>
+                        <th class="sorting">Type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for listMember in listMembers %}
+                    <tr>
+                        <td>{{ listMember.surnamePerson }}</td>
+                        <td>{{ listMember.firstnamePerson }}</td>
+                        <td>{{ listMember.pseudoPerson }}</td>
+                        <td>{{ listMember.emailPerson }}</td>
+                        <td>{{ listMember.dateRegistrationPerson }}</td>
+                        <td>{{ listMember.typePerson }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+        {% endif %}
+
+        {% block script %}
+            <!-- Using library datatables (https://www.datatables.net/) -->
+            <script type="text/javascript">
+                $(document).ready( function () {
+                    $('#tableMembers').DataTable({
+                        paging: true,
+                        searching: false,
+                        "language": {
+                            lengthMenu: "Voir _MENU_ lignes par page",
+                            search: "Rechercher :",
+                            info: "Page _PAGE_ / _PAGES_"
+                        }
+                    });
+                } );
+            </script>
+        {% endblock %}
+
+    </section>
+{% endblock %}
+
+{% block footer %}
+    {% include 'footer.twig' %}
+{% endblock %}
