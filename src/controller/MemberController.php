@@ -15,6 +15,28 @@ class MemberController extends \ClaireC\controller\Controller {
             $password = htmlspecialchars(trim($_POST['password']));
             $passwordConf = htmlspecialchars(trim($_POST['passwordConf']));
             $passwordHash = htmlspecialchars(trim(password_hash($_POST['password'], PASSWORD_DEFAULT)));
+            $emailToVerify = $memberManager->verifyEmailMember($email)[0];
+            if($email == $emailToVerify) {
+                echo $this->twig->render('inscription.twig',
+                    ['messageCreateMember' => "<p class='alert alert-danger'>Cet email est déjà utilisé...</p>",
+                        'surname' => $surname,
+                        'firstname' => $firstname,
+                        'email' => $email,
+                        'pseudo' => $pseudo
+                    ]);
+                exit;
+            }
+            $pseudoToVerify = $memberManager->verifyPseudoMember($pseudo)[0];
+            if($pseudo == $pseudoToVerify) {
+                echo $this->twig->render('inscription.twig',
+                    ['messageCreateMember' => "<p class='alert alert-danger'>Ce pseudo est déjà utilisé... Veuillez choisir un autre pseudo.</p>",
+                        'surname' => $surname,
+                        'firstname' => $firstname,
+                        'email' => $email,
+                        'pseudo' => $pseudo
+                    ]);
+                exit;
+            }
             if (($password) == ($passwordConf)) {
                 $memberManager->createMember($surname, $firstname, $pseudo, $email, $passwordHash);
                 echo $this->twig->render('home.twig',

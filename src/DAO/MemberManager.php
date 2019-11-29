@@ -28,4 +28,18 @@ class MemberManager extends Manager {
         return $this->createQuery($sql)->fetchAll();
     }
 
+    public function verifyEmailMember($email) {
+        $sql = 'SELECT emailPerson
+                FROM person
+                WHERE emailPerson = :emailPerson';
+        return $this->createQuery($sql, array('emailPerson' => $email))->fetch();
+    }
+
+    public function verifyPseudoMember($pseudo) {
+        $sql = 'SELECT pseudoPerson
+                FROM person
+                WHERE pseudoPerson = :pseudoPerson';
+        return $this->createQuery($sql, array('pseudoPerson' => $pseudo))->fetch();
+    }
+
 }
