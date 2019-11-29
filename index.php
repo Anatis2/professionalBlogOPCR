@@ -84,6 +84,9 @@ switch ($page) {
     case 'manageComments':
         $commentController->getPageManageComments();
         break;
+    case 'listMembers':
+        $memberController->listMembers();
+        break;
     case 'deconnexion':
         header('Location: index.php?page=home');
         session_destroy();

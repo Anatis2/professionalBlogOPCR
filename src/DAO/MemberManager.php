@@ -22,4 +22,10 @@ class MemberManager extends Manager {
         return $this->createQuery($sql, array('emailPerson' => $email))->fetchAll();
     }
 
+    public function listMembers() {
+        $sql = 'SELECT *
+                FROM person';
+        return $this->createQuery($sql)->fetchAll();
+    }
+
 }

@@ -1,6 +1,6 @@
 <?php
 
-require_once('src/DAO/MemberManager.php');
+require_once 'src/DAO/MemberManager.php';
 
 class MemberController extends \ClaireC\controller\Controller {
 
@@ -114,6 +114,20 @@ class MemberController extends \ClaireC\controller\Controller {
                     'emailPerson' => $_SESSION['emailPerson'],
                     'dateRegistrationPerson' => $_SESSION['dateRegistrationPerson'],
                     'typePerson' => $_SESSION['typePerson']
+                ]);
+        }
+    }
+
+    public function listMembers() {
+        $isConnected = self::verifyConnection();
+        $isAdmin = parent::isAdmin();
+        if($isConnected) {
+            $memberManager = new MemberManager();
+            echo $this->twig->render('adminListMembers.twig',
+                [   'isConnected' => $isConnected,
+                    'isAdmin' => $isAdmin,
+                    'messageConnection' => "<p>Vous êtes connecté en tant que $_SESSION[pseudoPerson]</p>",
+                    'listMembers' => $memberManager->listMembers()
                 ]);
         }
     }

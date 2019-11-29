@@ -6,8 +6,8 @@
 use Pagerfanta\Adapter\ArrayAdapter;
 use Pagerfanta\Pagerfanta;
 
-require_once('src/DAO/ArticleManager.php');
-require_once('conf/config.php');
+require_once 'src/DAO/ArticleManager.php';
+require_once 'conf/config.php';
 //require_once('src/controller/CommentController.php');
 
 
@@ -40,17 +40,23 @@ class ArticleController extends \ClaireC\controller\Controller {
         $adapter = new ArrayAdapter($articles);
         $pagerfanta = new Pagerfanta($adapter);
         $pagerfanta->setMaxPerPage(8); // set the max number of articles by page
-        $maxPerPage = $pagerfanta->getMaxPerPage(); // get the max number of articles by page
+        //$maxPerPage = $pagerfanta->getMaxPerPage(); // get the max number of articles by page
         $nbResults = $pagerfanta->getNbResults(); // get the total number of articles in the db
         $nbPages = $pagerfanta->getNbPages(); // get the total number of pages (consider the maxPerPage)
         $currentPageResults = $pagerfanta->getCurrentPageResults(); // list the articles (consider the maxPerPage and the currentPage)
+
+        if($nbResults > 8) {
+            $nextPage = $pagerfanta->getNextPage();
+        } else {
+            $nextPage = "";
+        }
 
         if (isset($_GET['numPage'])) {
             if (($_GET['numPage']) == 1) {
                 $pagerfanta->setCurrentPage($_GET['numPage']);
                 $currentPage = $pagerfanta->getCurrentPage();
                 $currentPageResults = $pagerfanta->getCurrentPageResults(); // list the articles (consider the maxPerPage and the currentPage)
-                $nextPage = $pagerfanta->getNextPage();
+
                 if($isAdmin) {
                     echo $this->twig->render('adminManageArticles.twig',
                         ['articles' => $currentPageResults,
@@ -149,7 +155,6 @@ class ArticleController extends \ClaireC\controller\Controller {
         } else {
             $pagerfanta->setCurrentPage(1);
             $currentPage = $pagerfanta->getCurrentPage();
-            $nextPage = $pagerfanta->getNextPage();
             if($isAdmin) {
                 echo $this->twig->render('adminManageArticles.twig',
                     ['articles' => $currentPageResults,
