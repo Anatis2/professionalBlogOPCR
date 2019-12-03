@@ -20,6 +20,8 @@ use ClaireC\src\model\Article;
 use ClaireC\src\model\Comment;
 use ClaireC\src\model\Member;
 
+require_once 'conf/config.php';
+
 session_start();
 $pseudoPerson = "";
 

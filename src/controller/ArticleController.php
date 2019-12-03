@@ -7,7 +7,6 @@ use Pagerfanta\Adapter\ArrayAdapter;
 use Pagerfanta\Pagerfanta;
 
 require_once 'src/DAO/ArticleManager.php';
-require_once 'conf/config.php';
 //require_once('src/controller/CommentController.php');
 
 
@@ -199,7 +198,7 @@ class ArticleController extends \ClaireC\controller\Controller {
                     $msgNewComment = "<p class='alert alert-danger'>Veuillez remplir tous les champs</p>";
                 } else {
                     function getCaptcha($secretKey) {
-                        $Response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=6LfA2b4UAAAAALrGE9pFN7-kXFO_A5zIrwKVAQ5R&response={$secretKey}");
+                        $Response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret={". PRIVATEKEYCAPTCHA ."}&response={$secretKey}");
                         $Return = json_decode($Response);
                         return $Return;
                     }
