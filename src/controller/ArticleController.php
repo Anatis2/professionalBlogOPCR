@@ -192,6 +192,12 @@ class ArticleController extends \ClaireC\controller\Controller {
         $pseudoPerson = "";
         $isConnected = parent::verifyConnection();
         $isAdmin = parent::isAdmin();
+        if($_SESSION) {
+            $token = bin2hex(random_bytes(32));
+            $_SESSION['token'] = $token;
+        } else {
+            $token = "";
+        }
         if((isset($_GET['idArticle']) && ($_GET['idArticle']) > 0)) {
             if((isset($_POST['pseudo'])) && (isset($_POST['comment']))) {
                 if ((empty($_POST['pseudo'])) || (empty($_POST['comment']))) {
@@ -228,7 +234,8 @@ class ArticleController extends \ClaireC\controller\Controller {
                         'isConnected' => $isConnected,
                         'messageConnection' => "<p>Vous êtes connecté en tant que $pseudoPerson</p>",
                         'isAdmin' => $isAdmin,
-                        'pseudoPerson' => $pseudoPerson
+                        'pseudoPerson' => $pseudoPerson,
+                        'token' => $token
                     ]);
             } else {
                 echo $this->twig->render('blogArticle.twig',
@@ -412,6 +419,12 @@ class ArticleController extends \ClaireC\controller\Controller {
         } else {
             $pseudoPerson = "";
         }
+        if ((!isset($_GET['token'])) || ($_GET['token'] != $_SESSION['token'])) {
+            echo $this->twig->render('403.twig');
+            exit;
+        } else {
+            $token = $_SESSION['token'];
+        }
         if(isset($_GET['conf'])) {
             $articleManager->deleteArticle($idArticle);
             echo $this->twig->render('confAdminDeleteArticle.twig',
@@ -420,15 +433,17 @@ class ArticleController extends \ClaireC\controller\Controller {
                     'isAdmin' => $isAdmin,
                     'messageConnection' => "<p>Vous êtes connecté en tant que $pseudoPerson</p>",
                     'idArticle' => $_GET['idArticle'],
-                    'msgSupprArticle' => "<p class='alert alert-success'>L'article a bien été supprimé</p>"
+                    'msgSupprArticle' => "<p class='alert alert-success'>L'article a bien été supprimé</p>",
                 ]);
         } else {
+
             echo $this->twig->render('adminDeleteArticle.twig',
                 [
                     'isConnected' => $isConnected,
                     'isAdmin' => $isAdmin,
                     'messageConnection' => "<p>Vous êtes connecté en tant que $pseudoPerson</p>",
-                    'idArticle' => $_GET['idArticle']
+                    'idArticle' => $_GET['idArticle'],
+                    'token' => $token
                 ]);
         }
 
