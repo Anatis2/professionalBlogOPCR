@@ -204,7 +204,7 @@ class ArticleController extends \ClaireC\controller\Controller {
                     $msgNewComment = "<p class='alert alert-danger'>Veuillez remplir tous les champs</p>";
                 } else {
                     function getCaptcha($secretKey) {
-                        $Response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret={". PRIVATEKEYCAPTCHA ."}&response={$secretKey}");
+                        $Response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=" . PRIVATEKEYCAPTCHA . "&response={$secretKey}");
                         $Return = json_decode($Response);
                         return $Return;
                     }

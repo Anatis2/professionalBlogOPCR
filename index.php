@@ -34,7 +34,7 @@ $memberController = new MemberController();
 $page = "home";
 
 if(isset($_GET['page'])) {
-    $page = (int) $_GET['page'];
+    $page = $_GET['page'];
 }
 
 if(isset($_GET['numPage'])) {
