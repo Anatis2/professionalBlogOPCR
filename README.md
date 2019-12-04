@@ -1,6 +1,4 @@
 # professionalBlogOPCR
-
-
 Installation de l'application
 ================================
 1. Télécharger le projet sur GitHub (https://github.com/Anatis2/professionalBlogOPCR), en faisant un git clone.
