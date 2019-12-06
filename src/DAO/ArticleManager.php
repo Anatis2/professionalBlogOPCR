@@ -1,6 +1,6 @@
 <?php
 
-require_once("src/DAO/Manager.php");
+require_once 'src/DAO/Manager.php';
 
 use ClaireC\src\DAO\Manager;
 

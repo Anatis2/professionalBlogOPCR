@@ -7,7 +7,7 @@ use Pagerfanta\Adapter\ArrayAdapter;
 use Pagerfanta\Pagerfanta;
 
 require_once 'src/DAO/ArticleManager.php';
-//require_once('src/controller/CommentController.php');
+//require_once 'src/controller/CommentController.php';
 
 
 class ArticleController extends \ClaireC\controller\Controller {
