@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.6deb4
+-- version 4.7.9
 -- https://www.phpmyadmin.net/
 --
--- Client :  localhost:3306
--- Généré le :  Mer 04 Décembre 2019 à 10:31
--- Version du serveur :  10.1.41-MariaDB-0+deb9u1
--- Version de PHP :  7.0.33-0+deb9u3
+-- Hôte : 127.0.0.1:3306
+-- Généré le :  lun. 09 déc. 2019 à 10:09
+-- Version du serveur :  5.7.21
+-- Version de PHP :  7.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -17,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `opcr_projet5_professionalBlog`
+-- Base de données :  `opcr_projet5_professionalblog`
 --
 
 -- --------------------------------------------------------
@@ -26,17 +28,20 @@ SET time_zone = "+00:00";
 -- Structure de la table `article`
 --
 
-CREATE TABLE `article` (
-  `idArticle` int(11) NOT NULL,
+DROP TABLE IF EXISTS `article`;
+CREATE TABLE IF NOT EXISTS `article` (
+  `idArticle` int(11) NOT NULL AUTO_INCREMENT,
   `titleArticle` varchar(255) DEFAULT NULL,
   `subtitleArticle` varchar(255) DEFAULT NULL,
   `contentArticle` text,
   `dateCreationArticle` datetime DEFAULT CURRENT_TIMESTAMP,
-  `person_idPerson` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `person_idPerson` int(11) NOT NULL,
+  PRIMARY KEY (`idArticle`,`person_idPerson`),
+  KEY `fk_article_personne1_idx` (`person_idPerson`)
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `article`
+-- Déchargement des données de la table `article`
 --
 
 INSERT INTO `article` (`idArticle`, `titleArticle`, `subtitleArticle`, `contentArticle`, `dateCreationArticle`, `person_idPerson`) VALUES
@@ -62,31 +67,34 @@ INSERT INTO `article` (`idArticle`, `titleArticle`, `subtitleArticle`, `contentA
 -- Structure de la table `comment`
 --
 
-CREATE TABLE `comment` (
-  `idComment` int(11) NOT NULL,
+DROP TABLE IF EXISTS `comment`;
+CREATE TABLE IF NOT EXISTS `comment` (
+  `idComment` int(11) NOT NULL AUTO_INCREMENT,
   `authorComment` varchar(45) DEFAULT NULL,
   `contentComment` text,
   `dateComment` datetime DEFAULT CURRENT_TIMESTAMP,
   `article_idArticle` int(11) NOT NULL,
-  `validate` varchar(45) DEFAULT 'En attente'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `validate` varchar(45) DEFAULT 'En attente',
+  PRIMARY KEY (`idComment`,`article_idArticle`),
+  KEY `fk_commentaire_article_idx` (`article_idArticle`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `comment`
+-- Déchargement des données de la table `comment`
 --
 
 INSERT INTO `comment` (`idComment`, `authorComment`, `contentComment`, `dateComment`, `article_idArticle`, `validate`) VALUES
 (1, 'Claire', 'Un commentaire pour tester', '2019-12-04 10:18:22', 1, 'En attente'),
-(2, 'Claire', 'Un commentaire pour l\'article n°2', '2019-12-04 10:18:22', 2, 'En attente'),
+(2, 'Claire', 'Un commentaire pour l\'article n°2', '2019-12-04 10:18:22', 2, 'Validé'),
 (3, 'Claire', 'Article 1', '2019-12-04 10:18:22', 1, 'En attente'),
-(4, 'Claire', 'Nous sommes ici dans l\'article n°2', '2019-12-04 10:18:22', 2, 'En attente'),
-(5, 'Claire', 'Nous sommes ici dans l\'article n°2', '2019-12-04 10:18:22', 2, 'En attente'),
+(4, 'Claire', 'Nous sommes ici dans l\'article n°2', '2019-12-04 10:18:22', 2, 'Validé'),
+(5, 'Claire', 'Nous sommes ici dans l\'article n°2', '2019-12-04 10:18:22', 2, 'Validé'),
 (6, 'Claire', 'Nous sommes ici dans l\'article n°1', '2019-12-04 10:18:22', 1, 'En attente'),
-(7, 'Claire', 'Article n°2', '2019-12-04 10:18:22', 2, 'En attente'),
+(7, 'Claire', 'Article n°2', '2019-12-04 10:18:22', 2, 'Validé'),
 (10, 'Admin', 'Un article repris du site de Korben : https://korben.info/webosaures-levolution-des-connexions-internet.html', '2019-12-04 10:27:25', 17, 'En attente'),
 (11, 'Member', 'merci pour cet article !', '2019-12-04 10:27:52', 17, 'En attente'),
 (12, 'Member', 'Test pour article à valider', '2019-12-04 10:28:12', 6, 'En attente'),
-(13, 'utilisateurinscrit', '+1 !', '2019-12-04 10:29:06', 2, 'En attente'),
+(13, 'utilisateurinscrit', '+1 !', '2019-12-04 10:29:06', 2, 'Validé'),
 (14, 'utilisateurinscrit', 'test de spam', '2019-12-04 10:29:15', 2, 'En attente');
 
 -- --------------------------------------------------------
@@ -95,19 +103,21 @@ INSERT INTO `comment` (`idComment`, `authorComment`, `contentComment`, `dateComm
 -- Structure de la table `person`
 --
 
-CREATE TABLE `person` (
-  `idPerson` int(11) NOT NULL,
+DROP TABLE IF EXISTS `person`;
+CREATE TABLE IF NOT EXISTS `person` (
+  `idPerson` int(11) NOT NULL AUTO_INCREMENT,
   `surnamePerson` varchar(45) DEFAULT NULL,
   `firstnamePerson` varchar(45) DEFAULT NULL,
   `pseudoPerson` varchar(45) DEFAULT NULL,
   `emailPerson` varchar(45) DEFAULT NULL,
   `passwordPerson` varchar(255) DEFAULT NULL,
   `dateRegistrationPerson` datetime DEFAULT CURRENT_TIMESTAMP,
-  `typePerson` varchar(45) DEFAULT 'Member'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `typePerson` varchar(45) DEFAULT 'Member',
+  PRIMARY KEY (`idPerson`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `person`
+-- Déchargement des données de la table `person`
 --
 
 INSERT INTO `person` (`idPerson`, `surnamePerson`, `firstnamePerson`, `pseudoPerson`, `emailPerson`, `passwordPerson`, `dateRegistrationPerson`, `typePerson`) VALUES
@@ -117,50 +127,7 @@ INSERT INTO `person` (`idPerson`, `surnamePerson`, `firstnamePerson`, `pseudoPer
 (4, 'Utilisateur', 'Inscrit', 'utilisateurinscrit', 'utilisateur.inscrit@gmail.com', '$2y$10$4k1Y3nCmHWQA84aZYolCk.AmHtVh3j7EFKz/M/ky/tZNoTPRdewSm', '2019-12-04 10:25:04', 'Member');
 
 --
--- Index pour les tables exportées
---
-
---
--- Index pour la table `article`
---
-ALTER TABLE `article`
-  ADD PRIMARY KEY (`idArticle`,`person_idPerson`),
-  ADD KEY `fk_article_personne1_idx` (`person_idPerson`);
-
---
--- Index pour la table `comment`
---
-ALTER TABLE `comment`
-  ADD PRIMARY KEY (`idComment`,`article_idArticle`),
-  ADD KEY `fk_commentaire_article_idx` (`article_idArticle`);
-
---
--- Index pour la table `person`
---
-ALTER TABLE `person`
-  ADD PRIMARY KEY (`idPerson`);
-
---
--- AUTO_INCREMENT pour les tables exportées
---
-
---
--- AUTO_INCREMENT pour la table `article`
---
-ALTER TABLE `article`
-  MODIFY `idArticle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
---
--- AUTO_INCREMENT pour la table `comment`
---
-ALTER TABLE `comment`
-  MODIFY `idComment` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
---
--- AUTO_INCREMENT pour la table `person`
---
-ALTER TABLE `person`
-  MODIFY `idPerson` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
---
--- Contraintes pour les tables exportées
+-- Contraintes pour les tables déchargées
 --
 
 --
@@ -174,6 +141,7 @@ ALTER TABLE `article`
 --
 ALTER TABLE `comment`
   ADD CONSTRAINT `fk_commentaire_article` FOREIGN KEY (`article_idArticle`) REFERENCES `article` (`idArticle`) ON DELETE CASCADE ON UPDATE NO ACTION;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

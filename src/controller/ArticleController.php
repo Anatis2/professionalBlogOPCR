@@ -261,7 +261,7 @@ class ArticleController extends \ClaireC\controller\Controller {
      */
     public function addArticle() {
         $articleManager = new ArticleManager();
-        if(isset($_POST['titleArticle']) && isset($_POST['subtitleArticle']) && isset($_POST['contentArticle'])) {
+        if(isset($_POST['titleArticle']) && isset($_POST['subtitleArticle']) && isset($_POST['contentArticle']) && (!empty($_POST['titleArticle']))) {
             $titleArticle = htmlspecialchars($_POST['titleArticle']);
             $subtitleArticle = htmlspecialchars($_POST['subtitleArticle']);
             $contentArticle = htmlspecialchars($_POST['contentArticle']);
