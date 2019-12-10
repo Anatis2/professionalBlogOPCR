@@ -4,15 +4,24 @@ require_once 'src/DAO/MemberManager.php';
 
 class MemberController extends \ClaireC\controller\Controller {
 
+    /**
+     * Verify default $_POST variables, with htmlspecialchars, trim and filter_input functions
+     * @param $post
+     * @return string
+     */
+    public function defaultPostControl($postName) {
+        return htmlspecialchars(trim(filter_input(INPUT_POST, $postName)));
+    }
+
     public function createMember() {
         $memberManager = new MemberManager();
         if((isset($_POST['surname']) && (isset($_POST['firstname']))) && (isset($_POST['email'])) && (isset($_POST['pseudo']))
             && (isset($_POST['password'])) && (isset($_POST['passwordConf']))) {
-            $surname = htmlspecialchars(trim($_POST['surname']));
-            $firstname = htmlspecialchars(trim($_POST['firstname']));
-            $email = htmlspecialchars(trim($_POST['email']));
+            $surname = $this->defaultPostControl('surname');
+            $firstname = $this->defaultPostControl('firstname');
+            $email = $this->defaultPostControl('email');
             $emailToVerify = $memberManager->verifyEmailMember($email)[0];
-            $pseudo = htmlspecialchars(trim($_POST['pseudo']));
+            $pseudo = $this->defaultPostControl('pseudo');
             if($email == $emailToVerify) {
                 echo $this->twig->render('inscription.twig',
                     ['messageCreateMember' => "<p class='alert alert-danger'>Cet email est déjà utilisé...</p>",
