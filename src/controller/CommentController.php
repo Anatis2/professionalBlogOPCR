@@ -13,8 +13,8 @@ class CommentController extends \ClaireC\controller\Controller {
     public function addComment() {
         $commentManager = new CommentManager(); 
         if((isset($_POST['pseudo'])) && (isset($_POST['comment'])) && (!empty($_POST['pseudo'])) && (!empty($_POST['comment']))) {
-            $pseudo = htmlspecialchars($_POST['pseudo']);
-            $comment = htmlspecialchars($_POST['comment']);
+            $pseudo = parent::defaultPostControl('pseudo');
+            $comment = parent::defaultPostControl('comment');
             $idArticle = htmlspecialchars($_GET['idArticle']);
             $newComments = $commentManager->addComment($pseudo,$comment, $idArticle);
             return $newComments;
@@ -35,11 +35,11 @@ class CommentController extends \ClaireC\controller\Controller {
             return $commentManager->refuseComment($idComment);
         }
         if(isset($_POST['author'])) {
-            $author = $_POST['author'];
+            $author = parent::defaultPostControl('author');
             return $commentManager->filterCommentsByAuthor($author);
         }
         if(isset($_POST['statute'])) {
-            $statute = $_POST['statute'];
+            $statute = parent::defaultPostControl('statute');
             if($statute === "Tous") {
                 return $commentManager->listComments();
             } else {

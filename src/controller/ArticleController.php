@@ -262,9 +262,9 @@ class ArticleController extends \ClaireC\controller\Controller {
     public function addArticle() {
         $articleManager = new ArticleManager();
         if(isset($_POST['titleArticle']) && isset($_POST['subtitleArticle']) && isset($_POST['contentArticle']) && (!empty($_POST['titleArticle']))) {
-            $titleArticle = htmlspecialchars($_POST['titleArticle']);
-            $subtitleArticle = htmlspecialchars($_POST['subtitleArticle']);
-            $contentArticle = htmlspecialchars($_POST['contentArticle']);
+            $titleArticle = parent::defaultPostControl('titleArticle');
+            $subtitleArticle = parent::defaultPostControl('subtitleArticle');
+            $contentArticle = parent::defaultPostControl('contentArticle');
             $person_idPerson = $_SESSION['idPerson'];
             $articleIsAdded = $articleManager->addArticle($titleArticle, $subtitleArticle, $contentArticle, $person_idPerson);
             if ($articleIsAdded) {
@@ -387,9 +387,9 @@ class ArticleController extends \ClaireC\controller\Controller {
         if($isConnected) {
             $pseudoPerson = $_SESSION['pseudoPerson'];
             if(isset($_POST['titleArticle']) && isset($_POST['subtitleArticle']) && isset($_POST['contentArticle'])) {
-                $titleArticle = $_POST['titleArticle'];
-                $subtitleArticle = $_POST['subtitleArticle'];
-                $contentArticle = $_POST['contentArticle'];
+                $titleArticle = parent::defaultPostControl('titleArticle');
+                $subtitleArticle = parent::defaultPostControl('subtitleArticle');
+                $contentArticle = parent::defaultPostControl('contentArticle');
                 $articleManager->modifyArticle($titleArticle, $subtitleArticle, $contentArticle);
                 $msgModifyArticle = "<p class='alert alert-success'>Votre article a bien été modifié</p>";
             }

@@ -9,19 +9,17 @@ class MemberController extends \ClaireC\controller\Controller {
      * @param $post
      * @return string
      */
-    public function defaultPostControl($postName) {
-        return htmlspecialchars(trim(filter_input(INPUT_POST, $postName)));
-    }
+
 
     public function createMember() {
         $memberManager = new MemberManager();
         if((isset($_POST['surname']) && (isset($_POST['firstname']))) && (isset($_POST['email'])) && (isset($_POST['pseudo']))
             && (isset($_POST['password'])) && (isset($_POST['passwordConf']))) {
-            $surname = $this->defaultPostControl('surname');
-            $firstname = $this->defaultPostControl('firstname');
-            $email = $this->defaultPostControl('email');
+            $surname = parent::defaultPostControl('surname');
+            $firstname = parent::defaultPostControl('firstname');
+            $email = parent::defaultPostControl('email');
             $emailToVerify = $memberManager->verifyEmailMember($email)[0];
-            $pseudo = $this->defaultPostControl('pseudo');
+            $pseudo = parent::defaultPostControl('pseudo');
             if($email == $emailToVerify) {
                 echo $this->twig->render('inscription.twig',
                     ['messageCreateMember' => "<p class='alert alert-danger'>Cet email est déjà utilisé...</p>",
@@ -68,8 +66,8 @@ class MemberController extends \ClaireC\controller\Controller {
     public function connectMember() {
         $memberManager = new MemberManager();
          if ((isset($_POST['email'])) && (isset($_POST['password']))) {
-            $email = htmlspecialchars(trim($_POST['email']));
-            $password = htmlspecialchars(trim($_POST['password']));
+            $email = parent::defaultPostControl('email');
+            $password = parent::defaultPostControl('password');
             $connectedMember = $memberManager->connectMember($email);
             if(!empty($connectedMember)) {
                 $idPerson = $connectedMember[0]['idPerson'];

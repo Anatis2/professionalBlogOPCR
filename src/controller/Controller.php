@@ -36,4 +36,8 @@ class Controller {
         }
     }
 
+    public function defaultPostControl($postName) {
+        return htmlspecialchars(trim(filter_input(INPUT_POST, $postName)));
+    }
+
 }
