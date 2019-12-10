@@ -82,6 +82,7 @@ switch ($page) {
         break;
     case 'deleteArticle':
         $articleController->deleteArticle();
+        var_dump($_POST);
         break;
     case 'manageComments':
         $commentController->getPageManageComments();

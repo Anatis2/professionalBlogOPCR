@@ -440,13 +440,13 @@ class ArticleController extends \ClaireC\controller\Controller {
         } else {
             $pseudoPerson = "";
         }
-        if ((!isset($_GET['token'])) || ($_GET['token'] != $_SESSION['token'])) {
+        if ((!isset($_POST['token'])) || ($_POST['token'] != $_SESSION['token'])) {
             echo $this->twig->render('403.twig');
             exit;
         } else {
             $token = $_SESSION['token'];
         }
-        if(isset($_GET['conf'])) {
+        if(isset($_POST['conf']) && ($_POST['conf']==true)) {
             $articleManager->deleteArticle($idArticle);
             echo $this->twig->render('confAdminDeleteArticle.twig',
                 [
@@ -457,7 +457,6 @@ class ArticleController extends \ClaireC\controller\Controller {
                     'msgSupprArticle' => "<p class='alert alert-success'>L'article a bien été supprimé</p>",
                 ]);
         } else {
-
             echo $this->twig->render('adminDeleteArticle.twig',
                 [
                     'isConnected' => $isConnected,

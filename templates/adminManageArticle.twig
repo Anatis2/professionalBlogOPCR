@@ -24,8 +24,13 @@
                         <h3 class="titleArticle">{{ article.titleArticle }}</h3>
                         <p class="subtitleArticle"><strong>{{ article.subtitleArticle | nl2br }}</strong></p>
                         <p class="dateCreationArticle"><em>Publié le {{ article.dateCreationArticle }} par {{ article.pseudoPerson }}</em></p>
-                        <a class="btn btn-info" href="index.php?page=modifyArticle&idArticle={{ article.idArticle }}">Modifier l'article</a>
-                        <a class="btn btn-info" href="index.php?page=deleteArticle&idArticle={{ article.idArticle }}&token={{ token }}">Supprimer l'article</a>
+                        <form method="post" action="index.php?page=modifyArticle&idArticle={{ article.idArticle }}" style="display: inline;">
+                            <input class="btn btn-info" type="submit" value="Modifier l'article" />
+                        </form>
+                        <form method="post" action="index.php?page=deleteArticle&idArticle={{ article.idArticle }}" style="display: inline;">
+                            <input class="btn btn-info" type="submit" value="Supprimer l'article" />
+                            <input type="hidden" name="token" value={{ token }} />
+                        </form>
                         <p class="contentArticle">{{ article.contentArticle | nl2br }}</p>
                     </article>
                 {% endfor %}

@@ -23,10 +23,14 @@
 
         <div>
             <p>Etes-vous sûr de vouloir supprimer cet article ? (Attention, cette action aura pour conséquence la suppression de tous les commentaires associés à cet article).</p>
-            <a class="btn btn-info" href="index.php?page=deleteArticle&idArticle={{ idArticle }}&conf=true&token={{ token }}">Oui</a>
-            <a class="btn btn-info" href="index.php?page=manageArticle&idArticle={{ idArticle }}">Non</a>
+            <form method="post" action="index.php?page=deleteArticle&idArticle={{ idArticle }}&conf=true" style="display: inline;">
+                <button class="btn btn-info" name="conf" value="true">Oui</button>
+                <input type="hidden" name="token" value={{ token }} />
+            </form>
+            <form method="post" action="index.php?page=manageArticle&idArticle={{ idArticle }}" style="display: inline;">
+                <button class="btn btn-info">Non</button>
+            </form>
         </div>
-
         {% else %}
 
             <h2>Vous n'avez pas le droit d'être ici !</h2>
