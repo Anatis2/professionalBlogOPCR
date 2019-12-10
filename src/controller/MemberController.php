@@ -5,12 +5,11 @@ require_once 'src/DAO/MemberManager.php';
 class MemberController extends \ClaireC\controller\Controller {
 
     /**
-     * Verify default $_POST variables, with htmlspecialchars, trim and filter_input functions
-     * @param $post
-     * @return string
+     * Create a member, by calling memberManager
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
      */
-
-
     public function createMember() {
         $memberManager = new MemberManager();
         if((isset($_POST['surname']) && (isset($_POST['firstname']))) && (isset($_POST['email'])) && (isset($_POST['pseudo']))
@@ -63,6 +62,12 @@ class MemberController extends \ClaireC\controller\Controller {
         }
     }
 
+    /**
+     * Connect a member
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
+     */
     public function connectMember() {
         $memberManager = new MemberManager();
          if ((isset($_POST['email'])) && (isset($_POST['password']))) {
@@ -113,6 +118,12 @@ class MemberController extends \ClaireC\controller\Controller {
          }
     }
 
+    /**
+     * Redirect in admin home page
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
+     */
     public function getPageAdminHome() {
         $isConnected = parent::verifyConnection();
         $isAdmin = parent::isAdmin();
@@ -128,7 +139,12 @@ class MemberController extends \ClaireC\controller\Controller {
         }
     }
 
-
+    /**
+     * Get member profile
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
+     */
     public function getMemberProfile() {
         $isConnected = self::verifyConnection();
         $isAdmin = parent::isAdmin();
@@ -147,6 +163,12 @@ class MemberController extends \ClaireC\controller\Controller {
         }
     }
 
+    /**
+     * Get the all list of members
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
+     */
     public function listMembers() {
         $isConnected = self::verifyConnection();
         $isAdmin = parent::isAdmin();

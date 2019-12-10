@@ -34,11 +34,11 @@ $memberController = new MemberController();
 $page = "home";
 
 if(isset($_GET['page'])) {
-    $page = $_GET['page'];
+    $page = filter_input(INPUT_GET, 'page');
 }
 
 if(isset($_GET['numPage'])) {
-    $numPage = $_GET['numPage'];
+    $numPage = filter_input(INPUT_GET,'numPage');
 }
 
 switch ($page) {

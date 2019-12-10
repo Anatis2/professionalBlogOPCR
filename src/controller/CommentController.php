@@ -4,12 +4,20 @@ require_once 'src/DAO/CommentManager.php';
 
 class CommentController extends \ClaireC\controller\Controller {
 
+    /**
+     * List all the comments by article ID
+     * @return array
+     */
     public function listCommentsById() {
         $commentManager = new CommentManager();
         $comments = $commentManager->listCommentsById();
         return $comments->fetchAll();
     }
-    
+
+    /**
+     * Verify $_POST superglobals and add a comment in DB by calling commentManager
+     * @return bool|false|PDOStatement
+     */
     public function addComment() {
         $commentManager = new CommentManager(); 
         if((isset($_POST['pseudo'])) && (isset($_POST['comment'])) && (!empty($_POST['pseudo'])) && (!empty($_POST['comment']))) {
@@ -21,6 +29,10 @@ class CommentController extends \ClaireC\controller\Controller {
         }
     }
 
+    /**
+     * List all comments by statute and permit filters by statute and by author
+     * @return array|bool|false|PDOStatement
+     */
     public function listCommentsToValidate() {
         $commentManager = new CommentManager();
 
@@ -51,12 +63,22 @@ class CommentController extends \ClaireC\controller\Controller {
 
     }
 
+    /**
+     * Get all comments authors
+     * @return array
+     */
     public function getAuthorsComments() {
         $commentManager = new CommentManager();
         $authorsComments = $commentManager->getAuthorsComments()->fetchAll();
         return $authorsComments;
     }
 
+    /**
+     * Get page ManageComments if the user is admin
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
+     */
     public function getPageManageComments() {
         $isConnected = parent::verifyConnection();
         $isAdmin = parent::isAdmin();

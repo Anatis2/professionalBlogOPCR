@@ -6,6 +6,9 @@ use ClaireC\src\DAO\Manager;
 
 class CommentManager extends Manager {
 
+    /**
+     * @return bool|false|PDOStatement
+     */
     public function listCommentsById() {
         $sql = "SELECT *
                 FROM comment 
@@ -14,7 +17,13 @@ class CommentManager extends Manager {
                 ORDER BY dateComment DESC";
         return $this->createQuery($sql, array('idArticle' => $_GET['idArticle']));
     }
-    
+
+    /**
+     * @param $pseudo
+     * @param $comment
+     * @param $idArticle
+     * @return bool|false|PDOStatement
+     */
      public function addComment($pseudo, $comment, $idArticle ) {
         $sql = 'INSERT INTO comment(authorComment, contentComment, article_idArticle) '
                . 'VALUES (:pseudo, :comment, :idArticle)'; 
@@ -24,6 +33,9 @@ class CommentManager extends Manager {
                                               ));
     }
 
+    /**
+     * @return bool|false|PDOStatement
+     */
     public function listCommentsToValidate() {
         $sql = "SELECT titleArticle, idComment, contentComment, dateComment, authorComment, validate
                     FROM comment
@@ -32,6 +44,10 @@ class CommentManager extends Manager {
         return $this->createQuery($sql);
     }
 
+    /**
+     * @param $idComment
+     * @return bool|false|PDOStatement
+     */
     public function validateComment($idComment) {
         $sql = "UPDATE comment SET validate='Validé' WHERE idComment = :idComment";
         return $this->createQuery($sql, array('idComment' => $idComment));
@@ -42,12 +58,19 @@ class CommentManager extends Manager {
         return $this->createQuery($sql, array('idComment' => $idComment));
     }
 
+    /**
+     * @return bool|false|PDOStatement
+     */
     public function getAuthorsComments(){
         $sql = "SELECT DISTINCT authorComment
                     FROM comment";
         return $this->createQuery($sql);
     }
 
+    /**
+     * @param $statute
+     * @return bool|false|PDOStatement
+     */
     public function filterCommentsByStatute($statute) {
         $sql = "SELECT titleArticle, idComment, contentComment, dateComment, authorComment, validate
                     FROM comment
@@ -56,6 +79,10 @@ class CommentManager extends Manager {
         return $this->createQuery($sql, array('statute' => $statute));
     }
 
+    /**
+     * @param $author
+     * @return bool|false|PDOStatement
+     */
     public function filterCommentsByAuthor($author) {
         $sql = "SELECT titleArticle, idComment, contentComment, dateComment, authorComment, validate
                     FROM comment
@@ -64,6 +91,9 @@ class CommentManager extends Manager {
         return $this->createQuery($sql, array('authorComment' => $author));
     }
 
+    /**
+     * @return bool|false|PDOStatement
+     */
     public function listComments() {
         $sql = "SELECT titleArticle, idComment, contentComment, dateComment, authorComment, validate
                     FROM comment

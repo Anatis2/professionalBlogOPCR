@@ -18,11 +18,19 @@ class Controller {
         ]);
     }
 
+    /**
+     * Verify if the user is connected
+     * @return bool
+     */
     public function verifyConnection() {
         $isConnected = empty($_SESSION) ? false : true;
         return $isConnected;
     }
 
+    /**
+     * Verify is the user have administrator rights
+     * @return bool
+     */
     public function isAdmin() {
         $isConnected = self::verifyConnection();
         if($isConnected) {
@@ -36,10 +44,20 @@ class Controller {
         }
     }
 
+    /**
+     * Format and filter $_POST superglobal variables
+     * @param $postName
+     * @return string
+     */
     public function defaultPostControl($postName) {
         return htmlspecialchars(trim(filter_input(INPUT_POST, $postName)));
     }
 
+    /**
+     * Format and filter $_GET superglobal variables
+     * @param $postName
+     * @return string
+     */
     public function defaultGetControl($postName) {
         return htmlspecialchars(trim(filter_input(INPUT_GET, $postName)));
     }

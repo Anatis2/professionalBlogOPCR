@@ -13,7 +13,7 @@ require_once 'src/DAO/ArticleManager.php';
 class ArticleController extends \ClaireC\controller\Controller {
 
     /**
-     * 
+     * List all articles from Database
      * @return type
      */
     public function listArticles() {
@@ -23,7 +23,10 @@ class ArticleController extends \ClaireC\controller\Controller {
     }
 
     /**
-     * 
+     * Call function listArticles and pagerFanta library with rights controls
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
      */
     public function pagesManager() {
         $articles = $this->listArticles();
@@ -182,7 +185,10 @@ class ArticleController extends \ClaireC\controller\Controller {
     }
 
     /**
-     * 
+     * Get article thanks to its ID, passed in $_GET superglobal
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
      */
     public function getArticle() {
         $articleManager = new ArticleManager();
@@ -256,7 +262,7 @@ class ArticleController extends \ClaireC\controller\Controller {
     }
 
     /**
-     * 
+     * Verify $_POST superglobals and add an article in DB by calling articleManager
      * @return string
      */
     public function addArticle() {
@@ -277,7 +283,10 @@ class ArticleController extends \ClaireC\controller\Controller {
     }
 
     /**
-     * 
+     * Verify user's right and redirect into page addArticle
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
      */
     public function getPageAdminAddArticle() {
         $isConnected = parent::verifyConnection();
@@ -296,7 +305,10 @@ class ArticleController extends \ClaireC\controller\Controller {
     }
 
     /**
-     * 
+     * Send an email from contact form
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
      */
     public function getPageContact() {
         $isConnected = parent::verifyConnection();
@@ -332,7 +344,7 @@ class ArticleController extends \ClaireC\controller\Controller {
                 ;
 
                 // Send the message
-                $result = $mailer->send($message);
+                $mailer->send($message);
 
                 echo $this->twig->render('contact.twig',
                     [   'isConnected' => $isConnected,
@@ -358,7 +370,10 @@ class ArticleController extends \ClaireC\controller\Controller {
     }
 
     /**
-     * 
+     * Redirect in home page (with control user's rights)
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
      */
     public function getPageHome() {
         $isConnected = parent::verifyConnection();
@@ -377,7 +392,10 @@ class ArticleController extends \ClaireC\controller\Controller {
     }
 
     /**
-     * 
+     * Modify an article by calling articleManager (if user is administrator)
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
      */
     public function modifyArticle() {
         $articleManager = new ArticleManager();
@@ -407,7 +425,10 @@ class ArticleController extends \ClaireC\controller\Controller {
     }
 
     /**
-     * 
+     * Detele an article by calling articleManager (with CSRF controls)
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
      */
     public function deleteArticle() {
         $isConnected = parent::verifyConnection();

@@ -6,10 +6,11 @@ use \PDO;
 
 abstract class Manager {
 
+    /**
+     * @return PDO
+     */
     protected function dbConnect() {
         try {
-            /*$db = new PDO('mysql:host=localhost;dbname=opcr_projet5_professionalBlog;charset=utf8', LOGINBDD, PWDBDD,
-                            array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));*/
             $db = new PDO('mysql:host=localhost;dbname=opcr_projet5_professionalBlog;charset=utf8', LOGINBDD, PWDBDD,
                             array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
             return $db;
@@ -18,6 +19,11 @@ abstract class Manager {
         }
     }
 
+    /**
+     * @param $sql
+     * @param null $parameters
+     * @return bool|false|\PDOStatement
+     */
     protected function createQuery($sql, $parameters=null) {
         if($parameters) {
             $result = $this->dbConnect()->prepare($sql);
