@@ -15,7 +15,7 @@ class CommentController extends \ClaireC\controller\Controller {
         if((isset($_POST['pseudo'])) && (isset($_POST['comment'])) && (!empty($_POST['pseudo'])) && (!empty($_POST['comment']))) {
             $pseudo = parent::defaultPostControl('pseudo');
             $comment = parent::defaultPostControl('comment');
-            $idArticle = htmlspecialchars($_GET['idArticle']);
+            $idArticle = parent::defaultGetControl('idArticle');
             $newComments = $commentManager->addComment($pseudo,$comment, $idArticle);
             return $newComments;
         }
@@ -25,12 +25,12 @@ class CommentController extends \ClaireC\controller\Controller {
         $commentManager = new CommentManager();
 
         if(isset($_GET['idCommentToValidate'])) {
-            $idComment = $_GET['idCommentToValidate'];
+            $idComment = parent::defaultGetControl('idCommentToValidate');
             header('Location: index.php?page=manageComments');
             return $commentManager->validateComment($idComment);
         }
         if(isset($_GET['idCommentToRefuse'])) {
-            $idComment = $_GET['idCommentToRefuse'];
+            $idComment = parent::defaultGetControl('idCommentToRefuse');
             header('Location: index.php?page=manageComments');
             return $commentManager->refuseComment($idComment);
         }

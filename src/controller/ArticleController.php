@@ -413,7 +413,7 @@ class ArticleController extends \ClaireC\controller\Controller {
         $isConnected = parent::verifyConnection();
         $isAdmin = parent::isAdmin();
         $articleManager = new ArticleManager();
-        $idArticle = $_GET['idArticle'];
+        $idArticle = parent::defaultGetControl('idArticle');
         if($isConnected) {
             $pseudoPerson = $_SESSION['pseudoPerson'];
         } else {
@@ -432,7 +432,7 @@ class ArticleController extends \ClaireC\controller\Controller {
                     'isConnected' => $isConnected,
                     'isAdmin' => $isAdmin,
                     'messageConnection' => "<p>Vous êtes connecté en tant que $pseudoPerson</p>",
-                    'idArticle' => $_GET['idArticle'],
+                    'idArticle' => parent::defaultGetControl('idArticle'),
                     'msgSupprArticle' => "<p class='alert alert-success'>L'article a bien été supprimé</p>",
                 ]);
         } else {
@@ -442,7 +442,7 @@ class ArticleController extends \ClaireC\controller\Controller {
                     'isConnected' => $isConnected,
                     'isAdmin' => $isAdmin,
                     'messageConnection' => "<p>Vous êtes connecté en tant que $pseudoPerson</p>",
-                    'idArticle' => $_GET['idArticle'],
+                    'idArticle' => parent::defaultGetControl('idArticle'),
                     'token' => $token
                 ]);
         }

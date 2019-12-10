@@ -40,4 +40,8 @@ class Controller {
         return htmlspecialchars(trim(filter_input(INPUT_POST, $postName)));
     }
 
+    public function defaultGetControl($postName) {
+        return htmlspecialchars(trim(filter_input(INPUT_GET, $postName)));
+    }
+
 }
