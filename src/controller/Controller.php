@@ -1,8 +1,6 @@
 <?php
 
-
 namespace ClaireC\controller;
-
 
 use mysql_xdevapi\Exception;
 use Twig_Environment;

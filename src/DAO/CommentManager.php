@@ -1,8 +1,8 @@
 <?php
 
-require_once 'src/DAO/Manager.php';
+namespace ClaireC\DAO;
 
-use ClaireC\src\DAO\Manager;
+use ClaireC\DAO\Manager;
 
 class CommentManager extends Manager {
 

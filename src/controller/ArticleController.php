@@ -1,16 +1,17 @@
 <?php
 
-//namespace ClaireC\src\controller;
+namespace ClaireC\controller;
+
+use \ClaireC\controller\Controller;
+use ClaireC\DAO\ArticleManager;
+use ClaireC\DAO\CommentManager;
 
 // inclusion of Pagerfanta
 use Pagerfanta\Adapter\ArrayAdapter;
 use Pagerfanta\Pagerfanta;
 
-require_once 'src/DAO/ArticleManager.php';
-//require_once 'src/controller/CommentController.php';
 
-
-class ArticleController extends \ClaireC\controller\Controller {
+class ArticleController extends Controller {
 
     /**
      * List all articles from Database
@@ -327,17 +328,17 @@ class ArticleController extends \ClaireC\controller\Controller {
             $message = htmlentities($_POST['message']);
             if((!empty($name))&&(!empty($surname))&&(!empty($emailFrom))&&(!empty($subject))&&(!empty($message))) {
                 // Create the Transport
-                $transport = (new Swift_SmtpTransport('smtp.gmail.com', 465, 'ssl'))
+                $transport = (new \Swift_SmtpTransport('smtp.gmail.com', 465, 'ssl'))
                         ->setAuthMode('login')
                         ->setUsername(MAILSWIFTMAILER)
                         ->setPassword(PWDMAILSWIFTMAILER)
                 ;
 
                 // Create the Mailer using your created Transport
-                $mailer = new Swift_Mailer($transport);
+                $mailer = new \Swift_Mailer($transport);
 
                 // Create a message
-                $message = (new Swift_Message($subject))
+                $message = (new \Swift_Message($subject))
                     ->setFrom([$emailFrom => "$name $surname"])
                     ->setTo(['claire.coubard.test@gmail.com' => 'Claire Coubard'])
                     ->setBody($message)

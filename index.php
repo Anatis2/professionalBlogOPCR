@@ -3,22 +3,16 @@
 // inclusion of Twig's and others autoloaders
 require 'vendor/autoload.php';
 
+use ClaireC\controller\ArticleController;
+use ClaireC\controller\CommentController;
+use ClaireC\controller\MemberController;
+
 // initialisation to use Twig
 $loader = new Twig_Loader_Filesystem(__DIR__ . '/templates');
 $twig = new Twig_Environment($loader, [
     'cache' => false, // __DIR__ . '/tmp'
 ]);
 
-
-// inclusion of our Controllers
-require 'src/controller/ArticleController.php';
-require 'src/controller/CommentController.php';
-require 'src/controller/MemberController.php';
-
-// inclusion of our Classes
-use ClaireC\src\model\Article;
-use ClaireC\src\model\Comment;
-use ClaireC\src\model\Member;
 
 require_once 'conf/config.php';
 

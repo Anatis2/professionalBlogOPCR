@@ -1,8 +1,10 @@
 <?php
 
-require_once 'src/DAO/CommentManager.php';
+namespace ClaireC\controller;
 
-class CommentController extends \ClaireC\controller\Controller {
+use ClaireC\DAO\CommentManager;
+
+class CommentController extends Controller {
 
     /**
      * List all the comments by article ID

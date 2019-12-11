@@ -1,6 +1,6 @@
 <?php
 
-namespace ClaireC\src\DAO;
+namespace ClaireC\DAO;
 
 use \PDO;
 

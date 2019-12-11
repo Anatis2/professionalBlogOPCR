@@ -1,8 +1,10 @@
 <?php
 
-require_once 'src/DAO/MemberManager.php';
+namespace ClaireC\controller;
 
-class MemberController extends \ClaireC\controller\Controller {
+use ClaireC\DAO\MemberManager;
+
+class MemberController extends Controller {
 
     /**
      * Create a member, by calling memberManager
