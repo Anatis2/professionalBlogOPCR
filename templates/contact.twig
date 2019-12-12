@@ -22,19 +22,19 @@
         <form method="post" class="contactForm">
             <div class="form-group">
                 <label for="name">Nom</label>
-                <input type="text" name="name" id="name" placeholder="Votre nom" class="form-control" />
+                <input type="text" name="name" id="name" placeholder="Votre nom" class="form-control" required />
                 <br/>
                 <label for="surname">Prénom</label>
-                <input type="text" name="surname" id="surname" placeholder="Votre prénom" class="form-control" />
+                <input type="text" name="surname" id="surname" placeholder="Votre prénom" class="form-control" required />
                 <br/>
                 <label for="emailFrom">Email</label>
-                <input type="email" name="emailFrom" id="emailFrom" aria-describedby="emailHelp" placeholder="Votre adresse email" class="form-control" />
+                <input type="email" name="emailFrom" id="emailFrom" aria-describedby="emailHelp" placeholder="Votre adresse email" class="form-control" required />
                 <br/>
                 <label for="subject">Objet</label>
-                <input type="text" name="subject" id="subject" placeholder="Objet du message" class="form-control" />
+                <input type="text" name="subject" id="subject" placeholder="Objet du message" class="form-control" required />
                 <br/>
                 <label for="message">Message</label>
-                <textarea name="message" id="message" rows="3" class="form-control" placeholder="Entrez votre message ici"></textarea>
+                <textarea name="message" id="message" rows="3" class="form-control" placeholder="Entrez votre message ici" required ></textarea>
             </div>
             <input type="submit" class="btn btn-primary" value="Envoyer" />
         </form>
